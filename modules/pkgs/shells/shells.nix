@@ -1,6 +1,6 @@
 {den, ...}: {
   den.aspects.pkgs.shells = {
-    includes = [den.aspects.pkgs.nushell];
+    includes = [den.aspects.pkgs.shells.nushell];
 
     homeManager = {...}: {
       home.shellAliases = {

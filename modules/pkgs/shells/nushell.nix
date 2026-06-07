@@ -1,5 +1,5 @@
 {...}: {
-  den.aspects.pkgs.nushell = {
+  den.aspects.pkgs.shells.nushell = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = [pkgs.nushell];
       environment.shells = [pkgs.nushell];
@@ -15,16 +15,13 @@
         enable = true;
         environmentVariables = config.home.sessionVariables;
 
-        envFile.text = ''
-          zoxide init nushell | save -f ~/.zoxide.nu
-          just --completions nushell | save -f ~/.just.nu
-        '';
-        # navi widget nushell | save -f ~/.cache/.navi.nu
-
         configFile.text = ''
-          source ~/.zoxide.nu
+          just --completions nushell | save -f ~/.just.nu
           source ~/.just.nu
         '';
+        # zoxide init nushell | save -f ~/.zoxide.nu
+        # source ~/.zoxide.nu
+        # navi widget nushell | save -f ~/.cache/.navi.nu
         # source ~/.cache/.navi.nu
 
         plugins = with pkgs.nushellPlugins; [

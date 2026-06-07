@@ -1,5 +1,5 @@
 {...}: {
-  den.aspects.pkgs.wezterm = {
+  den.aspects.pkgs.terminals.wezterm = {
     homeManager = {...}: {
       programs.wezterm = {
         enable = true;
