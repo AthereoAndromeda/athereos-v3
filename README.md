@@ -1,5 +1,5 @@
 # AthereOS v3.0
-*<center>Now in Dendritic Form!</center>*
+*<p align="center">Now in Dendritic Form!</p>*
 
 My NixOS Dotfiles. Built with [Den Framework](https://den.denful.dev/).
 
