@@ -11,8 +11,8 @@
   den.default.includes = with den.aspects; [
     hardware-utils
     nix-tools
-    keyring
-    polkit
+    security.keyring
+    security.polkit
     security.gnupg
     pkgs.cli-tools
     pkgs.shells
