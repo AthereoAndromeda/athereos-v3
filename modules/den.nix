@@ -37,6 +37,8 @@
 
     environment.systemPackages = with pkgs; [
       btop
+      vim
+      firefox
     ];
 
     # Use the systemd-boot EFI boot loader.

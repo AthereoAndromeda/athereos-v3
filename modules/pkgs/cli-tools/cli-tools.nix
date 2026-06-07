@@ -11,6 +11,7 @@
         xh
         fzf
         sttr
+        wget
       ];
     };
   };
