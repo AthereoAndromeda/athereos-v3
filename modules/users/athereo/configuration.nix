@@ -7,7 +7,7 @@
       ])
       ++ (with den.aspects; [
         impermanence
-        athereo-nixos-ideapad-hardware
+        hardware.athereo-nixos-ideapad
         grub
         xremap
         xdg-utils
