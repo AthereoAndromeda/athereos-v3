@@ -7,6 +7,10 @@
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         ripgrep
+        fd
+        xh
+        fzf
+        sttr
       ];
     };
   };
