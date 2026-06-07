@@ -1,7 +1,15 @@
-{den, ...}: {
+{
+  den,
+  dev-tools,
+  ...
+}: {
   den.aspects.athereo = {
     includes =
-      (with den.batteries; [
+      [
+        dev-tools.direnv
+        dev-tools.zellij
+      ]
+      ++ (with den.batteries; [
         define-user
         primary-user
       ])
@@ -20,7 +28,6 @@
         pkgs.shells
         pkgs.socials
         pkgs.zoxide
-        pkgs.direnv
       ]);
 
     homeManager = {pkgs, ...}: {
