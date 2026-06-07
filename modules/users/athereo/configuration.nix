@@ -20,6 +20,7 @@
         pkgs.shells
         pkgs.socials
         pkgs.zoxide
+        pkgs.direnv
       ]);
 
     homeManager = {pkgs, ...}: {

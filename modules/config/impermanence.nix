@@ -87,6 +87,7 @@
             # Local
             ".local/share/Trash"
             ".local/share/zoxide"
+            ".local/share/direnv"
             ".local/state/noctalia"
             {
               directory = ".local/share/keyrings";
