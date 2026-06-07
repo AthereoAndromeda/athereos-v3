@@ -18,11 +18,11 @@
 
       boot.initrd.luks.devices."enc".device = "/dev/disk/by-uuid/c56d902e-d1b7-4803-b754-1f4d451b1c5f";
 
-      fileSystems."/home" = {
-        device = "/dev/mapper/enc";
-        fsType = "btrfs";
-        options = ["subvol=home" "compress=zstd" "noatime"];
-      };
+      # fileSystems."/home" = {
+      #   device = "/dev/mapper/enc";
+      #   fsType = "btrfs";
+      #   options = ["subvol=home" "compress=zstd" "noatime"];
+      # };
 
       fileSystems."/nix" = {
         device = "/dev/mapper/enc";
