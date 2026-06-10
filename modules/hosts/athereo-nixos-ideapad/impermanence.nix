@@ -96,6 +96,7 @@
 
             # Config
             ".config/zen"
+            ".config/vesktop"
           ];
 
           files = [
