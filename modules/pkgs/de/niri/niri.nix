@@ -9,6 +9,7 @@
       [
         den.aspects.noctalia
         den.aspects.desktop-utils
+        den.aspects.cursors.lyra-q
       ]
       ++ (with den.aspects.desktop; [
         cliphist
