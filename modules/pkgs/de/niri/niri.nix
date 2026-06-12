@@ -7,7 +7,7 @@
   den.aspects.de.niri = {
     includes =
       [
-        den.aspects.noctalia
+        den.aspects.noctalia-v5
         den.aspects.desktop-utils
         den.aspects.cursors.lyra-q
       ]

@@ -1,0 +1,31 @@
+// Floating Noctalia settings window.
+window-rule {
+  match app-id="dev.noctalia.Noctalia.Settings"
+  open-floating true
+  default-column-width { fixed 1080; }
+  default-window-height { fixed 920; }
+}
+
+// Place the regular wallpaper on the backdrop.
+layer-rule {
+  match namespace="^noctalia-wallpaper"
+  place-within-backdrop true
+}
+
+// Set transparent workspace background color so the backdrop is visible at all times.
+layout {
+  background-color "transparent"
+}
+
+// // Optionally, disable workspace shadows in the overview.
+// overview {
+//   workspace-shadow {
+//     off
+//   }
+// }
+
+// Bindings
+binds {
+  Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
+  Mod+V hotkey-overlay-title="Open Clipboard Viewer" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+}

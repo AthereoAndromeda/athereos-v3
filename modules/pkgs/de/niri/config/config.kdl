@@ -20,7 +20,9 @@ spawn-sh-at-startup "niri msg action focus-workspace main"
 spawn-at-startup "thunderbird"
 
 include "window-rules.kdl"
-include "noctalia.kdl"
+
+// include optional=true "noctalia.kdl"
+include optional=true "noctalia-v5.kdl"
 
 blur {
     passes 2
