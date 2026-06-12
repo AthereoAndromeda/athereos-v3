@@ -29,6 +29,7 @@
         pkgs.socials
         pkgs.zoxide
         pkgs.mpv
+        pkgs.starship
       ]);
 
     homeManager = {pkgs, ...}: {
