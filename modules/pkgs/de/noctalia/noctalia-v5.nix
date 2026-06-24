@@ -1,4 +1,9 @@
-{inputs, ...}: {
+{
+  inputs,
+  den,
+  ...
+}: {
+  den.aspects.noctalia-v5.includes = [den.aspects.noctalia-greeter];
   den.aspects.noctalia-v5.nixos = {pkgs, ...}: {
     qt.enable = true;
     services.upower.enable = true;
