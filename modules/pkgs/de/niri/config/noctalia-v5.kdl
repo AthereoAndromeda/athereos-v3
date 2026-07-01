@@ -28,4 +28,5 @@ layout {
 binds {
   Mod+Space hotkey-overlay-title="Open Launcher" { spawn-sh "noctalia msg panel-toggle launcher"; }
   Mod+V hotkey-overlay-title="Open Clipboard Viewer" { spawn-sh "noctalia msg panel-toggle clipboard"; }
+  Mod+P hotkey-overlay-title="Open Session Manager" { spawn-sh "noctalia msg panel-toggle session"; }
 }
