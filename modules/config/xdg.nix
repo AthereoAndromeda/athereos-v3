@@ -8,6 +8,7 @@
           enable = true;
           xdgOpenUsePortal = true;
           extraPortals = with pkgs; [
+            xdg-desktop-portal
             xdg-desktop-portal-gtk
             xdg-desktop-portal-wlr
             # xdg-desktop-portal-termfilechooser
@@ -15,12 +16,12 @@
 
           config = {
             common = {
-              default = "gtk";
+              default = ["gtk"];
 
               # Use the 'wlr' portal for screen sharing/specific wayland tasks
               "org.freedesktop.impl.portal.Screenshot" = ["wlr"];
               "org.freedesktop.impl.portal.ScreenCast" = ["wlr"];
-              "org.freedesktop.impl.portal.Secret" = "gnome-keyring";
+              "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
             };
           };
         };
