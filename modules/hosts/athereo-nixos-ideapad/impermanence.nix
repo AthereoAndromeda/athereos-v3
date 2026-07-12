@@ -75,6 +75,7 @@
             "Pictures"
             "Templates"
             "Videos"
+            ".thunderbird"
             {
               directory = ".ssh";
               mode = "0700";
