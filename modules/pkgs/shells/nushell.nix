@@ -1,9 +1,14 @@
 {...}: {
   den.aspects.pkgs.shells.nushell = {
-    nixos = {pkgs, ...}: {
+    nixos = {
+      pkgs,
+      user,
+      ...
+    }: {
       environment.systemPackages = [pkgs.nushell];
       environment.shells = [pkgs.nushell];
       environment.pathsToLink = ["/share/nushell"];
+      users.users.${user.name}.shell = pkgs.nushell;
     };
 
     homeManager = {
@@ -11,6 +16,8 @@
       pkgs,
       ...
     }: {
+      home.shell.enableNushellIntegration = true;
+
       programs.nushell = {
         enable = true;
         environmentVariables = config.home.sessionVariables;
