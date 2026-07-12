@@ -34,7 +34,9 @@
 
     homeManager = {pkgs, ...}: {
       services.cliphist.enable = true;
-      home.packages = with pkgs; [chromium];
+      dconf.settings = {
+        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+      };
     };
 
     nixos = {pkgs, ...}: {
