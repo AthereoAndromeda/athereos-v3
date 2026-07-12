@@ -37,6 +37,12 @@
       dconf.settings = {
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       };
+
+      programs.carapace = {
+        enable = true;
+        enableBashIntegration = true;
+        enableNushellIntegration = true;
+      };
     };
 
     nixos = {pkgs, ...}: {
