@@ -15,8 +15,12 @@
         enable = true;
         environmentVariables = config.home.sessionVariables;
 
-        configFile.text = ''
+        # FIX: Does not work if in configFile
+        envFile.text = ''
           just --completions nushell | save -f ~/.just.nu
+        '';
+
+        configFile.text = ''
           source ~/.just.nu
         '';
         # zoxide init nushell | save -f ~/.zoxide.nu
