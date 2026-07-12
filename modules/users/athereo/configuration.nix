@@ -14,7 +14,6 @@
         primary-user
       ])
       ++ (with den.aspects; [
-        impermanence
         hardware.athereo-nixos-ideapad
         grub
         xremap
