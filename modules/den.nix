@@ -107,5 +107,22 @@
     system.stateVersion = "26.05"; # Did you read the comment?
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
+    # Hardware-optimized for v3
+    nix.settings.system-features = [
+      "nixos-test"
+      "benchmark"
+      "big-parallel"
+      "kvm"
+      "gccarch-znver3"
+      "gccarch-x86-64-v3"
+      "gccarch-x86-64-v2"
+      "gccarch-x86-64"
+    ];
+
+    # nixpkgs.hostPlatform = {
+    #   system = "x86_64-linux";
+    #   gcc.arch = "znver3";
+    #   gcc.tune = "znver3";
+    # };
   };
 }
