@@ -19,7 +19,7 @@
     nixos = {pkgs, ...}: {
       imports = [inputs.niri.nixosModules.niri];
       nixpkgs.overlays = [inputs.niri.overlays.niri];
-      environment.systemPackages = [pkgs.rofi];
+      environment.systemPackages = [pkgs.rofi pkgs.nirius];
 
       programs.niri = {
         enable = true;

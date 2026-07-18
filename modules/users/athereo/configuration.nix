@@ -102,7 +102,14 @@
         wget
         firefox
         nautilus
+
+        # Tablet
+        wvkbd
+        lisgd
       ];
+
+      services.xserver.wacom.enable = true;
+      hardware.opentabletdriver.enable = true;
 
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
