@@ -1,5 +1,6 @@
 {
   den,
+  dev-tools,
   inputs,
   lib,
   ...
@@ -22,6 +23,7 @@
     pkgs.fonts
     pkgs.fastfetch
     pkgs.git
+    dev-tools.utils
   ];
 
   den.default.homeManager = {
@@ -46,6 +48,10 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       backupFileExtension = "hm-backup";
+    };
+
+    programs.nix-ld = {
+      enable = true;
     };
 
     environment.systemPackages = with pkgs; [
