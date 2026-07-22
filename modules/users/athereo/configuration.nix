@@ -33,7 +33,7 @@
 
     homeManager = {pkgs, ...}: {
       services.cliphist.enable = true;
-      home.packages = with pkgs; [chromium thunderbird];
+      home.packages = with pkgs; [chromium thunderbird super-productivity];
       dconf.settings = {
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       };
