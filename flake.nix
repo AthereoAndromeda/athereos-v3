@@ -35,8 +35,8 @@
     noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia-v5.url = "github:noctalia-dev/noctalia-shell";
-    noctalia-v5.inputs.nixpkgs.follows = "nixpkgs";
+    noctalia-v5.url = "github:noctalia-dev/noctalia-shell/cachix";
+    # noctalia-v5.inputs.nixpkgs.follows = "nixpkgs";
 
     noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
     noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
