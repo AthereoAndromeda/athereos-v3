@@ -98,6 +98,7 @@
             # Config
             ".config/zen"
             ".config/vesktop"
+            ".config/superProductivity"
           ];
 
           files = [
