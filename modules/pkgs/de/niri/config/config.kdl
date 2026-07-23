@@ -10,8 +10,7 @@
 
 spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 spawn-sh-at-startup "noctalia"
-// spawn-at-startup "wpaperd"
-// spawn-at-startup "swaync"
+spawn-sh-at-startup "niriusd"
 spawn-at-startup "wl-paste --type text --watch cliphist store"
 spawn-at-startup "wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "niri msg action focus-workspace main"
@@ -20,7 +19,6 @@ spawn-at-startup "thunderbird"
 
 include "window-rules.kdl"
 
-// include optional=true "noctalia.kdl"
 include optional=true "noctalia-v5.kdl"
 
 blur {
@@ -164,7 +162,7 @@ layout {
     // - "always", the focused column will always be centered.
     // - "on-overflow", focusing a column will center it if it doesn't fit
     //   together with the previously focused column.
-    center-focused-column "on-overflow"
+    center-focused-column "never"
 
     // You can customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
     preset-column-widths {
@@ -332,11 +330,6 @@ hotkey-overlay {
     skip-at-startup
 }
 
-
-// layer-rule {
-//     match namespace=r#"^wpaperd-(e)?DP(-\d{1,3})?$"#
-//     place-within-backdrop true
-// }
 
 // Set the overview wallpaper on the backdrop.
 layer-rule {
