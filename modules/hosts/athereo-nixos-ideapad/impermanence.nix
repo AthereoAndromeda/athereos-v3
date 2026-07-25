@@ -99,6 +99,7 @@
             ".config/zen"
             ".config/vesktop"
             ".config/superProductivity"
+            ".config/nix"
           ];
 
           files = [
