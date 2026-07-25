@@ -5,6 +5,7 @@
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         wev
+        devenv
       ];
     };
   };
