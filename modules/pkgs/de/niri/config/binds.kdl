@@ -18,7 +18,15 @@ binds {
     // shows a list of important hotkeys.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+D { spawn-sh "rofi -show drun"; }
+    Mod+D { spawn "rofi" "-show" "drun"; }
+
+    Mod+Shift+S hotkey-overlay-title="Toggle scratchpad on focused window" { spawn "nirius" "scratchpad-toggle"; }
+    Mod+S hotkey-overlay-title="Cycle through scratchpad" { spawn "nirius" "scratchpad-show"; }
+
+    // Nirius
+    Mod+N hotkey-overlay-title="Mark focused window" { spawn "nirius" "toggle-mark"; }
+    Mod+Shift+N hotkey-overlay-title="Focus on a marked window" { spawn "nirius" "focus-marked"; }
+    Mod+O hotkey-overlay-title="Toggle follow mode" { spawn "nirius" "toggle-follow-mode"; }
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: wezterm" { spawn "wezterm"; }
@@ -192,11 +200,6 @@ binds {
     Mod+Ctrl+7 { move-column-to-workspace 7; }
     Mod+Ctrl+8 { move-column-to-workspace 8; }
     Mod+Ctrl+9 { move-column-to-workspace 9; }
-
-    Mod+S { focus-workspace "office"; }
-    Mod+Ctrl+S { move-column-to-workspace "office"; }
-    Mod+A { focus-workspace "aesthetic"; }
-    Mod+Ctrl+A { move-column-to-workspace "aesthetic"; }
 
     // Alternatively, there are commands to move just a single window:
     // Mod+Ctrl+1 { move-window-to-workspace 1; }
