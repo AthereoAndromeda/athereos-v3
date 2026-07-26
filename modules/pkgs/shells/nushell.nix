@@ -36,7 +36,8 @@
         # source ~/.cache/.navi.nu
 
         plugins = with pkgs.nushellPlugins; [
-          polars
+          # polars
+          # query
         ];
       };
     };
