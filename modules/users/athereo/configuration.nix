@@ -29,6 +29,7 @@
         pkgs.zoxide
         pkgs.mpv
         pkgs.starship
+        pkgs.productivity-tools
       ]);
 
     homeManager = {pkgs, ...}: {
