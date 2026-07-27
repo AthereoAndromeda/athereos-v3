@@ -18,6 +18,7 @@
         grub
         xremap
         xdg-utils
+        virtualisation
         de.niri
         udev.probe-rs
         pkgs.zen-browser
