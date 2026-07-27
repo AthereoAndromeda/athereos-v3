@@ -72,6 +72,11 @@
       # services.xserver.xkb.layout = "us";
       # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      };
+
       users.groups = {plugdev.gid = 601;}; # System Group
 
       users.mutableUsers = false;
