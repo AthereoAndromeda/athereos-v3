@@ -86,6 +86,7 @@
             }
 
             # Local
+            ".local/share/applications"
             ".local/share/Trash"
             ".local/share/zoxide"
             ".local/share/direnv"
