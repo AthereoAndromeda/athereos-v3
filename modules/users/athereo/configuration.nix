@@ -34,6 +34,15 @@
       ]);
 
     homeManager = {pkgs, ...}: {
+      services.espanso = {
+        enable = true;
+        configs = {
+          default = {
+            undo_backspace = true;
+          };
+        };
+      };
+
       services.cliphist.enable = true;
       home.packages = with pkgs; [chromium thunderbird super-productivity];
       dconf.settings = {
