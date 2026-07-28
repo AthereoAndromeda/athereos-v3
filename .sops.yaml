@@ -1,0 +1,11 @@
+keys:
+  - &admin_athereo age14f5g0jsd808p0pmrcp8fmx6hj52ttqczukcaxy9kt8ff5v0ytuvq26jfm7
+  - &host_ideapad age1mlegejtwg86xkra6ucrdqf97r4e36dlj7hslmr7xpg203jwvvgnsyk6upw
+
+
+creation_rules:
+  - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
+    key_groups:
+    - age:
+      - *admin_athereo
+      - *host_ideapad

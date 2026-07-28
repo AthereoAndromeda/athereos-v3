@@ -63,7 +63,10 @@
         files = [
           "/etc/machine-id"
           "/etc/NIXOS" # Empty file marker
-          # "/etc/ssh/ssh_known_hosts"
+          "/etc/ssh/ssh_host_ed25519_key"
+          "/etc/ssh/ssh_host_ed25519_key.pub"
+          "/etc/ssh/ssh_host_rsa_key"
+          "/etc/ssh/ssh_host_rsa_key.pub"
         ];
 
         users.${user.name} = {
@@ -102,6 +105,7 @@
             ".config/vesktop"
             ".config/superProductivity"
             ".config/nix"
+            ".config/sops"
           ];
 
           files = [
