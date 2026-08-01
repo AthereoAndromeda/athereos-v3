@@ -49,6 +49,7 @@
           "/var/lib/bluetooth"
           "/var/lib/nixos"
           "/var/lib/systemd/coredump"
+          "/var/lib/sops-nix"
           "/var/db/sudo"
           # "/var/lib/cups"
           # "/var/lib/greetd"
