@@ -44,7 +44,15 @@
       };
 
       services.cliphist.enable = true;
-      home.packages = with pkgs; [chromium thunderbird super-productivity];
+      home.packages = with pkgs; [
+        chromium
+        thunderbird
+        super-productivity
+
+        motrix
+        motrix-next
+      ];
+
       dconf.settings = {
         "org/gnome/desktop/interface".color-scheme = "prefer-dark";
       };
