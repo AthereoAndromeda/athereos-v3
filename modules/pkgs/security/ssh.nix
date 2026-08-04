@@ -14,7 +14,7 @@
     persist.home.directories = [
       {
         directory = ".ssh";
-        mode = "0700";
+        mode = "0600";
       }
     ];
   };
