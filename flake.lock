@@ -141,10 +141,10 @@
     "my-secrets": {
       "flake": false,
       "locked": {
-        "lastModified": 1785833426,
-        "narHash": "sha256-lNhp7oP9YVpQ5ulYBR6lv438c81vVTDlwdaR4S19wcM=",
+        "lastModified": 1785837102,
+        "narHash": "sha256-agNGah1l+ubb1cexcob4197PdZiBr0EKR/z135e1Mlc=",
         "ref": "main",
-        "rev": "5a60b8251b89a16633f2c52bf67a45bb46d50035",
+        "rev": "53031dfb1766161fa97ea3d724ec9e150fa6a0dc",
         "shallow": true,
         "type": "git",
         "url": "ssh://git@github.com/athereoandromeda/nix-secrets.git"

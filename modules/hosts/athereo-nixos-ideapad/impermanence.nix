@@ -102,6 +102,7 @@
             }
 
             # Config
+            ".config/age"
             ".config/zen"
             ".config/vesktop"
             ".config/superProductivity"
