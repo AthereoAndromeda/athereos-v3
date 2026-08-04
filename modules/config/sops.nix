@@ -2,7 +2,9 @@
   inputs,
   den,
   ...
-}: {
+}: let
+  secretspath = toString inputs.my-secrets;
+in {
   den.aspects.security.sops = {
     nixos = {pkgs, ...}: {
       imports = [inputs.sops-nix.nixosModules.sops];
@@ -14,7 +16,8 @@
       sops = {
         # This will add secrets.yml to the nix store
         # You can avoid this by adding a string to the full path instead, i.e.
-        defaultSopsFile = "/home/athereo/nixos/secrets/example.yaml";
+        # defaultSopsFile = "/home/athereo/nixos/secrets/example.yaml";
+        defaultSopsFile = "${secretspath}/secrets/example.yaml";
         # sops.defaultSopsFile = ./secrets/example.yaml;
         validateSopsFiles = false;
 

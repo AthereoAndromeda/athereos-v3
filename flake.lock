@@ -138,6 +138,24 @@
         "type": "github"
       }
     },
+    "my-secrets": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785833426,
+        "narHash": "sha256-lNhp7oP9YVpQ5ulYBR6lv438c81vVTDlwdaR4S19wcM=",
+        "ref": "main",
+        "rev": "5a60b8251b89a16633f2c52bf67a45bb46d50035",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/athereoandromeda/nix-secrets.git"
+      },
+      "original": {
+        "ref": "main",
+        "shallow": true,
+        "type": "git",
+        "url": "ssh://git@github.com/athereoandromeda/nix-secrets.git"
+      }
+    },
     "niri": {
       "inputs": {
         "niri-stable": "niri-stable",
@@ -404,6 +422,7 @@
         "home-manager": "home-manager",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
+        "my-secrets": "my-secrets",
         "niri": "niri",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

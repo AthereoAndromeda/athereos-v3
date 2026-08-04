@@ -46,6 +46,9 @@
 
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
+    my-secrets.url = "git+ssh://git@github.com/athereoandromeda/nix-secrets.git?ref=main&shallow=1";
+    my-secrets.flake = false;
   };
 
   outputs = inputs:
