@@ -29,6 +29,11 @@
           init.defaultBranch = "main";
           submodule.recurse = true;
 
+          # Signing commits
+          commit.gpgsign = true;
+          gpg.format = "ssh";
+          user.signingKey = "/home/athereo/.ssh/github_signing.pub";
+
           user = {
             name = config.gitName or "";
             email = config.gitEmail or "";

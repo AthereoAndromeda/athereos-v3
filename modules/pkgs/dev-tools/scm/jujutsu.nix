@@ -10,6 +10,12 @@
           ui.default-command = "log";
           ui.merge-editor = ":builtin";
 
+          signing = {
+            behavior = "drop";
+            backend = "ssh";
+            key = "~/.ssh/github_signing.pub";
+          };
+
           aliases = {
             e.definition = ["edit"];
             e.doc = "Edit shorthand";
