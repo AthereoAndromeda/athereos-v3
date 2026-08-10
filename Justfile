@@ -59,7 +59,7 @@ format:
 # Update Nix Flakes
 [group('nix/utils')]
 update:
-     sudo nix flake update
+     nix flake update
    
 # Update Nix Flakes, Test, Commit
 [group('nix/utils')]
