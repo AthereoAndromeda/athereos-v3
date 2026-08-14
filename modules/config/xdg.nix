@@ -32,20 +32,20 @@
       xdg = {
         enable = true;
 
-        portal = {
-          enable = true;
-          xdgOpenUsePortal = true;
-          extraPortals = with pkgs; [
-            xdg-desktop-portal-gtk
-            xdg-desktop-portal-wlr
-            # xdg-desktop-portal-termfilechooser
-          ];
+        # portal = {
+        #   enable = true;
+        #   xdgOpenUsePortal = true;
+        #   extraPortals = with pkgs; [
+        #     xdg-desktop-portal-gtk
+        #     xdg-desktop-portal-wlr
+        #     # xdg-desktop-portal-termfilechooser
+        #   ];
 
-          config = {
-            common = common-config;
-            niri = common-config;
-          };
-        };
+        #   config = {
+        #     common = common-config;
+        #     niri = common-config;
+        #   };
+        # };
 
         userDirs = {
           enable = true;
@@ -53,5 +53,14 @@
         };
       };
     };
+
+    persist.home.directories = [
+      "Documents"
+      "Downloads"
+      "Music"
+      "Pictures"
+      "Templates"
+      "Videos"
+    ];
   };
 }

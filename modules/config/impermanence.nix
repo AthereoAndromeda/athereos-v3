@@ -29,10 +29,6 @@
         [
           "/etc/machine-id"
           "/etc/NIXOS" # Empty file marker
-          "/etc/ssh/ssh_host_ed25519_key"
-          "/etc/ssh/ssh_host_ed25519_key.pub"
-          "/etc/ssh/ssh_host_rsa_key"
-          "/etc/ssh/ssh_host_rsa_key.pub"
         ]
         ++ lib.concatMap (f: f.files or []) persist;
 
@@ -40,24 +36,13 @@
         directories =
           [
             "nixos"
-            "Documents"
-            "Downloads"
-            "Music"
-            "Pictures"
-            "Templates"
-            "Videos"
             ".thunderbird"
-            {
-              directory = ".ssh";
-              mode = "0700";
-            }
 
             # Local
             ".local/share/applications"
             ".local/share/Trash"
 
             # Config
-            ".config/age"
             ".config/nix"
           ]
           ++ lib.concatMap (f: f.home.directories or []) persist;

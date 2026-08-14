@@ -6,12 +6,17 @@
   secretspath = toString inputs.my-secrets;
 in {
   den.aspects.security.sops = {
-    nixos = {pkgs, ...}: {
+    includes = [
+      den.aspects.security.age
+      den.aspects.security.ssh
+    ];
+
+    nixos = {
       imports = [inputs.sops-nix.nixosModules.sops];
 
-      environment.systemPackages = with pkgs; [age sops];
-      # Enable the OpenSSH daemon.
-      services.openssh.enable = true;
+      # environment.systemPackages = with pkgs; [age sops];
+      # # Enable the OpenSSH daemon.
+      # services.openssh.enable = true;
 
       sops = {
         # This will add secrets.yml to the nix store
