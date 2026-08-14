@@ -102,37 +102,20 @@
               directory = ".ssh";
               mode = "0700";
             }
-            {
-              directory = ".gnupg";
-              mode = "0700";
-            }
 
             # Local
             ".local/share/applications"
             ".local/share/Trash"
-            ".local/share/zoxide"
-            ".local/share/direnv"
-            ".local/share/Anki2"
             ".local/state/noctalia"
-            {
-              directory = ".local/share/keyrings";
-              mode = "0700";
-            }
 
             # Config
             ".config/age"
-            ".config/zen"
-            ".config/superProductivity"
             ".config/nix"
-            ".config/sops"
           ]
           ++ lib.concatMap (f: f.home.directories or []) persist;
 
         files =
-          [
-            ".face"
-            ".config/nushell/history.txt"
-          ]
+          [".face"]
           ++ lib.concatMap (f: f.home.files or []) persist;
       };
     };

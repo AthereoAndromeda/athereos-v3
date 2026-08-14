@@ -7,5 +7,9 @@
         enableNushellIntegration = true;
       };
     };
+
+    persist.home.directories = [
+      ".local/share/zoxide"
+    ];
   };
 }

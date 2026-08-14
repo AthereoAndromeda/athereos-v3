@@ -41,5 +41,9 @@
         ];
       };
     };
+
+    persist.home.files = [
+      ".config/nushell/history.txt"
+    ];
   };
 }

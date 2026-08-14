@@ -6,6 +6,7 @@
           "obsidian"
         ];
     };
+
     homeManager = {pkgs, ...}: {
       home.packages = with pkgs; [
         anki
@@ -13,5 +14,10 @@
         obsidian
       ];
     };
+
+    persist.home.directories = [
+      ".config/superProductivity"
+      ".local/share/Anki2"
+    ];
   };
 }

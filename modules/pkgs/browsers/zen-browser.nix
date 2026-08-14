@@ -7,5 +7,9 @@
         nativeMessagingHosts = [pkgs.firefoxpwa];
       };
     };
+
+    persist.home.directories = [
+      ".config/zen"
+    ];
   };
 }

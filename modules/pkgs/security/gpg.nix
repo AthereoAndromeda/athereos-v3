@@ -6,5 +6,12 @@
         enableSSHSupport = true;
       };
     };
+
+    persist.home.directories = [
+      {
+        directory = ".gnupg";
+        mode = "0700";
+      }
+    ];
   };
 }
