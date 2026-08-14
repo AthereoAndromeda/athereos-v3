@@ -4,6 +4,8 @@
   ...
 }: {
   den.aspects.noctalia-v5.includes = [den.aspects.noctalia-greeter];
+  den.aspects.noctalia-v5.persist.home.directories = [".local/state/noctalia"];
+
   den.aspects.noctalia-v5.nixos = {pkgs, ...}: {
     nix.settings = {
       extra-substituters = ["https://noctalia.cachix.org"];
