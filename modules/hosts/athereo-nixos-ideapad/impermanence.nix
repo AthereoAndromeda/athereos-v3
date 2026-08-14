@@ -1,6 +1,14 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   den.aspects.impermanence = {
-    nixos = {user, ...}: {
+    nixos = {
+      user,
+      persist,
+      ...
+    }: {
       imports = [inputs.impermanence.nixosModules.impermanence];
 
       boot.initrd.systemd = {
@@ -44,78 +52,90 @@
         enable = true;
         hideMounts = true;
 
-        directories = [
-          "/var/log"
-          "/var/lib/bluetooth"
-          "/var/lib/nixos"
-          "/var/lib/systemd/coredump"
-          "/var/lib/sops-nix"
-          "/var/db/sudo"
-          # "/var/lib/cups"
-          # "/var/lib/greetd"
-          # "/var/lib/regreet"
+        directories =
+          [
+            "/var/log"
+            "/var/lib/bluetooth"
+            "/var/lib/nixos"
+            "/var/lib/systemd/coredump"
+            "/var/lib/sops-nix"
+            "/var/db/sudo"
+            # "/var/lib/cups"
+            # "/var/lib/greetd"
+            # "/var/lib/regreet"
 
-          "/etc/ssl/certs"
-          "/etc/NetworkManager/system-connections"
-          "/etc/nixos"
-          # "/etc/greetd"
-        ];
+            "/etc/ssl/certs"
+            "/etc/NetworkManager/system-connections"
+            "/etc/nixos"
+            # "/etc/greetd"
+          ]
+          ++ lib.concatMap (f: f.directories or []) persist;
 
-        files = [
-          "/etc/machine-id"
-          "/etc/NIXOS" # Empty file marker
-          "/etc/ssh/ssh_host_ed25519_key"
-          "/etc/ssh/ssh_host_ed25519_key.pub"
-          "/etc/ssh/ssh_host_rsa_key"
-          "/etc/ssh/ssh_host_rsa_key.pub"
-        ];
+        files =
+          [
+            "/etc/machine-id"
+            "/etc/NIXOS" # Empty file marker
+            "/etc/ssh/ssh_host_ed25519_key"
+            "/etc/ssh/ssh_host_ed25519_key.pub"
+            "/etc/ssh/ssh_host_rsa_key"
+            "/etc/ssh/ssh_host_rsa_key.pub"
+          ]
+          ++ lib.concatMap (f: f.files or []) persist;
 
         users.${user.name} = {
-          directories = [
-            "nixos"
-            "Documents"
-            "Downloads"
-            "Music"
-            "Pictures"
-            "Templates"
-            "Videos"
-            ".thunderbird"
-            {
-              directory = ".ssh";
-              mode = "0700";
-            }
-            {
-              directory = ".gnupg";
-              mode = "0700";
-            }
+          directories =
+            [
+              "nixos"
+              "Documents"
+              "Downloads"
+              "Music"
+              "Pictures"
+              "Templates"
+              "Videos"
+              ".thunderbird"
+              {
+                directory = ".ssh";
+                mode = "0700";
+              }
+              {
+                directory = ".gnupg";
+                mode = "0700";
+              }
 
-            # Local
-            ".local/share/applications"
-            ".local/share/Trash"
-            ".local/share/zoxide"
-            ".local/share/direnv"
-            ".local/share/Anki2"
-            ".local/state/noctalia"
-            {
-              directory = ".local/share/keyrings";
-              mode = "0700";
-            }
+              # Local
+              ".local/share/applications"
+              ".local/share/Trash"
+              ".local/share/zoxide"
+              ".local/share/direnv"
+              ".local/share/Anki2"
+              ".local/state/noctalia"
+              {
+                directory = ".local/share/keyrings";
+                mode = "0700";
+              }
 
-            # Config
-            ".config/age"
-            ".config/zen"
-            ".config/vesktop"
-            ".config/superProductivity"
-            ".config/nix"
-            ".config/sops"
-          ];
+              # Config
+              ".config/age"
+              ".config/zen"
+              ".config/vesktop"
+              ".config/superProductivity"
+              ".config/nix"
+              ".config/sops"
+            ]
+            ++ lib.concatMap (f: f.home.directories or []) persist;
 
-          files = [
-            ".face"
-            ".config/nushell/history.txt"
-          ];
+          files =
+            [
+              ".face"
+              ".config/nushell/history.txt"
+            ]
+            ++ lib.concatMap (f: f.home.files or []) persist;
         };
       };
     };
+  };
+
+  den.quirks.persist = {
+    description = "Directories and files to persist when impermanence is active";
   };
 }
