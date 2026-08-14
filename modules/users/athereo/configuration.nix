@@ -31,6 +31,7 @@
         pkgs.mpv
         pkgs.starship
         pkgs.productivity-tools
+        security.tor
       ]);
 
     homeManager = {pkgs, ...}: {
