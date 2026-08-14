@@ -3,134 +3,137 @@
   lib,
   ...
 }: {
-  den.aspects.impermanence = {
-    nixos = {
-      user,
-      persist,
-      ...
-    }: {
-      imports = [inputs.impermanence.nixosModules.impermanence];
+  den.aspects.impermanence.nixos = {
+    user,
+    persist,
+    ...
+  }: {
+    imports = [inputs.impermanence.nixosModules.impermanence];
 
-      boot.initrd.systemd = {
-        enable = true;
-        services.rollback = {
-          description = "Rollback BTRFS subvolume to a pristine state";
-          wantedBy = ["initrd.target"];
+    boot.initrd.systemd = {
+      enable = true;
 
-          # LUKS/TPM process
-          after = ["systemd-cryptsetup@enc.service"];
+      services.rollback = {
+        description = "Rollback BTRFS subvolume to a pristine state";
+        wantedBy = ["initrd.target"];
 
-          # Before mounting the system root (/sysroot) during early boot process
-          before = ["sysroot.mount"];
+        # LUKS/TPM process
+        after = ["systemd-cryptsetup@enc.service"];
 
-          unitConfig.DefaultDependencies = "no";
-          serviceConfig.Type = "oneshot";
-          script = ''
-            mkdir -p /mnt
+        # Before mounting the system root (/sysroot) during early boot process
+        before = ["sysroot.mount"];
 
-            mount -o subvol=/ /dev/mapper/enc /mnt
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = ''
+          mkdir -p /mnt
+          mount -o subvol=/ /dev/mapper/enc /mnt
 
-            # Recursively remove subvolumes
-            btrfs subvolume list -o /mnt/root |
-              cut -f9 -d' ' |
-              while read subvolume; do
-                echo "Deleting /$subvolume subvolume..."
-                btrfs subvolume delete "/mnt/$subvolume"
-              done &&
-              echo "Deleting /root subvolume..." &&
-              btrfs subvolume delete /mnt/root
-            echo "Restoring blank /root subvolume..."
-            btrfs subvolume snapshot /mnt/root-blank /mnt/root
+          # # Recursively remove subvolumes
+          # btrfs subvolume list -o /mnt/root |
+          #   cut -f9 -d' ' |
+          #   while read subvolume; do
+          #     echo "Deleting /$subvolume subvolume..."
+          #     btrfs subvolume delete "/mnt/$subvolume"
+          #   done &&
+          #   echo "Deleting /root subvolume..." &&
+          #   btrfs subvolume delete /mnt/root
 
-            # Once done rolling back, we can unmount
-            umount /mnt
-          '';
-        };
+          if [ -e /mnt/root ]; then
+            echo "Deleting subvolumes recursively"
+            btrfs subvolume delete --recursive /mnt/root
+          fi
+
+          echo "Restoring blank /root subvolume..."
+          btrfs subvolume snapshot /mnt/root-blank /mnt/root
+
+          # Once done rolling back, we can unmount
+          umount /mnt
+        '';
       };
+    };
 
-      environment.persistence."/persist" = {
-        enable = true;
-        hideMounts = true;
+    environment.persistence."/persist" = {
+      enable = true;
+      hideMounts = true;
 
+      directories =
+        [
+          "/var/log"
+          "/var/lib/bluetooth"
+          "/var/lib/nixos"
+          "/var/lib/systemd/coredump"
+          "/var/lib/sops-nix"
+          "/var/db/sudo"
+          # "/var/lib/cups"
+          # "/var/lib/greetd"
+          # "/var/lib/regreet"
+
+          "/etc/ssl/certs"
+          "/etc/NetworkManager/system-connections"
+          "/etc/nixos"
+          # "/etc/greetd"
+        ]
+        ++ lib.concatMap (f: f.directories or []) persist;
+
+      files =
+        [
+          "/etc/machine-id"
+          "/etc/NIXOS" # Empty file marker
+          "/etc/ssh/ssh_host_ed25519_key"
+          "/etc/ssh/ssh_host_ed25519_key.pub"
+          "/etc/ssh/ssh_host_rsa_key"
+          "/etc/ssh/ssh_host_rsa_key.pub"
+        ]
+        ++ lib.concatMap (f: f.files or []) persist;
+
+      users.${user.name} = {
         directories =
           [
-            "/var/log"
-            "/var/lib/bluetooth"
-            "/var/lib/nixos"
-            "/var/lib/systemd/coredump"
-            "/var/lib/sops-nix"
-            "/var/db/sudo"
-            # "/var/lib/cups"
-            # "/var/lib/greetd"
-            # "/var/lib/regreet"
+            "nixos"
+            "Documents"
+            "Downloads"
+            "Music"
+            "Pictures"
+            "Templates"
+            "Videos"
+            ".thunderbird"
+            {
+              directory = ".ssh";
+              mode = "0700";
+            }
+            {
+              directory = ".gnupg";
+              mode = "0700";
+            }
 
-            "/etc/ssl/certs"
-            "/etc/NetworkManager/system-connections"
-            "/etc/nixos"
-            # "/etc/greetd"
+            # Local
+            ".local/share/applications"
+            ".local/share/Trash"
+            ".local/share/zoxide"
+            ".local/share/direnv"
+            ".local/share/Anki2"
+            ".local/state/noctalia"
+            {
+              directory = ".local/share/keyrings";
+              mode = "0700";
+            }
+
+            # Config
+            ".config/age"
+            ".config/zen"
+            ".config/superProductivity"
+            ".config/nix"
+            ".config/sops"
           ]
-          ++ lib.concatMap (f: f.directories or []) persist;
+          ++ lib.concatMap (f: f.home.directories or []) persist;
 
         files =
           [
-            "/etc/machine-id"
-            "/etc/NIXOS" # Empty file marker
-            "/etc/ssh/ssh_host_ed25519_key"
-            "/etc/ssh/ssh_host_ed25519_key.pub"
-            "/etc/ssh/ssh_host_rsa_key"
-            "/etc/ssh/ssh_host_rsa_key.pub"
+            ".face"
+            ".config/nushell/history.txt"
           ]
-          ++ lib.concatMap (f: f.files or []) persist;
-
-        users.${user.name} = {
-          directories =
-            [
-              "nixos"
-              "Documents"
-              "Downloads"
-              "Music"
-              "Pictures"
-              "Templates"
-              "Videos"
-              ".thunderbird"
-              {
-                directory = ".ssh";
-                mode = "0700";
-              }
-              {
-                directory = ".gnupg";
-                mode = "0700";
-              }
-
-              # Local
-              ".local/share/applications"
-              ".local/share/Trash"
-              ".local/share/zoxide"
-              ".local/share/direnv"
-              ".local/share/Anki2"
-              ".local/state/noctalia"
-              {
-                directory = ".local/share/keyrings";
-                mode = "0700";
-              }
-
-              # Config
-              ".config/age"
-              ".config/zen"
-              ".config/vesktop"
-              ".config/superProductivity"
-              ".config/nix"
-              ".config/sops"
-            ]
-            ++ lib.concatMap (f: f.home.directories or []) persist;
-
-          files =
-            [
-              ".face"
-              ".config/nushell/history.txt"
-            ]
-            ++ lib.concatMap (f: f.home.files or []) persist;
-        };
+          ++ lib.concatMap (f: f.home.files or []) persist;
       };
     };
   };
