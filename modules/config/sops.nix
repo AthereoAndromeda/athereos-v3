@@ -11,12 +11,9 @@ in {
       den.aspects.security.ssh
     ];
 
-    nixos = {
+    nixos = {pkgs, ...}: {
       imports = [inputs.sops-nix.nixosModules.sops];
-
-      # environment.systemPackages = with pkgs; [age sops];
-      # # Enable the OpenSSH daemon.
-      # services.openssh.enable = true;
+      environment.systemPackages = [pkgs.sops];
 
       sops = {
         # This will add secrets.yml to the nix store

@@ -33,6 +33,7 @@
         pkgs.productivity-tools
         pkgs.hyfetch
         security.tor
+        security.sops
       ]);
 
     homeManager = {pkgs, ...}: {
