@@ -4,6 +4,7 @@
       pkgs.vesktop
       pkgs.simplex-chat
       pkgs.signal-desktop
+      pkgs.ferdium
     ];
   };
 }
