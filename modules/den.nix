@@ -28,6 +28,7 @@
       pkgs.fastfetch
       pkgs.git
       dev-tools.utils
+      containers.firefly
     ]
     ++ [
       den.batteries.hostname
