@@ -30,5 +30,10 @@
         enable32Bit = true;
       };
     };
+
+    persist.home.directories = [
+      ".steam"
+      ".local/share/Steam"
+    ];
   };
 }
