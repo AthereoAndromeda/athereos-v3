@@ -52,6 +52,13 @@ window-rule {
     open-on-workspace "office"
 }
 
+window-rule {
+    match app-id=r#"^superproductivity$"#
+    open-focused true
+    open-maximized-to-edges true
+    open-on-workspace "office"
+}
+
 // Example: block out two password managers from screen capture.
 // (This example rule is commented out with a "/-" in front.)
 window-rule {
