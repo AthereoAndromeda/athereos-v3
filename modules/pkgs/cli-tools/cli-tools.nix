@@ -13,6 +13,8 @@
         fzf
         sttr
         wget
+        jq
+        file
       ];
     };
   };
