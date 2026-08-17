@@ -21,6 +21,7 @@
             chmod
             yatline
             compress
+            easyjump
             ;
         };
 

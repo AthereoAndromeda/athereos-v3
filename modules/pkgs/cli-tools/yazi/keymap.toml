@@ -28,4 +28,7 @@ on = [ "c", "m" ]
 run = "plugin chmod"
 desc = "Chmod on selected files"
 
-
+[[mgr.prepend_keymap]]
+on   = [ "g", "w" ]
+run  = "plugin easyjump"
+desc = "Jump to a two-character label"
