@@ -1,6 +1,7 @@
 {
   inputs,
   den,
+  lib,
   ...
 }: {
   den.aspects.noctalia-v5 = {
@@ -12,15 +13,18 @@
       config,
       ...
     }: {
-      warnings = [
-        {
-          assertion = config.services.udisks2.enable;
-          message = "Noctalia plugins require udisks service.";
-        }
-        {
-          assertion = config.programs.kdeconnect.enable;
-          message = "Noctalia plugins require KDE Connect.";
-        }
+      warnings = lib.concatLists [
+        (lib.optionals (!config.services.udisks2.enable) [
+          "Noctalia plugins require udisks service."
+        ])
+
+        (lib.optionals (!config.programs.kdeconnect.enable) [
+          "Noctalia plugins require KDE Connect."
+        ])
+
+        (lib.optionals (!config.services.udev.enable) [
+          "Udev must be enabled for device rules to work."
+        ])
       ];
 
       nix.settings = {
