@@ -18,6 +18,7 @@
       ])
       ++ (with den.aspects; [
         hardware.athereo-nixos-ideapad
+        office
         grub
         xremap
         xdg-utils
@@ -52,7 +53,6 @@
       services.cliphist.enable = true;
       home.packages = with pkgs; [
         chromium
-        thunderbird
         super-productivity
 
         motrix

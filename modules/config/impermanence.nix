@@ -36,7 +36,6 @@
         directories =
           [
             "nixos"
-            ".thunderbird"
 
             # Local
             ".local/share/applications"
