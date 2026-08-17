@@ -51,6 +51,14 @@
       backupFileExtension = "hm-backup";
     };
 
+    # Unfree software
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "7zz"
+        "uasm"
+        "obsidian"
+      ];
+
     programs.nix-ld = {
       enable = true;
     };
