@@ -9,6 +9,7 @@
         j = "just";
         ff = "fastfetch";
         zj = "zellij";
+        nushell = "nu";
       };
     };
   };

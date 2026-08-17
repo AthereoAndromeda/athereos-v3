@@ -2,6 +2,7 @@
   den.aspects.pkgs.cli-tools = {
     includes = [
       den.aspects.pkgs.fastfetch
+      den.aspects.pkgs.pay-respects
     ];
 
     nixos = {pkgs, ...}: {

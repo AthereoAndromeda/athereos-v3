@@ -25,10 +25,12 @@
         # FIX: Does not work if in configFile
         envFile.text = ''
           just --completions nushell | save -f ~/.just.nu
+          pay-respects nu --alias f | save -f ~/.cache/r.nu
         '';
 
         configFile.text = ''
           source ~/.just.nu
+          source ~/.cache/r.nu
         '';
         # zoxide init nushell | save -f ~/.zoxide.nu
         # source ~/.zoxide.nu
