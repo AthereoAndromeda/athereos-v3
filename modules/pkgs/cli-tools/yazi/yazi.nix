@@ -26,7 +26,7 @@
 
         keymap = lib.fromTOML (builtins.readFile ./keymap.toml);
         settings = lib.fromTOML (builtins.readFile ./yazi.toml);
-        theme.flavor.dark = "tokyo-night";
+        theme.flavor.dark = "dracula";
       };
     };
   };
