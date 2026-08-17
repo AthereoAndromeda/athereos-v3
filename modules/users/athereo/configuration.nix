@@ -31,7 +31,7 @@
         pkgs.shells
         pkgs.socials
         pkgs.zoxide
-        pkgs.mpv
+        pkgs.media-tools
         pkgs.starship
         pkgs.productivity-tools
         pkgs.hyfetch
