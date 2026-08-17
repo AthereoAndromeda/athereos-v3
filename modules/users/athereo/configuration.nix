@@ -1,6 +1,7 @@
 {
   den,
   dev-tools,
+  gaming,
   ...
 }: {
   den.aspects.athereo = {
@@ -8,6 +9,8 @@
       [
         dev-tools.direnv
         dev-tools.zellij
+        gaming.prism
+        gaming.steam
       ]
       ++ (with den.batteries; [
         define-user

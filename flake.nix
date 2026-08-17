@@ -44,6 +44,9 @@
     nuenv.url = "github:DeterminateSystems/nuenv";
     nuenv.inputs.nixpkgs.follows = "nixpkgs";
 
+    prism-launcher.url = "github:Diegiwg/PrismLauncher-Cracked";
+    prism-launcher.inputs.nixpkgs.follows = "nixpkgs";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 

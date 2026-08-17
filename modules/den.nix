@@ -57,6 +57,8 @@
         "7zz"
         "uasm"
         "obsidian"
+        "steam"
+        "steam-unwrapped"
       ];
 
     programs.nix-ld = {
