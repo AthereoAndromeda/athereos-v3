@@ -3,6 +3,9 @@
     includes = with den.aspects; [
       pkgs.mpv
       pkgs.loupe
+      pkgs.snapshot
+      pkgs.amberol
+      pkgs.kew
     ];
   };
 }
