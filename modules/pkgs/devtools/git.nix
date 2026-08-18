@@ -1,5 +1,9 @@
 {...}: {
   den.aspects.pkgs.git = {
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = [pkgs.serie];
+    };
+
     homeManager = {pkgs, ...}: {
       programs.git = {
         enable = true;
@@ -28,6 +32,7 @@
             uncommit = "reset --soft HEAD^";
             dic = "diff --cached";
 
+            los = "!serie";
             lol = "log --graph --decorate --pretty=oneline --abbrev-commit";
             lola = "log --graph --decorate --pretty=oneline --abbrev-commit --all";
 
