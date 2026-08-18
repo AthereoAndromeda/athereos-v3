@@ -40,6 +40,11 @@
         security.sops
       ]);
 
+    excludes = [
+      # Uses Noctalia's polkit
+      den.aspects.security.polkit
+    ];
+
     homeManager = {pkgs, ...}: {
       services.espanso = {
         enable = true;
