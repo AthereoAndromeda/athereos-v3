@@ -1,5 +1,9 @@
 {den, ...}: {
   den.aspects.office = {
-    includes = [den.aspects.pkgs.thunderbird];
+    includes = with den.aspects; [
+      pkgs.thunderbird
+      pkgs.libreoffice
+      pkgs.onlyoffice
+    ];
   };
 }
