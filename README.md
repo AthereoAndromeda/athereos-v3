@@ -7,5 +7,5 @@ My NixOS Dotfiles. Built with [Den Framework](https://den.denful.dev/).
 - ❄️ Dendritic Nix
 - 🔒 Full Disk Encryption 
 - 💥 Impermanence with BTRFS subvolume 
-- Niri + Noctalia
-
+- 🔑 Secrets Management with sops-nix
+- 🦉 Niri + Noctalia
