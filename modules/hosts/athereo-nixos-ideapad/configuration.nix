@@ -6,7 +6,10 @@
   den.hosts.x86_64-linux.athereo-nixos-ideapad.users.athereo = {};
 
   den.aspects.hardware.athereo-nixos-ideapad = {
-    includes = [den.aspects.impermanence];
+    includes = with den.aspects; [
+      impermanence
+      scripts.lenovoctl
+    ];
 
     nixos = {
       pkgs,

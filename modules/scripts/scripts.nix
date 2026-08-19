@@ -1,7 +1,7 @@
 {...}: {
-  den.aspects.scripts = {
-    homeManager = {pkgs, ...}: {
-      home.packages = [
+  den.aspects.scripts.lenovoctl = {
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = [
         (pkgs.writeShellScriptBin "lenovoctl" (builtins.readFile ./lenovoctl.sh))
       ];
     };
