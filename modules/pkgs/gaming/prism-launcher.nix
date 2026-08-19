@@ -16,5 +16,9 @@
     in {
       home.packages = [prismlauncher-cracked-fixed];
     };
+
+    persist.home.directories = [
+      ".local/share/PrismLauncher"
+    ];
   };
 }
