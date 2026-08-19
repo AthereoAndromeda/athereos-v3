@@ -1,14 +1,37 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = false
+
 format = """[╭](fg:white) [](#ffffff)[$os ](fg:#3a9efd bg:white)[ ](#ffffff)$username$directory$all$line_break$character"""
 
 right_format = """$cmd_duration$git_branch$git_commit$git_state$git_status$time"""
 
-palette = "purplish"
+palette = "lilac"
 
-[palettes.purplish]
-white = "#ffffff"
-# purple1 = "#"
+# "mPrimary": "#b58fff",
+# "mOnPrimary": "#000000",
+# "mSecondary": "#c79aff",
+# "mOnSecondary": "#000000",
+# "mTertiary": "#d8b4ff",
+# "mOnTertiary": "#000000",
+# "mError": "#ff6f9b",
+# "mOnError": "#000000",
+# "mSurface": "#000000",
+# "mOnSurface": "#e8d8ff",
+# "mSurfaceVariant": "#110d1a",
+# "mOnSurfaceVariant": "#b58fff",
+# "mOutline": "#4c3a70",
+# "mShadow": "#000000",
+# "mHover": "#d8b4ff",
+# "mOnHover": "#000000",
+
+[palettes.lilac]
+white     = "#ffffff"
+primary   = "#b58fff"
+secondary = "#c79aff"
+tertiary  = "#d8b4ff"
+surface   = "#e8d8ff"
+error     = "#ff6f9b"
+outline   = "#4c3a70"
 
 [os]
 format = "$symbol"
@@ -78,16 +101,19 @@ untracked = "?${count}"
 modified = "!${count}"
 
 [directory]
-format = "[](#3a9efd)[$path]($style)[ ](#3a9efd)"
-style = "fg:#ffffff bg:#3a9efd"
+# format = "[](#3a9efd)[$path]($style)[ ](#3a9efd)"
+format = "[](outline)[$path]($style)[ ](outline)"
+style = "fg:tertiary bg:outline"
 truncate_to_repo=false
 
 [username]
-style_user = "#3a9efd"
+# style_user = "#3a9efd"
+style_user = "primary"
 show_always = true
 
 [time]
-format = "[$time](#ffff00)"
+# format = "[$time](#ffff00)"
+format = "[$time](tertiary)"
 time_format = "%a, %I:%M %p"
 disabled = false
 
