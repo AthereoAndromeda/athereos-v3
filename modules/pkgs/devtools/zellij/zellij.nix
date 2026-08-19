@@ -3,7 +3,7 @@
     programs.zellij = {
       enable = true;
       enableBashIntegration = true;
-      extraConfig = builtins.readFile ./config.kdl;
+      extraConfig = builtins.readFile ./new-config.kdl;
     };
   };
 }
