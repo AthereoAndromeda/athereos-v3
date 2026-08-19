@@ -1,3 +1,29 @@
+-- Lilac AMOLED Palette
+-- "mPrimary": "#b58fff",
+-- "mOnPrimary": "#000000",
+-- "mSecondary": "#c79aff",
+-- "mOnSecondary": "#000000",
+-- "mTertiary": "#d8b4ff",
+-- "mOnTertiary": "#000000",
+-- "mError": "#ff6f9b",
+-- "mOnError": "#000000",
+-- "mSurface": "#000000",
+-- "mOnSurface": "#e8d8ff",
+-- "mSurfaceVariant": "#110d1a",
+-- "mOnSurfaceVariant": "#b58fff",
+-- "mOutline": "#4c3a70",
+-- "mShadow": "#000000",
+-- "mHover": "#d8b4ff",
+-- "mOnHover": "#000000",
+
+local primary   = "#b58fff"
+local secondary = "#c79aff"
+local tertiary	= "#d8b4ff"
+local error 		= "#ff6f9b"
+local surface 	= "#000000"
+local outline   = "#4c3a80"
+local hover 		= "#d8b4ff"
+
 require("easyjump"):setup()
 
 require("git"):setup {
@@ -13,16 +39,18 @@ require("yatline"):setup({
 	padding = { inner = 1, outer = 1 },
 
 	style_a = {
-		bg = "white",
-		fg = "black",
+		bg = outline,
+		fg = tertiary,
 		bg_mode = {
-			normal = "white",
-			select = "brightyellow",
-			un_set = "brightred",
+			normal = outline,
+			select = "#086534",
+			un_set = "#601134",
 		},
 	},
-	style_b = { bg = "brightblack", fg = "brightwhite" },
-	style_c = { bg = "black", fg = "brightwhite" },
+	-- style_b = { bg = "brightblack", fg = "brightwhite" },
+	-- style_b = { bg = "black", fg = "brightwhite" },
+	style_b = { bg = secondary, fg = surface },
+	style_c = { bg = surface, fg = primary},
 
 	permissions_t_fg = "green",
 	permissions_r_fg = "yellow",
@@ -60,12 +88,14 @@ require("yatline"):setup({
 		},
 		right = {
 			section_a = {
-				{ type = "string", name = "date", params = { "%A, %d %B %Y" } },
+				{ type = "string", name = "date", params = { "%a, %d %b %Y" } },
 			},
 			section_b = {
 				{ type = "string", name = "date", params = { "%X" } },
 			},
-			section_c = {},
+			section_c = {				
+				{ type = "coloreds", custom = false, name = "task_states" },
+			},
 		},
 	},
 
@@ -91,6 +121,7 @@ require("yatline"):setup({
 			},
 			section_c = {
 				{ type = "string", name = "hovered_file_extension", params = { true } },
+				{ type = "string", name = "hovered_ownership"},
 				{ type = "coloreds", name = "permissions" },
 			},
 		},
