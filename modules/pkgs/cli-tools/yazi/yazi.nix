@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   den.aspects.pkgs.yazi = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = [(pkgs.yazi.override {_7zz = pkgs._7zz-rar;})];
@@ -7,13 +11,9 @@
     homeManager = {pkgs, ...}: let
       dracula-pkg = pkgs.stdenvNoCC.mkDerivation {
         name = "dracula";
+        src = inputs.yazi-flavors;
 
-        src = fetchGit {
-          url = "https://github.com/yazi-rs/flavors.git";
-          rev = "be0b21d0873092a63946cc2678dd700aac945902";
-        };
-
-        phases = ["unpackPhase" "installPhase"];
+        phases = ["installPhase"];
         installPhase = ''
           runHook preInstall
 

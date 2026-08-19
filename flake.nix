@@ -52,6 +52,9 @@
 
     my-secrets.url = "git+ssh://git@github.com/athereoandromeda/nix-secrets.git?ref=main&shallow=1";
     my-secrets.flake = false;
+
+    yazi-flavors.url = "github:yazi-rs/flavors";
+    yazi-flavors.flake = false;
   };
 
   outputs = inputs:
