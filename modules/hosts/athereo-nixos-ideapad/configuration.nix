@@ -7,7 +7,6 @@
 
   den.aspects.athereo-nixos-ideapad = {
     includes = with den.aspects; [
-      impermanence
       scripts.lenovoctl
     ];
 
@@ -21,6 +20,8 @@
     };
 
     provides.to-users = {user, ...}: {
+      includes = [den.aspects.impermanence];
+
       nixos = {
         users.groups.lenovoctl = {};
         users.users.${user.name} = {
