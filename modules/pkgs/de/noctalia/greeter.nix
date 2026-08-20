@@ -4,15 +4,15 @@
   in {
     imports = [inputs.noctalia-greeter.nixosModules.default];
 
-    services.greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${greeter-pkg}/bin/noctalia-greeter-session -- --session niri";
-          user = "greeter";
-        };
-      };
-    };
+    # services.greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${greeter-pkg}/bin/noctalia-greeter-session -- --session niri";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
 
     programs.noctalia-greeter = {
       enable = true;
