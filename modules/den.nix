@@ -10,6 +10,7 @@
   den.schema.user.classes = lib.mkDefault ["homeManager"];
 
   den.default.includes = with den.aspects; [
+    lix
     hardware-utils
     nix-tools
     security.keyring
@@ -32,19 +33,6 @@
   };
 
   den.default.nixos = {pkgs, ...}: {
-    nixpkgs.overlays = [
-      (final: prev: {
-        inherit
-          (prev.lixPackageSets.stable)
-          nixpkgs-review
-          nix-eval-jobs
-          nix-fast-build
-          colmena
-          ;
-      })
-    ];
-
-    nix.package = pkgs.lixPackageSets.stable.lix;
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
