@@ -145,6 +145,8 @@
       services.xserver.wacom.enable = true;
       hardware.opentabletdriver.enable = true;
 
+      nix.settings.trusted-users = ["athereo"];
+
       # Some programs need SUID wrappers, can be configured further or are
       # started in user sessions.
       # programs.mtr.enable = true;

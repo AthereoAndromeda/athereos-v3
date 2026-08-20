@@ -111,7 +111,7 @@
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "26.05"; # Did you read the comment?
 
-    nix.settings.trusted-users = ["root" "athereo" "@wheel"];
+    nix.settings.trusted-users = ["root" "@wheel"];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
     # Hardware-optimized for v3
