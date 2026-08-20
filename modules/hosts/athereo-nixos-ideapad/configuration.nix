@@ -5,28 +5,28 @@
 }: {
   den.hosts.x86_64-linux.athereo-nixos-ideapad.users.athereo = {};
 
-  den.aspects.hardware.athereo-nixos-ideapad = {
+  den.aspects.athereo-nixos-ideapad = {
     includes = with den.aspects; [
       impermanence
       scripts.lenovoctl
     ];
 
-    nixos = {
-      pkgs,
-      user,
-      ...
-    }: {
+    nixos = {pkgs, ...}: {
       imports = [inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9];
       networking.hostName = "athereo-nixos-ideapad"; # Define your hostname.
-
-      users.groups.lenovoctl = {};
-      users.users.${user.name} = {
-        extraGroups = ["lenovoctl"];
-      };
 
       services.udev.extraRules = ''
         ACTION=="add|change", SUBSYSTEM=="platform", DRIVER=="ideapad_acpi", RUN+="${pkgs.coreutils}/bin/chgrp lenovoctl /sys%p/conservation_mode", RUN+="${pkgs.coreutils}/bin/chmod 664 /sys%p/conservation_mode"
       '';
+    };
+
+    provides.to-users = {user, ...}: {
+      nixos = {
+        users.groups.lenovoctl = {};
+        users.users.${user.name} = {
+          extraGroups = ["lenovoctl"];
+        };
+      };
     };
   };
 }

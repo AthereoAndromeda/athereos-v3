@@ -1,5 +1,5 @@
 {lib, ...}: {
-  den.aspects.hardware.athereo-nixos-ideapad = {
+  den.aspects.athereo-nixos-ideapad = {
     nixos = {config, ...}: {
       boot.initrd = {
         availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci"];

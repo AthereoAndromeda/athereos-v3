@@ -1,5 +1,5 @@
 {inputs, ...}: {
-  den.aspects.hardware.athereo-nixos-ideapad.nixos = {
+  den.aspects.athereo-nixos-ideapad.nixos = {
     imports = [inputs.impermanence.nixosModules.impermanence];
 
     boot.initrd.systemd = {

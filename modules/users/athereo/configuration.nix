@@ -17,7 +17,6 @@
         primary-user
       ])
       ++ (with den.aspects; [
-        hardware.athereo-nixos-ideapad
         office
         grub
         xremap
