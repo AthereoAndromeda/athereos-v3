@@ -14,6 +14,9 @@
         btrfs = true;
         ntfs = true;
       };
+      boot.initrd.supportedFilesystems = {
+        btrfs = true;
+      };
 
       boot.zswap = {
         enable = true;
@@ -51,6 +54,13 @@
         device = "/dev/mapper/enc";
         fsType = "btrfs";
         options = ["subvol=log" "compress=zstd" "noatime"];
+        neededForBoot = true;
+      };
+
+      fileSystems."/old-roots" = {
+        device = "/dev/mapper/enc";
+        fsType = "btrfs";
+        options = ["subvol=old-roots" "compress=zstd" "noatime"];
         neededForBoot = true;
       };
 
