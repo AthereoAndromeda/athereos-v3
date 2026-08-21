@@ -37,6 +37,7 @@
         pkgs.hyfetch
         security.tor
         security.sops
+        security.kryptor
       ]);
 
     excludes = [
