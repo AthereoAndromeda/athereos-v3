@@ -29,6 +29,9 @@
     xremap.url = "github:xremap/nix-flake";
     xremap.inputs.nixpkgs.follows = "nixpkgs";
 
+    xdg-termfilepickers.url = "github:Guekka/xdg-desktop-portal-termfilepickers";
+    xdg-termfilepickers.inputs.nixpkgs.follows = "nixpkgs";
+
     niri.url = "github:sodiboo/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
