@@ -32,7 +32,8 @@
     xdg-termfilepickers.url = "github:Guekka/xdg-desktop-portal-termfilepickers";
     xdg-termfilepickers.inputs.nixpkgs.follows = "nixpkgs";
 
-    niri.url = "github:sodiboo/niri-flake";
+    # niri.url = "github:sodiboo/niri-flake";
+    niri.url = "github:epireyn/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
     noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
