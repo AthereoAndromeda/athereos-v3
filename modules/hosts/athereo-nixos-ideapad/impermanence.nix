@@ -52,7 +52,7 @@
 
           # Once done rolling back, we can unmount
           umount /mnt
-          unmount /old-roots
+          umount /old-roots
         '';
       };
     };
