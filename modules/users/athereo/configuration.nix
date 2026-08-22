@@ -76,6 +76,11 @@
     };
 
     nixos = {pkgs, ...}: {
+      programs.obs-studio = {
+        enable = true;
+        enableVirtualCamera = true;
+      };
+
       # Set your time zone.
       time.timeZone = "Asia/Manila";
 
