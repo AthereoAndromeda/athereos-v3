@@ -46,6 +46,10 @@
         ++ (with pkgs; [
           udiskie
           udisks2
+          glib
+          sshfs
+          evtest
+          python3
         ]);
 
       services.udisks2 = {
