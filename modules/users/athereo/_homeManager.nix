@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    chromium
-    super-productivity
-
     motrix
     motrix-next
   ];
