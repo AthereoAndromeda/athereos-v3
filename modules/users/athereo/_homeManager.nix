@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  services.cliphist.enable = true;
   home.packages = with pkgs; [
     chromium
     super-productivity

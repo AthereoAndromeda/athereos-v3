@@ -32,6 +32,8 @@
     };
 
     homeManager = {pkgs, ...}: {
+      services.cliphist.enable = true;
+
       programs.niri = {
         package = pkgs.niri-unstable;
 
