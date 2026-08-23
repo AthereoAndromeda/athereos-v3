@@ -25,6 +25,8 @@
           palette_type = null;
         };
       };
+
+      home.shellAliases."hy" = "hyfetch";
     };
   };
 }

@@ -12,6 +12,8 @@
       xdg.configFile = {
         "fastfetch/config.jsonc".source = ./25.jsonc;
       };
+
+      home.shellAliases."ff" = "fastfetch";
     };
   };
 }

@@ -5,5 +5,7 @@
       enableBashIntegration = true;
       extraConfig = builtins.readFile ./new-config.kdl;
     };
+
+    home.shellAliases."zj" = "zellij";
   };
 }

@@ -5,5 +5,9 @@
     nixos = {pkgs, ...}: {
       environment.systemPackages = [pkgs.just pkgs.just-lsp];
     };
+
+    homeManager = {
+      home.shellAliases."j" = "just";
+    };
   };
 }

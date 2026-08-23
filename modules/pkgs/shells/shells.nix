@@ -6,9 +6,6 @@
       programs.bash.enable = true;
       home.shell.enableBashIntegration = true;
       home.shellAliases = {
-        j = "just";
-        ff = "fastfetch";
-        zj = "zellij";
         nushell = "nu";
       };
     };
