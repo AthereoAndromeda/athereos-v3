@@ -1,8 +1,9 @@
 {den, ...}: {
   den.aspects.pkgs.cli-tools = {
-    includes = [
-      den.aspects.pkgs.fastfetch
-      den.aspects.pkgs.pay-respects
+    includes = with den.aspects; [
+      pkgs.fastfetch
+      pkgs.pay-respects
+      pkgs.espanso
     ];
 
     nixos = {pkgs, ...}: {
