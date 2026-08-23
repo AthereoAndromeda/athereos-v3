@@ -48,6 +48,27 @@
       den.aspects.security.polkit
     ];
 
+    # Provided by den.batteries.os-user
+    user = {
+      hashedPasswordFile = "/persist/password/athereo";
+      isNormalUser = true;
+      extraGroups = [
+        "wheel"
+        "audio"
+        "networkmanager"
+        "video"
+        "render"
+        "cdrom"
+        "adm"
+        "lpadmin"
+        "input"
+        "plugdev"
+        "libvirtd"
+        "dialout"
+        "uucp"
+      ];
+    };
+
     homeManager = {pkgs, ...}: {
       services.espanso = {
         enable = true;
@@ -115,28 +136,7 @@
       };
 
       users.groups = {plugdev.gid = 601;}; # System Group
-
       users.mutableUsers = false;
-      # Define a user account. Don't forget to set a password with ‘passwd’.
-      users.users.athereo = {
-        hashedPasswordFile = "/persist/password/athereo";
-        isNormalUser = true;
-        extraGroups = [
-          "wheel"
-          "audio"
-          "networkmanager"
-          "video"
-          "render"
-          "cdrom"
-          "adm"
-          "lpadmin"
-          "input"
-          "plugdev"
-          "libvirtd"
-          "dialout"
-          "uucp"
-        ];
-      };
 
       # List packages installed in system profile.
       # You can use https://search.nixos.org/ to find more packages (and options).
