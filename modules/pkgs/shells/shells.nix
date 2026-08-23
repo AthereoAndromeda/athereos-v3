@@ -5,9 +5,8 @@
     homeManager = {...}: {
       programs.bash.enable = true;
       home.shell.enableBashIntegration = true;
-      home.shellAliases = {
-        nushell = "nu";
-      };
+      home.shell.enableNushellIntegration = true;
+      home.shellAliases."nushell" = "nu";
     };
   };
 }
