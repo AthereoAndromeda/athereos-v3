@@ -9,6 +9,8 @@
       [
         dev-tools.direnv
         dev-tools.zellij
+        dev-tools.lua
+        dev-tools.python
         gaming.prism
         gaming.steam
       ]
