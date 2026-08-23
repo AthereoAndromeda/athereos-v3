@@ -4,6 +4,7 @@
       pkgs.fastfetch
       pkgs.pay-respects
       pkgs.espanso
+      pkgs.carapace
     ];
 
     nixos = {pkgs, ...}: {
