@@ -3,6 +3,7 @@
     includes = with den.aspects; [
       bluetooth
       graphics
+      disk
       pkgs.usb-utils
     ];
 
