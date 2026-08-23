@@ -1,9 +1,15 @@
-{den, ...}: {
+{
+  den,
+  dev-tools,
+  ...
+}: {
   dev-tools.git = den.aspects.pkgs.git;
 
   den.aspects.pkgs.git = {
+    includes = [dev-tools.lazygit];
+
     nixos = {pkgs, ...}: {
-      environment.systemPackages = [pkgs.serie];
+      environment.systemPackages = with pkgs; [git serie];
     };
 
     homeManager = {pkgs, ...}: {
