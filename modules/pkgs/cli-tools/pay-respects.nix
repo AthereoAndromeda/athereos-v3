@@ -5,7 +5,7 @@
         enable = true;
 
         # Seems to be broken
-        # enableNushellIntegration = true;
+        enableNushellIntegration = true;
       };
     };
   };
