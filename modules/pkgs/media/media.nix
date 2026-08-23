@@ -6,6 +6,7 @@
       pkgs.snapshot
       pkgs.amberol
       pkgs.kew
+      pkgs.obs-studio
     ];
   };
 }
