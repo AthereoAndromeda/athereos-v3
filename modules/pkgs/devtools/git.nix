@@ -1,4 +1,6 @@
-{...}: {
+{den, ...}: {
+  dev-tools.git = den.aspects.pkgs.git;
+
   den.aspects.pkgs.git = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = [pkgs.serie];
