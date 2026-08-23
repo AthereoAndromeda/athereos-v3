@@ -11,6 +11,7 @@
 
   den.default.includes = with den.aspects; [
     lix
+    unfree
     hardware-utils
     nix-tools
     security.keyring
@@ -45,16 +46,6 @@
       useUserPackages = true;
       backupFileExtension = "hm-backup";
     };
-
-    # Unfree software
-    nixpkgs.config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "7zz"
-        "uasm"
-        "obsidian"
-        "steam"
-        "steam-unwrapped"
-      ];
 
     programs.nix-ld = {
       enable = true;
