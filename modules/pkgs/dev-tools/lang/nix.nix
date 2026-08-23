@@ -4,6 +4,7 @@
       environment.systemPackages = with pkgs; [
         alejandra
         nixd
+        nix-search-cli
       ];
 
       programs.nix-index.enable = true;
