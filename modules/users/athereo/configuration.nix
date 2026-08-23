@@ -40,6 +40,7 @@
         security.tor
         security.sops
         security.kryptor
+        scripts.find-desktop
       ]);
 
     excludes = [

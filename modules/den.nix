@@ -33,6 +33,10 @@
   };
 
   den.default.nixos = {pkgs, ...}: {
+    nixpkgs.overlays = [
+      inputs.nuenv.overlays.default
+    ];
+
     # Linux 7.2
     boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
 

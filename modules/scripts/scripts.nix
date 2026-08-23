@@ -6,4 +6,15 @@
       ];
     };
   };
+
+  den.aspects.scripts.find-desktop = {
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = [
+        (pkgs.nuenv.writeScriptBin {
+          name = "find-desktop";
+          script = builtins.readFile ./find-desktop.nu;
+        })
+      ];
+    };
+  };
 }
