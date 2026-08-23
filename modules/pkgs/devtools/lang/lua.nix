@@ -1,5 +1,5 @@
 {...}: {
-  devtools.lua = {
+  dev-tools.lua = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         lua
