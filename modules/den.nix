@@ -9,25 +9,29 @@
 
   den.schema.user.classes = lib.mkDefault ["homeManager"];
 
-  den.default.includes = with den.aspects; [
-    lix
-    unfree
-    hardware-utils
-    nix-tools
-    security.keyring
-    security.polkit
-    security.gnupg
-    security.sops
-    pkgs.cli-tools
-    pkgs.shells
-    pkgs.terminals
-    pkgs.yazi
-    pkgs.helix
-    pkgs.fonts
-    pkgs.fastfetch
-    pkgs.git
-    dev-tools.utils
-  ];
+  den.default.includes = with den.aspects;
+    [
+      lix
+      unfree
+      hardware-utils
+      nix-tools
+      security.keyring
+      security.polkit
+      security.gnupg
+      security.sops
+      pkgs.cli-tools
+      pkgs.shells
+      pkgs.terminals
+      pkgs.yazi
+      pkgs.helix
+      pkgs.fonts
+      pkgs.fastfetch
+      pkgs.git
+      dev-tools.utils
+    ]
+    ++ [
+      den.batteries.hostname
+    ];
 
   den.default.homeManager = {
     home.stateVersion = "26.05";

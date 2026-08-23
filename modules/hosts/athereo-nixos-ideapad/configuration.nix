@@ -12,7 +12,6 @@
 
     nixos = {pkgs, ...}: {
       imports = [inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9];
-      networking.hostName = "athereo-nixos-ideapad"; # Define your hostname.
 
       services.udev.extraRules = ''
         ACTION=="add|change", SUBSYSTEM=="platform", DRIVER=="ideapad_acpi", RUN+="${pkgs.coreutils}/bin/chgrp lenovoctl /sys%p/conservation_mode", RUN+="${pkgs.coreutils}/bin/chmod 664 /sys%p/conservation_mode"
