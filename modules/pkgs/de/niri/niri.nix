@@ -20,6 +20,10 @@
       imports = [inputs.niri.nixosModules.niri];
       nixpkgs.overlays = [inputs.niri.overlays.niri];
       environment.systemPackages = [pkgs.rofi pkgs.nirius pkgs.xwayland-satellite-unstable];
+      environment.sessionVariables = {
+        NIXOS_OZONE_WL = "1";
+        ELECTRON_OZONE_PLATFORM_HINT = "wayland";
+      };
 
       programs.niri = {
         enable = true;
