@@ -11,6 +11,7 @@
     nixos = {
       pkgs,
       config,
+      inputs',
       ...
     }: {
       warnings = lib.concatLists [
@@ -41,7 +42,7 @@
 
       environment.systemPackages =
         [
-          inputs.noctalia-v5.packages.${pkgs.stdenv.hostPlatform.system}.default
+          inputs'.noctalia-v5.packages.default
         ]
         ++ (with pkgs; [
           udiskie

@@ -1,6 +1,10 @@
 {inputs, ...}: {
-  den.aspects.noctalia-greeter.nixos = {pkgs, ...}: let
-    greeter-pkg = inputs.noctalia-greeter.packages.${pkgs.stdenv.hostPlatform.system}.default;
+  den.aspects.noctalia-greeter.nixos = {
+    pkgs,
+    inputs',
+    ...
+  }: let
+    greeter-pkg = inputs'.noctalia-greeter.packages.default;
   in {
     imports = [inputs.noctalia-greeter.nixosModules.default];
 
