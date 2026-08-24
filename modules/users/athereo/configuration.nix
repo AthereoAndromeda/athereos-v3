@@ -24,6 +24,7 @@
         xremap
         xdg-utils
         virtualisation
+        printing
         de.niri
         udev.probe-rs
         pkgs.zen-browser

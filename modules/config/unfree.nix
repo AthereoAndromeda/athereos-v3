@@ -6,6 +6,7 @@
       "obsidian"
       "steam"
       "steam-unwrapped"
+      "hplip"
     ])
   ];
 }
