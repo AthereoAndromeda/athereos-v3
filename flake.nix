@@ -61,12 +61,17 @@
     yazi-flavors.flake = false;
   };
 
+  # outputs = inputs:
+  #   (inputs.nixpkgs.lib.evalModules {
+  #     modules = [
+  #       (inputs.import-tree ./modules)
+  #       inputs.den.flakeOutputs.flake
+  #       inputs.den.flakeModule
+  #     ];
+  #     specialArgs.inputs = inputs;
+  #   }).config.flake;
+
   outputs = inputs:
-    (inputs.nixpkgs.lib.evalModules {
-      modules = [
-        (inputs.import-tree ./modules)
-        inputs.den.flakeOutputs.flake
-      ];
-      specialArgs.inputs = inputs;
-    }).config.flake;
+    inputs.flake-parts.lib.mkFlake {inherit inputs;}
+    (inputs.import-tree ./modules);
 }
