@@ -1,7 +1,28 @@
-{pkgs, ...}: {
-  # home.packages = with pkgs; [ ];
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  config = {
+    # home.packages = with pkgs; [ ];
 
-  dconf.settings = {
-    "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    gitEmail = "athereoandromeda@gmail.com";
+    gitName = "Athereo";
+
+    dconf.settings = {
+      "org/gnome/desktop/interface".color-scheme = "prefer-dark";
+    };
+  };
+
+  options = {
+    gitEmail = lib.mkOption {
+      type = lib.types.str;
+      description = "Email address to use for Git";
+    };
+
+    gitName = lib.mkOption {
+      type = lib.types.str;
+      description = "Name to use for Git";
+    };
   };
 }

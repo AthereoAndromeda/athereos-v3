@@ -12,7 +12,11 @@
       environment.systemPackages = with pkgs; [git serie];
     };
 
-    homeManager = {pkgs, ...}: {
+    homeManager = {
+      config,
+      pkgs,
+      ...
+    }: {
       programs.git = {
         enable = true;
         lfs.enable = true;
@@ -27,7 +31,7 @@
 
           user = {
             name = "Athereo";
-            email = "athereoandromeda@gmail.com";
+            email = config.gitEmail;
           };
 
           alias = {

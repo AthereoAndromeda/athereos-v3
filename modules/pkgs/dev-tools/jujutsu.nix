@@ -1,11 +1,11 @@
 {...}: {
   dev-tools.jujutsu = {
-    homeManager = {
+    homeManager = {config, ...}: {
       programs.jujutsu = {
         enable = true;
         settings = {
           user.name = "AthereoAndromeda";
-          user.email = "athereoandromeda@gmail.com";
+          user.email = config.gitEmail;
 
           ui.default-command = "log";
         };
