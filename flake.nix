@@ -36,9 +36,6 @@
     niri.url = "github:epireyn/niri-flake";
     niri.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
-    noctalia.inputs.nixpkgs.follows = "nixpkgs";
-
     noctalia-v5.url = "github:noctalia-dev/noctalia-shell/cachix";
     # noctalia-v5.inputs.nixpkgs.follows = "nixpkgs";
 
