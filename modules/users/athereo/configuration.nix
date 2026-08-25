@@ -9,6 +9,7 @@
       [
         dev-tools.direnv
         dev-tools.zellij
+        dev-tools.jujutsu
         dev-tools.lua
         dev-tools.python
         gaming.prism
