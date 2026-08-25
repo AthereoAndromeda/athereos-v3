@@ -3,7 +3,7 @@ add_newline = false
 
 format = """[╭](fg:white) [](#ffffff)[$os ](fg:#3a9efd bg:white)[ ](#ffffff)$username$directory$all$line_break$character"""
 
-right_format = """$cmd_duration$git_branch$git_commit$git_state$git_status$time"""
+right_format = """$cmd_duration${custom.jj}$time"""
 
 palette = "lilac"
 
@@ -87,6 +87,7 @@ symbol = " "
 heuristic = true
 
 [git_branch]
+disabled = true
 format = "[ $symbol $branch ]($style) "
 symbol = ""
 style = "#00ff00"
@@ -96,6 +97,7 @@ tag_disabled = false
 style = "#00ffa6"
 
 [git_status]
+disabled = true
 staged = "+${count}"
 untracked = "?${count}"
 modified = "!${count}"
@@ -114,9 +116,14 @@ show_always = true
 [time]
 # format = "[$time](#ffff00)"
 format = "[$time](tertiary)"
-time_format = "%a, %I:%M %p"
+time_format = "%I:%M %p"
 disabled = false
 
 [[battery.display]]
 threshold = 20
 style = 'bold red'
+
+[custom.jj]
+when = "jj-starship detect"
+shell = ["jj-starship", "--truncate-name=6"]
+format = "$output "

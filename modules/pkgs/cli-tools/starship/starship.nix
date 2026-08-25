@@ -1,5 +1,9 @@
 {lib, ...}: {
   den.aspects.pkgs.starship = {
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = [pkgs.jj-starship];
+    };
+
     homeManager = {
       programs.starship = {
         enable = true;
