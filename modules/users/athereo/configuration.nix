@@ -39,6 +39,7 @@
         pkgs.starship
         pkgs.productivity-tools
         pkgs.hyfetch
+        pkgs.motrix
         security.tor
         security.sops
         security.kryptor
