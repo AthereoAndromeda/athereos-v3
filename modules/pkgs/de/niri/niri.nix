@@ -31,7 +31,11 @@
       };
     };
 
-    homeManager = {pkgs, ...}: {
+    homeManager = {
+      pkgs,
+      config,
+      ...
+    }: {
       services.cliphist.enable = true;
 
       programs.niri = {
@@ -49,6 +53,21 @@
         recursive = true;
         source = ./config;
       };
+
+      xdg.configFile."niri/cursor.kdl".text = ''
+        cursor {
+          xcursor-theme "${config.home.pointerCursor.name}"
+          xcursor-size ${lib.toString config.home.pointerCursor.size}
+        }
+      '';
+
+      # TODO
+      # xdg.configFile."niri/env.kdl".text = ''
+      #   cursor {
+      #     xcursor-theme ${config.pointerCursor.name}
+      #     xcursor-size ${config.pointerCursor.size}
+      #   }
+      # '';
     };
   };
 }
