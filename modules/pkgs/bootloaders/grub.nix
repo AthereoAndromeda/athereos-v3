@@ -1,5 +1,7 @@
-{...}: {
-  den.aspects.grub = {
+{den, ...}: {
+  den.aspects.boot.grub = {
+    includes = [den.aspects.boot];
+
     nixos = {...}: {
       boot.loader.grub = {
         enable = true;

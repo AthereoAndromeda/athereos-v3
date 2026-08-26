@@ -15,6 +15,7 @@
       unfree
       hardware-utils
       boot
+      boot.grub
       nix-tools
       security.keyring
       security.polkit

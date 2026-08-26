@@ -21,7 +21,6 @@
       ])
       ++ (with den.aspects; [
         office
-        grub
         xremap
         xdg-utils
         virtualisation
