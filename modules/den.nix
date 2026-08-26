@@ -65,6 +65,10 @@
       firefox
     ];
 
+    # Incompatible with Docker
+    # https://mynixos.com/nixpkgs/option/networking.nftables.enable
+    networking.nftables.enable = lib.mkDefault true;
+
     # Use the systemd-boot EFI boot loader.
     # boot.loader.systemd-boot.enable = true;
     boot.loader.efi.canTouchEfiVariables = true;
