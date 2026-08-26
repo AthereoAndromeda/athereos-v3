@@ -76,6 +76,7 @@
 
     # Enable the X11 windowing system.
     services.xserver.enable = lib.mkDefault true;
+    services.xserver.videoDrivers = lib.mkDefault ["nvidia" "amdgpu" "modesetting" "fbdev"];
     programs.xwayland.enable = lib.mkDefault true;
 
     # Enable touchpad support (enabled default in most desktopManager).
