@@ -17,6 +17,7 @@
 
         unitConfig.DefaultDependencies = "no";
         serviceConfig.Type = "oneshot";
+        serviceConfig.TimeoutSec = 180;
         script = ''
           mkdir -p /mnt
           mkdir -p /old-roots
