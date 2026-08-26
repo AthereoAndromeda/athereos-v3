@@ -14,6 +14,7 @@
       lix
       unfree
       hardware-utils
+      boot
       nix-tools
       security.keyring
       security.polkit
@@ -68,10 +69,6 @@
     # Incompatible with Docker
     # https://mynixos.com/nixpkgs/option/networking.nftables.enable
     networking.nftables.enable = lib.mkDefault true;
-
-    # Use the systemd-boot EFI boot loader.
-    # boot.loader.systemd-boot.enable = true;
-    boot.loader.efi.canTouchEfiVariables = true;
 
     # Configure network connections interactively with nmcli or nmtui.
     networking.networkmanager.enable = lib.mkDefault true;
