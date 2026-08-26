@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   den.aspects.cursors.lyra-q = {
     homeManager = {
       pkgs,
@@ -6,16 +6,16 @@
       ...
     }: {
       home.sessionVariables = {
-        XCURSOR_THEME = "LyraQ-cursors";
-        XCURSOR_SIZE = "48";
+        XCURSOR_THEME = config.home.pointerCursor.name;
+        XCURSOR_SIZE = lib.toString config.home.pointerCursor.size;
       };
 
       home.pointerCursor = {
         enable = true;
         gtk.enable = true;
         package = pkgs.lyra-cursors;
-        name = config.home.sessionVariables.XCURSOR_THEME;
-        size = config.home.sessionVariables.XCURSOR_SIZE;
+        name = "LyraQ-cursors";
+        size = 48;
       };
     };
   };
