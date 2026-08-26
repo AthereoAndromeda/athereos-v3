@@ -122,6 +122,22 @@
         "type": "github"
       }
     },
+    "hyperfluent-grub": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743732097,
+        "narHash": "sha256-l6oZqo6ATv9DWUKAe3fgx3c12SOX0qaqfwd3ppcdUZk=",
+        "owner": "Coopydood",
+        "repo": "HyperFluent-GRUB-Theme",
+        "rev": "50a69ef1c020d1e4e69a683f6f8cf79161fb1a92",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Coopydood",
+        "repo": "HyperFluent-GRUB-Theme",
+        "type": "github"
+      }
+    },
     "impermanence": {
       "inputs": {
         "home-manager": [],
@@ -461,6 +477,7 @@
         "den": "den",
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
+        "hyperfluent-grub": "hyperfluent-grub",
         "impermanence": "impermanence",
         "import-tree": "import-tree",
         "my-secrets": "my-secrets",

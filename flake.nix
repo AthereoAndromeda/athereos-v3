@@ -56,6 +56,9 @@
 
     yazi-flavors.url = "github:yazi-rs/flavors";
     yazi-flavors.flake = false;
+
+    hyperfluent-grub.url = "github:Coopydood/HyperFluent-GRUB-Theme";
+    hyperfluent-grub.flake = false;
   };
 
   # outputs = inputs:
