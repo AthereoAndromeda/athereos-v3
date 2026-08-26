@@ -18,6 +18,7 @@
       ++ [
         remote-build.builder
         hardware.zswap
+        hardware.tablet
         hardware.amd
       ];
 
