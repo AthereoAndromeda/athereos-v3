@@ -64,6 +64,7 @@ window-rule {
 window-rule {
     match app-id=r#"^org\.keepassxc\.KeePassXC$"#
     match app-id=r#"^org\.gnome\.World\.Secrets$"#
+    match app-id=r#"^org\.kde\.polkit-kde-authentication-agent-1"#
 
     block-out-from "screen-capture"
 
