@@ -81,9 +81,6 @@
     # Enable touchpad support (enabled default in most desktopManager).
     services.libinput.enable = lib.mkDefault true;
 
-    # Enable CUPS to print documents.
-    services.printing.enable = lib.mkDefault true;
-
     services.dbus.implementation = lib.mkDefault "broker";
 
     # Enable sound.

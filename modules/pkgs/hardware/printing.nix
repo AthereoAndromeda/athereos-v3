@@ -4,6 +4,7 @@
 
     nixos = {pkgs, ...}: {
       services.printing = {
+        # Enable CUPS to print documents.
         enable = true;
         drivers = with pkgs; [
           gutenprint
