@@ -16,7 +16,6 @@
       hardware-utils
       boot
       boot.grub
-      nix-tools
       security.keyring
       security.polkit
       security.gnupg
@@ -36,6 +35,7 @@
       den.batteries.hostname
       den.batteries.inputs'
       den.batteries.self'
+      dev-tools.nix
     ];
 
   den.default.homeManager = {

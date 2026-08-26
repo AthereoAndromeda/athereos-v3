@@ -1,5 +1,5 @@
 {...}: {
-  den.aspects.nix-tools = {
+  dev-tools.nix = {
     nixos = {pkgs, ...}: {
       environment.systemPackages = with pkgs; [
         alejandra
