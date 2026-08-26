@@ -18,6 +18,7 @@
       ++ [
         den.aspects.hardware.zswap
         remote-build.builder
+        den.aspects.hardware.tablet
         hardware.amd
       ];
 
