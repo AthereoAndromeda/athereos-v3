@@ -28,7 +28,6 @@
       pkgs.fonts
       pkgs.fastfetch
       pkgs.git
-      dev-tools.utils
       containers.firefly
     ]
     ++ [
@@ -36,6 +35,7 @@
       den.batteries.inputs'
       den.batteries.self'
       dev-tools.nix
+      dev-tools.utils
     ];
 
   den.default.homeManager = {
