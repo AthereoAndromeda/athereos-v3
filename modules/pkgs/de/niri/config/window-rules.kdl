@@ -19,15 +19,9 @@ window-rule {
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    open-floating true
-    default-column-width { fixed 512; }
-    default-window-height { fixed 288; }
-    open-focused false
-    default-floating-position x=100 y=100 relative-to="top-left"
-}
-
-window-rule {
     match app-id=r#"^zen-beta$"# title="^Picture-in-Picture$"
+
+        
     open-floating true
     default-column-width { fixed 720; }
     default-window-height { fixed 405; }
@@ -47,13 +41,8 @@ window-rule {
 
 window-rule {
     match app-id=r#"^thunderbird$"#
-    open-focused true
-    open-maximized-to-edges true
-    open-on-workspace "office"
-}
-
-window-rule {
     match app-id=r#"^superproductivity$"#
+    
     open-focused true
     open-maximized-to-edges true
     open-on-workspace "office"
@@ -70,14 +59,6 @@ window-rule {
 
     // Use this instead if you want them visible on third-party screenshot tools.
     // block-out-from "screencast"
-}
-
-window-rule {
-    match app-id=r#"^askpass$"#
-    open-floating true
-    default-column-width { proportion 0.25; }
-    default-window-height { fixed 500; }
-    block-out-from "screen-capture"
 }
 
 // Example: enable rounded corners for all windows.
