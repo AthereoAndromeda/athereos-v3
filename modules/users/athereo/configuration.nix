@@ -42,6 +42,7 @@
         security.tor
         security.sops
         security.kryptor
+        security.cert
         scripts.find-desktop
       ]);
 
