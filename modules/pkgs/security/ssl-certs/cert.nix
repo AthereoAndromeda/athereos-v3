@@ -13,6 +13,7 @@
         content = ''
           [connection]
           id=DILNET2.0
+          uuid=6bf6c360-d8dc-4c6b-a559-0e1a1cdd6354
           type=wifi
           interface-name=wlp2s0
 
@@ -45,6 +46,7 @@
         content = ''
           [connection]
           id=eduroam
+          uuid=888574de-ac80-4a33-9e39-e113e1ee248f
           type=wifi
           interface-name=wlp2s0
 
