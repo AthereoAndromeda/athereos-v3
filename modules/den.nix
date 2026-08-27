@@ -8,6 +8,10 @@
   imports = [inputs.den.flakeModule];
 
   den.schema.user.classes = lib.mkDefault ["homeManager"];
+  den.schema.flake-system.includes = [
+    den.policies.packages-to-flake-parts
+    den.policies.system-to-flake-parts
+  ];
 
   den.default.includes = with den.aspects;
     [
