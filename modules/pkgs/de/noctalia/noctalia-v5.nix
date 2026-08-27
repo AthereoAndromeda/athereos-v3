@@ -35,9 +35,6 @@
       nixpkgs.overlays = [inputs.noctalia-v5.overlays.default];
       imports = [inputs.noctalia-v5.nixosModules.default];
 
-      qt.enable = true;
-      services.upower.enable = true;
-
       environment.systemPackages = with pkgs; [
         noctalia
         udiskie
@@ -52,6 +49,8 @@
         enable = true;
         mountOnMedia = true;
       };
+
+      services.upower.enable = true;
 
       programs.kdeconnect.enable = true;
 
