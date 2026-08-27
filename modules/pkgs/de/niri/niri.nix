@@ -54,7 +54,7 @@
         source = ./config;
       };
 
-      xdg.configFile."niri/cursor.kdl".text = ''
+      xdg.configFile."niri/cursor.kdl".text = lib.mkIf config.home.pointerCursor.enable ''
         cursor {
           xcursor-theme "${config.home.pointerCursor.name}"
           xcursor-size ${lib.toString config.home.pointerCursor.size}
