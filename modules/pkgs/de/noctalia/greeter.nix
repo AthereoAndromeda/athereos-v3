@@ -1,33 +1,22 @@
 {inputs, ...}: {
-  den.aspects.noctalia-greeter.nixos = {
-    pkgs,
-    inputs',
-    ...
-  }: let
-    greeter-pkg = inputs'.noctalia-greeter.packages.default;
-  in {
-    imports = [inputs.noctalia-greeter.nixosModules.default];
+  den.aspects.noctalia-greeter = {
+    persist.directories = ["/var/lib/noctalia-greeter"];
 
-    # services.greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command = "${greeter-pkg}/bin/noctalia-greeter-session -- --session niri";
-    #       user = "greeter";
-    #     };
-    #   };
-    # };
+    nixos = {pkgs, ...}: {
+      nixpkgs.overlays = [inputs.noctalia-greeter.overlays.default];
+      imports = [inputs.noctalia-greeter.nixosModules.default];
 
-    programs.noctalia-greeter = {
-      enable = true;
-      package = greeter-pkg;
+      programs.noctalia-greeter = {
+        enable = true;
+        package = pkgs.noctalia-greeter;
 
-      # Optional configuration
-      greeter-args = "";
-      settings.cursor = {
-        theme = "Adwaita";
-        size = 24;
-        package = pkgs.adwaita-icon-theme;
+        # Optional configuration
+        # greeter-args = "";
+        settings.cursor = {
+          theme = "LyraQ-cursors";
+          size = 24;
+          package = pkgs.lyra-cursors;
+        };
       };
     };
   };
