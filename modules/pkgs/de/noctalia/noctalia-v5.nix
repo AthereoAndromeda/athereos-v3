@@ -69,5 +69,14 @@
         recommendedServices.enable = true;
       };
     };
+
+    homeManager = {
+      imports = [inputs.noctalia-v5.homeModules.default];
+
+      programs.noctalia = {
+        enable = true;
+        settings = ./noctalia-config.toml;
+      };
+    };
   };
 }
