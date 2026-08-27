@@ -16,7 +16,7 @@ in {
       environment.systemPackages = [pkgs.sops];
 
       sops = {
-        defaultSopsFile = "${secretspath}/secrets/example.yaml";
+        defaultSopsFile = "${secretspath}/secrets/main.yaml";
         validateSopsFiles = false;
 
         age = {
