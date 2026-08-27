@@ -11,7 +11,6 @@
     nixos = {
       pkgs,
       config,
-      inputs',
       ...
     }: {
       warnings = lib.concatLists [
@@ -33,25 +32,21 @@
         extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
       };
 
-      imports = [
-        inputs.noctalia-v5.nixosModules.default
-      ];
+      nixpkgs.overlays = [inputs.noctalia-v5.overlays.default];
+      imports = [inputs.noctalia-v5.nixosModules.default];
 
       qt.enable = true;
       services.upower.enable = true;
 
-      environment.systemPackages =
-        [
-          inputs'.noctalia-v5.packages.default
-        ]
-        ++ (with pkgs; [
-          udiskie
-          udisks2
-          glib
-          sshfs
-          evtest
-          python3
-        ]);
+      environment.systemPackages = with pkgs; [
+        noctalia
+        udiskie
+        udisks2
+        glib
+        sshfs
+        evtest
+        python3
+      ];
 
       services.udisks2 = {
         enable = true;
