@@ -40,6 +40,12 @@ in {
       # sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     };
 
+    homeManager = {config, ...}: {
+      home.sessionVariables = {
+        SOPS_AGE_KEY_FILE = "${config.home.homeDirectory}/.config/sops/age/keys-pq.txt";
+      };
+    };
+
     persist = {
       directories = ["/var/lib/sops-nix"];
       home.directories = [".config/sops"];
