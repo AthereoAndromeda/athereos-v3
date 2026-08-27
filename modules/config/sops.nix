@@ -16,11 +16,7 @@ in {
       environment.systemPackages = [pkgs.sops];
 
       sops = {
-        # This will add secrets.yml to the nix store
-        # You can avoid this by adding a string to the full path instead, i.e.
-        # defaultSopsFile = "/home/athereo/nixos/secrets/example.yaml";
         defaultSopsFile = "${secretspath}/secrets/example.yaml";
-        # sops.defaultSopsFile = ./secrets/example.yaml;
         validateSopsFiles = false;
 
         age = {
@@ -33,11 +29,9 @@ in {
         };
 
         # This is the actual specification of the secrets.
-        secrets.example_key = {};
+        # secrets.example_key = {};
         # sops.secrets."myservice/my_subdir/my_secret" = {};
       };
-
-      # sops.age.sshKeyPaths = ["/etc/ssh/ssh_host_ed25519_key"];
     };
 
     homeManager = {config, ...}: {
