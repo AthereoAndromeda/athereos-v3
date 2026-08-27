@@ -8,6 +8,7 @@
           user.email = config.gitEmail;
 
           ui.default-command = "log";
+          ui.merge-editor = ":builtin";
         };
       };
 
