@@ -16,7 +16,7 @@
           runHook preInstall
 
           mkdir -p $out
-          cp -r $src/nixos $out
+          cp -r $src/nixos/* $out
 
           runHook postInstall
         '';
