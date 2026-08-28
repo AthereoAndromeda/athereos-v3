@@ -9,6 +9,17 @@
 
           ui.default-command = "log";
           ui.merge-editor = ":builtin";
+
+          aliases = {
+            e.definition = ["edit"];
+            e.doc = "Edit shorthand";
+
+            ll.definition = ["log" "-T" "change_id.short() ++ \" \" ++ description ++ \"\\n\" "];
+            ll.doc = "Extended log form";
+
+            bk.definition = ["bookmark"];
+            bk.doc = "Bookmark shorthand";
+          };
         };
       };
 
