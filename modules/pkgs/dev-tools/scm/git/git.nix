@@ -30,7 +30,7 @@
           submodule.recurse = true;
 
           user = {
-            name = "Athereo";
+            name = config.gitName;
             email = config.gitEmail;
           };
 

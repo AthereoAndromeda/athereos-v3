@@ -4,7 +4,7 @@
       programs.jujutsu = {
         enable = true;
         settings = {
-          user.name = "AthereoAndromeda";
+          user.name = config.gitName;
           user.email = config.gitEmail;
 
           ui.default-command = "log";
