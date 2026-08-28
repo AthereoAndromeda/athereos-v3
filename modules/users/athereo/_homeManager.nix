@@ -16,13 +16,15 @@
 
   options = {
     gitEmail = lib.mkOption {
-      type = lib.types.str;
+      type = lib.types.nullOr lib.types.str;
       description = "Email address to use for Git";
+      default = null;
     };
 
     gitName = lib.mkOption {
-      type = lib.types.str;
+      type = lib.types.nullOr lib.types.str;
       description = "Name to use for Git";
+      default = null;
     };
   };
 }

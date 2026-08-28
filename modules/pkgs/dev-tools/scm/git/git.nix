@@ -30,8 +30,8 @@
           submodule.recurse = true;
 
           user = {
-            name = config.gitName;
-            email = config.gitEmail;
+            name = config.gitName or "";
+            email = config.gitEmail or "";
           };
 
           alias = {

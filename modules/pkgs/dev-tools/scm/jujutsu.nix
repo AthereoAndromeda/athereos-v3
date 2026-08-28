@@ -4,8 +4,8 @@
       programs.jujutsu = {
         enable = true;
         settings = {
-          user.name = config.gitName;
-          user.email = config.gitEmail;
+          user.name = config.gitName or "";
+          user.email = config.gitEmail or "";
 
           ui.default-command = "log";
           ui.merge-editor = ":builtin";
