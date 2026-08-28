@@ -1,5 +1,6 @@
-rec {
+key-path: rec {
   autoStart = true;
+  bindMounts.${key-path}.isReadOnly = true;
   privateNetwork = true;
   hostAddress = "192.168.100.10";
   localAddress = "192.168.100.11";
@@ -29,17 +30,11 @@ rec {
       virtualHost = localAddress;
       user = "firefly";
 
-      settings = {
-        APP_ENV = "local";
-        DB_CONNECTION = "mysql";
-        DB_HOST = "127.0.0.1";
-        DB_PORT = 3306;
-        DB_DATABASE = "firefly";
-        DB_USERNAME = "firefly";
-        DB_PASSWORD = "firefly";
-        APP_KEY_FILE = ./app_key.txt;
-        TRUSTED_PROXIES = "**";
-      };
+      settings =
+        lib.fromTOML (builtins.readFile ./.env)
+        // {
+          APP_KEY_FILE = key-path;
+        };
     };
 
     services.mysql = {

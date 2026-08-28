@@ -3,6 +3,15 @@
     includes = [den.aspects.containers];
     persist.directories = ["/var/lib/nixos-containers/firefly"];
 
-    nixos.containers.firefly = import ./_firefly-container.nix;
+    nixos = let
+      key-path = "/var/lib/firefly/app-key.txt";
+    in {
+      sops.secrets."firefly/app-key" = {
+        mode = "0444";
+        path = key-path;
+      };
+
+      containers.firefly = import ./_firefly-container.nix key-path;
+    };
   };
 }
