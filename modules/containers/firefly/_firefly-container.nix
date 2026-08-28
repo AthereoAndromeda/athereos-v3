@@ -69,15 +69,14 @@ key-path: rec {
     };
 
     networking = {
-      firewall.allowedTCPPorts = [80 8080 3306];
+      firewall.allowedTCPPorts = [80 443];
 
       # Use systemd-resolved inside the container
       # Workaround for bug https://github.com/NixOS/nixpkgs/issues/162686
       useHostResolvConf = lib.mkForce false;
-      nameservers = ["1.1.1.1" "8.8.8.8"];
     };
 
-    # services.resolved.enable = true;
+    services.resolved.enable = true;
 
     system.stateVersion = "26.05";
   };
