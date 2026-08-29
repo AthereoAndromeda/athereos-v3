@@ -54,6 +54,11 @@
     # Linux 7.2
     boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
 
+    specialisation.stable.configuration = {
+      system.nixos.tags = ["stable"];
+      boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
+    };
+
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
