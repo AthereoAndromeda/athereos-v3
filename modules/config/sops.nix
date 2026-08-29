@@ -42,7 +42,7 @@ in {
 
     persist = {
       directories = ["/var/lib/sops-nix"];
-      home.directories = [".config/sops"];
+      home.config.directories = ["sops"];
     };
   };
 }

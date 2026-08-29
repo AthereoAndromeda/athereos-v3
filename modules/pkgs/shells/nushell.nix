@@ -44,8 +44,6 @@
       };
     };
 
-    persist.home.files = [
-      ".config/nushell/history.txt"
-    ];
+    persist.home.config.files = ["nushell/history.txt"];
   };
 }

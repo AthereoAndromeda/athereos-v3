@@ -8,8 +8,6 @@
       };
     };
 
-    persist.home.directories = [
-      ".local/share/zoxide"
-    ];
+    persist.home.data.directories = ["zoxide"];
   };
 }

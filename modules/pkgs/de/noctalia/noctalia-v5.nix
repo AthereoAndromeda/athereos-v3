@@ -6,7 +6,7 @@
 }: {
   den.aspects.noctalia-v5 = {
     includes = [den.aspects.noctalia-greeter];
-    persist.home.directories = [".local/state/noctalia"];
+    persist.home.state.directories = ["noctalia"];
 
     nixos = {
       pkgs,

@@ -9,8 +9,6 @@
       };
     };
 
-    persist.home.directories = [
-      ".local/share/direnv"
-    ];
+    persist.home.data.directories = ["direnv"];
   };
 }

@@ -16,8 +16,6 @@
       };
     };
 
-    persist.home.directories = [
-      ".config/zen"
-    ];
+    persist.home.config.directories = ["zen"];
   };
 }

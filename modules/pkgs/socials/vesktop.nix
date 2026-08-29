@@ -1,11 +1,9 @@
 {...}: {
   den.aspects.pkgs.vesktop = {
-    homeManager = {...}: {
+    homeManager = {
       programs.vesktop.enable = true;
     };
 
-    persist.home.directories = [
-      ".config/vesktop"
-    ];
+    persist.home.config.directories = ["vesktop"];
   };
 }

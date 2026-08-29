@@ -8,9 +8,7 @@
       ];
     };
 
-    persist.home.directories = [
-      ".config/superProductivity"
-      ".local/share/Anki2"
-    ];
+    persist.home.config.directories = ["superProductivity"];
+    persist.home.data.directories = ["Anki2"];
   };
 }

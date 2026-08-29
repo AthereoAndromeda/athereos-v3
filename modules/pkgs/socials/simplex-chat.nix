@@ -4,9 +4,7 @@
       home.packages = [pkgs.simplex-chat-desktop];
     };
 
-    persist.home.directories = [
-      ".local/share/simplex"
-      ".config/simplex"
-    ];
+    persist.home.config.directories = ["simplex"];
+    persist.home.data.directories = ["simplex"];
   };
 }

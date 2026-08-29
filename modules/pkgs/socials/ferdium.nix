@@ -4,8 +4,6 @@
       home.packages = [pkgs.ferdium];
     };
 
-    persist.home.directories = [
-      ".config/Ferdium"
-    ];
+    persist.home.config.directories = ["Ferdium"];
   };
 }
