@@ -1,38 +1,38 @@
 {lib, ...}: {
-  den.aspects.impermanence.nixos = {
-    user,
-    persist,
-    ...
-  }: {
-    environment.persistence."/persist" = {
-      enable = true;
-      hideMounts = true;
+  den.aspects.impermanence = {
+    nixos = {persist, ...}: {
+      environment.persistence."/persist" = {
+        enable = true;
+        hideMounts = true;
 
-      directories =
-        [
-          "/var/log"
-          "/var/lib/nixos"
-          "/var/lib/systemd/coredump"
-          "/var/db/sudo"
-          # "/var/lib/cups"
-          # "/var/lib/greetd"
-          # "/var/lib/regreet"
+        directories =
+          [
+            "/var/log"
+            "/var/lib/nixos"
+            "/var/lib/systemd/coredump"
+            "/var/db/sudo"
+            # "/var/lib/cups"
+            # "/var/lib/greetd"
+            # "/var/lib/regreet"
 
-          "/etc/ssl/certs"
-          "/etc/NetworkManager/system-connections"
-          "/etc/nixos"
-          # "/etc/greetd"
-        ]
-        ++ lib.concatMap (f: f.directories or []) persist;
+            "/etc/ssl/certs"
+            "/etc/NetworkManager/system-connections"
+            "/etc/nixos"
+            # "/etc/greetd"
+          ]
+          ++ lib.concatMap (f: f.directories or []) persist;
 
-      files =
-        [
-          "/etc/machine-id"
-          "/etc/NIXOS" # Empty file marker
-        ]
-        ++ lib.concatMap (f: f.files or []) persist;
+        files =
+          [
+            "/etc/machine-id"
+            "/etc/NIXOS" # Empty file marker
+          ]
+          ++ lib.concatMap (f: f.files or []) persist;
+      };
+    };
 
-      users.${user.name} = {
+    homeManager = {persist, ...}: {
+      home.persistence."/persist" = {
         directories =
           [
             "nixos"
