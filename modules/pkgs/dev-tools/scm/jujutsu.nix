@@ -11,7 +11,7 @@
           ui.merge-editor = ":builtin";
 
           signing = {
-            behavior = "drop";
+            behavior = "own";
             backend = "ssh";
             key = "~/.ssh/github_signing.pub";
           };
