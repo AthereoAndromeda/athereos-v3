@@ -1,5 +1,7 @@
 {...}: {
   dev-tools.jujutsu = {
+    persist.home.directories = [".config/jj/repos"];
+
     homeManager = {config, ...}: {
       programs.jujutsu = {
         enable = true;
