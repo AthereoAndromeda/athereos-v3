@@ -74,5 +74,7 @@
 
     homeManager = import ./_homeManager.nix;
     nixos = import ./_nixos.nix;
+
+    persist.home.files = [".face"];
   };
 }
