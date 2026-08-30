@@ -3,12 +3,12 @@
     includes = [den.aspects.containers];
     persist.directories = ["/var/lib/nixos-containers/firefly"];
 
-    nixos = let
-      key-path = "/var/lib/firefly/app-key.txt";
+    nixos = {config, ...}: let
+      key-str = "firefly/app-key";
+      key-path = config.sops.secrets.${key-str}.path;
     in {
-      sops.secrets."firefly/app-key" = {
+      sops.secrets.${key-str} = {
         mode = "0444";
-        path = key-path;
       };
 
       containers.firefly = rec {
@@ -19,6 +19,7 @@
         localAddress = "192.168.100.11";
         hostAddress6 = "fc00::1";
         localAddress6 = "fc00::2";
+
         config = {
           pkgs,
           lib,
