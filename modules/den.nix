@@ -47,7 +47,11 @@
     home.stateVersion = "26.05";
   };
 
-  den.default.nixos = {pkgs, ...}: {
+  den.default.nixos = {
+    pkgs,
+    config,
+    ...
+  }: {
     nixpkgs.overlays = [
       inputs.nuenv.overlays.default
     ];
@@ -135,6 +139,23 @@
 
     system.configurationRevision = self.rev or self.dirtyRev or null;
     nix.settings.trusted-users = ["root" "@wheel"];
+
+    sops.secrets."nix-settings/access-tokens/github" = {
+      reloadUnits = ["nix-daemon.service"];
+      owner = "root";
+      group = "root";
+      mode = "0400";
+    };
+
+    sops.templates."nix-access-tokens.conf" = let
+      access-token-content = tokens: "access-token = ${lib.concatStringsSep " " tokens}";
+    in {
+      content = access-token-content [config.sops.placeholder."nix-settings/access-tokens/github"];
+    };
+
+    nix.extraOptions = ''
+      !include ${config.sops.templates."nix-access-tokens.conf".path}
+    '';
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
     # Hardware-optimized for v3
