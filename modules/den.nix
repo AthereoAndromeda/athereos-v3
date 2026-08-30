@@ -35,6 +35,7 @@
       pkgs.fastfetch
       pkgs.git
       containers.firefly
+      containers.freshrss
     ]
     ++ [
       den.batteries.hostname
