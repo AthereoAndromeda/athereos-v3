@@ -11,7 +11,7 @@
       };
 
       sops.templates."nix-access-tokens.conf" = let
-        access-token-content = tokens: "access-token = ${lib.concatStringsSep " " tokens}";
+        access-token-content = tokens: "access-tokens = ${lib.concatStringsSep " " tokens}";
       in {
         content = access-token-content [config.sops.placeholder."nix-settings/access-tokens/github"];
       };
