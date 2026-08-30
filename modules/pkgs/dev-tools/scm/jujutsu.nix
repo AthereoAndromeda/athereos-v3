@@ -11,6 +11,7 @@
 
           ui.default-command = "log";
           ui.merge-editor = ":builtin";
+          ui.diff-editor = ":builtin";
 
           signing = {
             behavior = "own";
