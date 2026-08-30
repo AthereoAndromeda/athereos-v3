@@ -2,6 +2,7 @@
   den,
   dev-tools,
   inputs,
+  self,
   lib,
   ...
 }: {
@@ -132,6 +133,7 @@
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
     system.stateVersion = "26.05"; # Did you read the comment?
 
+    system.configurationRevision = self.rev or self.dirtyRev or null;
     nix.settings.trusted-users = ["root" "@wheel"];
 
     nix.settings.experimental-features = ["nix-command" "flakes"];
