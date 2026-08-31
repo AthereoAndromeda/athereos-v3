@@ -1,2 +1,0 @@
-- [ ] Encypt swapfile
-- [ ] Add Changelog
