@@ -8,6 +8,7 @@ Main repository is hosted at [Codeberg](https://codeberg.org/AthereoAndromeda/at
 
 ## Highlights ✨
 - ❄️ Dendritic Nix
+  - 🔌 Den + Flake-Parts
 - 🔒 Full Disk Encryption 
 - 💥 Impermanence with BTRFS subvolume 
 - 🔑 Secrets Management with sops-nix
