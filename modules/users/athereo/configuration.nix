@@ -12,6 +12,7 @@
         dev-tools.jujutsu
         dev-tools.lua
         dev-tools.python
+        dev-tools.julia
         gaming.prism
         gaming.steam
       ]
