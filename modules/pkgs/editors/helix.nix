@@ -23,7 +23,14 @@
             }
 
             {
+              name = "lua";
+              auto-format = true;
+              file-types = ["lua"];
+            }
+
+            {
               name = "luau";
+              auto-format = true;
               language-servers = ["luau-lsp"];
               scope = "scope.luau";
               file-types = ["luau"];
