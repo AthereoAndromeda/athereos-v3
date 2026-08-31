@@ -1,19 +1,21 @@
 {lib, ...}: {
   den.aspects.nix-settings = {
-    nixos = {config, ...}: {
+    nixos = {config, ...}: let
+      token-entries = ["nix-settings/access-tokens/github"];
+    in {
       nix.settings.trusted-users = ["root" "@wheel"];
 
-      sops.secrets."nix-settings/access-tokens/github" = {
+      sops.secrets = lib.genAttrs token-entries (_: {
         reloadUnits = ["nix-daemon.service"];
         owner = "root";
         group = "root";
         mode = "0400";
-      };
+      });
 
       sops.templates."nix-access-tokens.conf" = let
         access-token-content = tokens: "access-tokens = ${lib.concatStringsSep " " tokens}";
       in {
-        content = access-token-content [config.sops.placeholder."nix-settings/access-tokens/github"];
+        content = access-token-content (lib.map (token: config.sops.placeholder.${token}) token-entries);
       };
 
       nix.extraOptions = ''
