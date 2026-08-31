@@ -1,5 +1,5 @@
 {...}: {
-  den.aspects.pkgs.espanso = {
+  den.aspects.pkgs.espanso.homeManager = {
     services.espanso = {
       enable = true;
       configs = {
