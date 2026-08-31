@@ -18,11 +18,11 @@
 
 local primary   = "#b58fff"
 local secondary = "#c79aff"
-local tertiary	= "#d8b4ff"
-local error 		= "#ff6f9b"
-local surface 	= "#000000"
+local tertiary  = "#d8b4ff"
+local error     = "#ff6f9b"
+local surface   = "#000000"
 local outline   = "#4c3a80"
-local hover 		= "#d8b4ff"
+local hover     = "#d8b4ff"
 
 require("easyjump"):setup()
 
@@ -50,7 +50,7 @@ require("yatline"):setup({
 	-- style_b = { bg = "brightblack", fg = "brightwhite" },
 	-- style_b = { bg = "black", fg = "brightwhite" },
 	style_b = { bg = secondary, fg = surface },
-	style_c = { bg = surface, fg = primary},
+	style_c = { bg = surface, fg = primary },
 
 	permissions_t_fg = "green",
 	permissions_r_fg = "yellow",
@@ -93,7 +93,7 @@ require("yatline"):setup({
 			section_b = {
 				{ type = "string", name = "date", params = { "%X" } },
 			},
-			section_c = {				
+			section_c = {
 				{ type = "coloreds", custom = false, name = "task_states" },
 			},
 		},
@@ -108,7 +108,7 @@ require("yatline"):setup({
 				{ type = "string", name = "hovered_size" },
 			},
 			section_c = {
-				{ type = "string", name = "hovered_path" },
+				{ type = "string",   name = "hovered_path" },
 				{ type = "coloreds", name = "count" },
 			},
 		},
@@ -120,8 +120,8 @@ require("yatline"):setup({
 				{ type = "string", name = "cursor_percentage" },
 			},
 			section_c = {
-				{ type = "string", name = "hovered_file_extension", params = { true } },
-				{ type = "string", name = "hovered_ownership"},
+				{ type = "string",   name = "hovered_file_extension", params = { true } },
+				{ type = "string",   name = "hovered_ownership" },
 				{ type = "coloreds", name = "permissions" },
 			},
 		},
