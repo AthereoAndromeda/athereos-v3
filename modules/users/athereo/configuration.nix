@@ -29,6 +29,7 @@
         de.niri
         udev.probe-rs
         pkgs.zen-browser
+        pkgs.chromium
         pkgs.localsend
         pkgs.just
         pkgs.yazi
