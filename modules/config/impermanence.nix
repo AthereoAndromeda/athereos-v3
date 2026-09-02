@@ -53,15 +53,17 @@
       mkXDGList = name:
         lib.genAttrs ["directories" "files"] (fnType:
           lib.concatMap (entry:
-            map (itemPath: "${processXDGPath name}/${relativeHomePath itemPath}")
+            map (itemPath: "${processXDGPath name}/${itemPath}")
             entry.home.${name}.${fnType} or [])
           persist);
 
       # Based on HM XDG options
       # Used: persist.home.${name}.${type} = [];
-      configHome = mkXDGList "config";
-      dataHome = mkXDGList "data";
-      stateHome = mkXDGList "state";
+      xdgHomesList = lib.attrValues (lib.genAttrs [
+        "config"
+        "data"
+        "state"
+      ] (s: mkXDGList s));
     in {
       home.persistence."/persist" = {
         directories =
@@ -76,11 +78,11 @@
             ".config/nix"
           ]
           ++ lib.concatMap (f: f.home.directories or []) persist
-          ++ lib.concatMap (f: f.directories or []) [configHome dataHome stateHome];
+          ++ lib.concatMap (f: f.directories or []) xdgHomesList;
 
         files =
           lib.concatMap (f: f.home.files or []) persist
-          ++ lib.concatMap (f: f.files or []) [configHome dataHome stateHome];
+          ++ lib.concatMap (f: f.files or []) xdgHomesList;
       };
     };
   };
