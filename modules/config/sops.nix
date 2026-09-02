@@ -22,7 +22,7 @@ in {
         age = {
           # This will automatically import SSH keys as age keys
           sshKeyPaths = [];
-          keyFile = "/var/lib/sops-nix/key.txt";
+          keyFile = "/persist/var/lib/sops-nix/key.txt";
           # This is using an age key that is expected to already be in the filesystem
           # This will generate a new key if the key specified above does not exist
           generateKey = true;
