@@ -1,7 +1,16 @@
 modmap:
   - name: Global Config
     window:
-      not: [/^steam_app_.*$/]
+      not:
+        - /^steam_app_*$/
+        - /^steam_app_default$/
+        - Need for Speed™ Most Wanted
+    application:
+      not:
+        - /^steam_app_*$/
+        - /^steam_app_default$/
+        - Need for Speed™ Most Wanted
+        
     remap:
       CapsLock:
         alone: Esc
