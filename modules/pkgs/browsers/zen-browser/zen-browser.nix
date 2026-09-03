@@ -23,6 +23,8 @@
         env = {
           MOZ_USE_XINPUT2 = "1";
         };
+
+        profiles.default = import ./profiles/_default.nix pkgs;
       };
 
       xdg.mimeApps.defaultApplications = lib.genAttrs [
