@@ -1,15 +1,9 @@
-{...}: {
+{gaming, ...}: {
   gaming.lutris = {
+    includes = [gaming.base];
     persist.home.directories = ["Games"];
     persist.home.data.directories = ["lutris" "umu"];
 
-    # TODO: Move to own wine.nix file
-    nixos = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [
-        wineWow64Packages.full
-        winetricks
-      ];
-    };
     homeManager = {
       host,
       osConfig,
@@ -19,7 +13,7 @@
       assertions = [
         {
           assertion = host.sharedHomePkgs;
-          message = "UseGlobalPkgs must be enabled. nixos steam pkgs must match home-manager pkgs instance";
+          message = "UseGlobalPkgs must be enabled. nixos pkgs must match home-manager pkgs instance";
         }
       ];
 

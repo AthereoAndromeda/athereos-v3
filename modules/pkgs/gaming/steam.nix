@@ -1,5 +1,9 @@
-{...}: {
+{gaming, ...}: {
   gaming.steam = {
+    includes = [gaming.base];
+    persist.home.directories = [".steam"];
+    persist.home.data.directories = ["Steam"];
+
     nixos = {
       pkgs,
       config,
@@ -19,25 +23,13 @@
       ];
 
       environment.systemPackages = [pkgs.steam-run];
+
       programs.steam = {
         enable = true;
+        extraPackages = with pkgs; [gamescope];
         gamescopeSession.enable = true;
         protontricks.enable = true;
       };
-
-      programs.gamemode.enable = true;
-      programs.gamescope = {
-        enable = true;
-        capSysNice = false;
-      };
-
-      hardware.graphics = {
-        enable = true;
-        enable32Bit = true;
-      };
     };
-
-    persist.home.directories = [".steam"];
-    persist.home.data.directories = ["Steam"];
   };
 }
