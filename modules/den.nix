@@ -34,6 +34,7 @@
       pkgs.fonts
       pkgs.fastfetch
       pkgs.git
+      pkgs.bat
       containers.firefly
       containers.freshrss
     ]
