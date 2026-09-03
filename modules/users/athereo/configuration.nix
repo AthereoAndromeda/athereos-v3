@@ -19,6 +19,7 @@
         dev-tools.embedded
         gaming.prism
         gaming.steam
+        gaming.lutris
       ]
       ++ (with den.batteries; [
         define-user
