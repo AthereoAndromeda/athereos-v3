@@ -21,9 +21,14 @@
       environment.systemPackages = [pkgs.steam-run];
       programs.steam = {
         enable = true;
+        gamescopeSession.enable = true;
       };
 
       programs.gamemode.enable = true;
+      programs.gamescope = {
+        enable = true;
+        capSysNice = true;
+      };
 
       hardware.graphics = {
         enable = true;
