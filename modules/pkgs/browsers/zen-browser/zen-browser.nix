@@ -18,20 +18,30 @@
           DisableAppUpdate = true;
           DisableTelemetry = true;
           DisablePocket = true;
+          AutofillAddressEnabled = false;
+          AutofillCreditCardEnabled = false;
+          # DisableFeedbackCommands = true;
+          DisableFirefoxStudies = true;
+          DontCheckDefaultBrowser = true;
+          NoDefaultBookmarks = true;
+          OfferToSaveLogins = true;
+
+          EnableTrackingProtection = {
+            Value = true;
+            Locked = false;
+            Cryptomining = true;
+            Fingerprinting = true;
+          };
         };
 
         env = {
           MOZ_USE_XINPUT2 = "1";
         };
-      };
 
-      xdg.mimeApps.defaultApplications = lib.genAttrs [
-        "text/html"
-        "x-scheme-handler/http"
-        "x-scheme-handler/https"
-        "x-scheme-handler/about"
-        "x-scheme-handler/unknown"
-      ] (_: "zen-beta.desktop");
+        profiles = {
+          default = import ./profiles/_default.nix {inherit pkgs lib;};
+        };
+      };
     };
 
     persist.home.config.directories = ["zen"];

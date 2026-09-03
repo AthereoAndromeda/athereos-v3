@@ -10,6 +10,7 @@
       "rns"
       "nomadnet"
       "lxmf"
+      "enhancer-for-youtube"
     ])
   ];
 }
