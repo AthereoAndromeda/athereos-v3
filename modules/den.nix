@@ -50,6 +50,10 @@
   };
 
   den.default.nixos = {pkgs, ...}: {
+    imports = [
+      inputs.nur.modules.nixos.default
+    ];
+
     programs.appimage = {
       enable = true;
       binfmt = true;
