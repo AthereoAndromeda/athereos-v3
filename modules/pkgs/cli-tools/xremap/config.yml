@@ -1,5 +1,7 @@
 modmap:
   - name: Global Config
+    window:
+      not: [/^steam_app_.*$/]
     remap:
       CapsLock:
         alone: Esc
