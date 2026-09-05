@@ -20,6 +20,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixos-hardware.inputs.nixpkgs.follows = "nixpkgs";
 
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
+
     # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
     # to have it up-to-date or simply don't specify the nixpkgs input
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
