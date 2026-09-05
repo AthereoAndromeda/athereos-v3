@@ -11,6 +11,7 @@
     nixos = {
       pkgs,
       config,
+      inputs',
       ...
     }: {
       warnings = lib.concatLists [
@@ -32,7 +33,7 @@
         extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
       };
 
-      nixpkgs.overlays = [inputs.noctalia-v5.overlays.default];
+      # nixpkgs.overlays = [inputs.noctalia-v5.overlays.default];
       imports = [inputs.noctalia-v5.nixosModules.default];
 
       environment.systemPackages = with pkgs; [
@@ -66,15 +67,17 @@
 
       programs.noctalia = {
         enable = true;
+        package = inputs'.noctalia-v5.packages.default;
         recommendedServices.enable = true;
       };
     };
 
-    homeManager = {
+    homeManager = {inputs', ...}: {
       imports = [inputs.noctalia-v5.homeModules.default];
 
       programs.noctalia = {
         enable = true;
+        package = inputs'.noctalia-v5.packages.default;
         settings = ./noctalia-config.toml;
       };
     };
