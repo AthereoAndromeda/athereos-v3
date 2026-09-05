@@ -11,14 +11,10 @@
             "/var/lib/nixos"
             "/var/lib/systemd/coredump"
             "/var/db/sudo"
-            # "/var/lib/cups"
-            # "/var/lib/greetd"
-            # "/var/lib/regreet"
 
             "/etc/ssl/certs"
             "/etc/NetworkManager/system-connections"
             "/etc/nixos"
-            # "/etc/greetd"
           ]
           ++ lib.concatMap (f: f.directories or []) persist;
 
