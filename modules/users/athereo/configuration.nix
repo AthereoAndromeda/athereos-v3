@@ -14,6 +14,7 @@
         dev-tools.python
         dev-tools.julia
         dev-tools.devenv
+        dev-tools.atuin
         gaming.prism
         gaming.steam
       ]
