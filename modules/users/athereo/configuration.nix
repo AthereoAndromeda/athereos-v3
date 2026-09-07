@@ -17,6 +17,7 @@
         dev-tools.julia
         dev-tools.devenv
         dev-tools.embedded
+        dev-tools.atuin
         gaming.prism
         gaming.steam
         gaming.lutris
