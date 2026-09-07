@@ -18,8 +18,8 @@ window-rule {
     // This app-id regular expression will work for both:
     // - host Firefox (app-id is "firefox")
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
-    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
-    match app-id=r#"^zen-beta$"# title="^Picture-in-Picture$"
+    match app-id="firefox" title="Picture-in-Picture"
+    match app-id="zen-beta" title="Picture-in-Picture"
 
         
     open-floating true
@@ -29,7 +29,7 @@ window-rule {
     default-floating-position x=50 y=60 relative-to="top-right"
 }
 
-window-rule {
+/- window-rule {
     match app-id=r#"^cliphist$"#
     open-floating true
     open-focused true
@@ -40,8 +40,9 @@ window-rule {
 }
 
 window-rule {
-    match app-id=r#"^thunderbird$"#
-    match app-id=r#"^superproductivity$"#
+    match app-id="thunderbird"
+    match app-id="superproductivity"
+    match app-id="ferdium"
     
     open-focused true
     open-maximized-to-edges true
