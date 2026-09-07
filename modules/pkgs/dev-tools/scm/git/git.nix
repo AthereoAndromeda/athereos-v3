@@ -9,7 +9,7 @@
     includes = [dev-tools.lazygit dev-tools.delta dev-tools.serie];
 
     nixos = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [git];
+      environment.systemPackages = with pkgs; [(git.override {withLibsecret = true;})];
     };
 
     homeManager = {
