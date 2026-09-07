@@ -17,6 +17,10 @@
         wget
         jq
         file
+        dust
+        procs
+        mtr
+        dig
       ];
     };
   };
