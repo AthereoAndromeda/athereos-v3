@@ -6,10 +6,10 @@
   dev-tools.git = den.aspects.pkgs.git;
 
   den.aspects.pkgs.git = {
-    includes = [dev-tools.lazygit];
+    includes = [dev-tools.lazygit dev-tools.delta dev-tools.serie];
 
     nixos = {pkgs, ...}: {
-      environment.systemPackages = with pkgs; [git serie];
+      environment.systemPackages = with pkgs; [git];
     };
 
     homeManager = {
@@ -66,13 +66,6 @@
             resetm = "!git diff --name-only --cached | fzf -0 -m --preview 'git diff --color=always {-1}' | xargs -r git reset";
           };
         };
-      };
-
-      # Better diff view
-      programs.delta = {
-        enable = true;
-        enableGitIntegration = true;
-        enableJujutsuIntegration = true;
       };
     };
   };
