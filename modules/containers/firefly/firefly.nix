@@ -6,6 +6,7 @@
     nixos = {config, ...}: let
       key-str = "firefly/app-key";
       key-path = config.sops.secrets.${key-str}.path;
+      timezone = config.time.timeZone;
     in {
       sops.secrets.${key-str} = {
         mode = "0444";
@@ -43,6 +44,7 @@
               lib.fromTOML (builtins.readFile ./.env)
               // {
                 APP_KEY_FILE = key-path;
+                TZ = timezone;
               };
           };
 
