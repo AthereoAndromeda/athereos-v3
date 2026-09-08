@@ -2,18 +2,71 @@ local wezterm = require 'wezterm'
 
 local config = wezterm.config_builder()
 
-config.font = wezterm.font "JetBrains Mono"
-config.color_scheme = "Catppuccin Mocha"
+-- config.font = wezterm.font "JetBrains Mono"
+-- config.font = wezterm.font "0xProto Nerd Font"
+-- config.font = wezterm.font { family = "VictorMono" }
+config.font = wezterm.font_with_fallback({
+  { family = "Maple Mono NF" },
+  "Noto Color Emoji"
+})
+
+
+config.font_rules = {
+  {
+    -- Italic
+    italic = true,
+    font = wezterm.font_with_fallback({
+      { family = "Maple Mono NF", italic = true },
+      "Noto Color Emoji",
+    }),
+  },
+  {
+    -- Bold
+    intensity = "Bold",
+    italic = false,
+    font = wezterm.font_with_fallback({
+      { family = "Maple Mono NF", weight = "Bold" },
+      "Noto Color Emoji",
+    }),
+  },
+  {
+    -- Bold Italic
+    intensity = "Bold",
+    italic = true,
+    font = wezterm.font_with_fallback({
+      { family = "Maple Mono NF", weight = "Bold", italic = true },
+      "Noto Color Emoji",
+    }),
+  },
+}
+
+
+-- config.font_shaper = "Harfbuzz"
+-- config.harfbuzz_features = { 'calt=1', 'clig=1', 'liga=1' }
+-- config.harfbuzz_features = { "dlig", 'calt=1' }
+
+
+-- config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Noctalia"
 config.enable_wayland = true
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
 config.window_background_opacity = 0.8
+
 
 config.window_padding = {
   left = 2,
   right = 2,
   top = 0,
   bottom = 0,
+}
+
+config.keys = {
+  {
+    key = "Enter",
+    mods = "ALT",
+    action = wezterm.action.DisableDefaultAssignment,
+  }
 }
 
 -- The filled in variant of the < symbol
