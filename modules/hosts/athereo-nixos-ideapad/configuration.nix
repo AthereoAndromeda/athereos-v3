@@ -10,7 +10,7 @@
       scripts.lenovoctl
     ];
 
-    users.extraGroups = ["tss"];
+    user.extraGroups = ["tss"];
 
     nixos = {pkgs, ...}: {
       imports = [inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9];
