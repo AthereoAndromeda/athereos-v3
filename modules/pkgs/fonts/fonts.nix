@@ -10,14 +10,21 @@
     '';
 in {
   den.aspects.pkgs.fonts = {
-    includes = with den.aspects.pkgs; [
-      fonts.jetbrains-mono
-      fonts.source-code-pro
+    includes = with den.aspects.pkgs.fonts; [
+      jetbrains-mono
+      source-code-pro
     ];
 
     nixos = {pkgs, ...}: {
       environment.systemPackages = [pkgs.gnome-font-viewer];
-      fonts.packages = [pkgs.dejavu_fonts];
+      fonts.packages = [
+        pkgs.dejavu_fonts
+        pkgs.noto-fonts-color-emoji
+        pkgs.maple-mono.NF
+        pkgs.nerd-fonts.victor-mono
+        pkgs.nerd-fonts._0xproto
+        pkgs.nerd-fonts.iosevka
+      ];
       fonts.enableDefaultPackages = true;
     };
 
@@ -29,13 +36,4 @@ in {
       fonts.packages = [pkgs.source-code-pro];
     };
   };
-  # fonts.packages = with pkgs.nerd-fonts;
-  #   [
-  #     jetbrains-mono
-  #     sauce-code-pro
-  #   ]
-  #   ++ [
-  #     (install-font ./library-3-am-font)
-  #     (install-font ./aquire-font)
-  #   ];
 }
