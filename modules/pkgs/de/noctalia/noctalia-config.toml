@@ -152,17 +152,17 @@ widget_order = [
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
         background = false
-        bar_width = 0.60000000000000009
-        bloom_intensity = 0.70000000000000007
+        bar_width = 0.6
+        bloom_intensity = 0.7
         fade_when_idle = true
         inner_diameter = 0.5
         primary_color = "error"
-        ring_opacity = 0.90000000000000002
-        rotation_speed = 1.7000000000000002
+        ring_opacity = 0.9
+        rotation_speed = 1.7
         secondary_color = "primary"
         sensitivity = 1.5
         visualization_mode = "all"
-        wave_thickness = 0.60000000000000009
+        wave_thickness = 0.6
 
     [desktop_widgets.widget.desktop-widget-0000000000000004]
     box_height = 0.0
@@ -178,7 +178,7 @@ widget_order = [
         [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
         background = true
         background_color = "surface"
-        background_opacity = 0.20999999999999999
+        background_opacity = 0.2
         background_padding = 15.0
         hide_when_no_media = true
         layout = "horizontal"
@@ -195,7 +195,7 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
-        background_opacity = 0.14999999999999999
+        background_opacity = 0.15
         color2 = "error"
         stat2 = "cpu_temp"
 
@@ -211,7 +211,7 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
-        background_opacity = 0.14999999999999999
+        background_opacity = 0.15
         stat = "ram_pct"
 
     [desktop_widgets.widget.desktop-widget-0000000000000007]
@@ -241,7 +241,7 @@ widget_order = [
     type = "volume"
 
         [desktop_widgets.widget.desktop-widget-0000000000000008.settings]
-        background_opacity = 0.14999999999999999
+        background_opacity = 0.15
 
     [desktop_widgets.widget.desktop-widget-0000000000000009]
     box_height = 96.0
@@ -275,7 +275,7 @@ widget_order = [
 
         [desktop_widgets.widget.desktop-widget-000000000000000a.settings]
         background = false
-        background_opacity = 0.29999999999999999
+        background_opacity = 0.3
         background_padding = 2
         background_radius = 32
         center_text = true
@@ -518,7 +518,7 @@ community_palette = "Lilac AMOLED"
 source = "community"
 
     [theme.templates]
-    builtin_ids = [ "btop", "niri" ]
+    builtin_ids = [ "btop", "niri", "wezterm" ]
     community_ids = [ "discord", "obsidian", "zathura", "zellij", "bat", "lazygit" ]
 
 [wallpaper]
@@ -529,16 +529,16 @@ transition_on_startup = true
     enabled = true
 
     [wallpaper.default]
-    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png"
+    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png.png"
 
     [wallpaper.last]
-    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png"
+    path = "/home/athereo/Pictures/Wallpapers/nix/23970596.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png"
+    path = "/home/athereo/Pictures/Wallpapers/nix/23970596.png"
 
     [wallpaper.monitors.winit]
-    path = "/home/athereo/Pictures/Wallpapers/wallpaperflare.com_wallpaper-sunrise.jpg"
+    path = "/home/athereo/Pictures/Wallpapers/wallpaperflare.com_wallpaper-neonsun.jpg"
 
 [widget.audio_visualizer]
 color_2 = "error"
