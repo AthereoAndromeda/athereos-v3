@@ -22,6 +22,10 @@
         enable = true;
         environmentVariables = config.home.sessionVariables;
 
+        settings = {
+          edit_mode = "helix";
+        };
+
         # FIX: Does not work if in configFile
         envFile.text = ''
           just --completions nushell | save -f ~/.just.nu
