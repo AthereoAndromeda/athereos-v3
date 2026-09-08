@@ -36,6 +36,9 @@
       # nixpkgs.overlays = [inputs.noctalia-v5.overlays.default];
       imports = [inputs.noctalia-v5.nixosModules.default];
 
+      # Use Noctalia's polkit agent
+      systemd.user.services.niri-flake-polkit.enable = false;
+
       environment.systemPackages = with pkgs; [
         noctalia
         udiskie
