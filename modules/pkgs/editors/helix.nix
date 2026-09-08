@@ -1,9 +1,32 @@
 {...}: {
   den.aspects.pkgs.helix = {
-    homeManager = {...}: {
+    homeManager = {
       programs.helix = {
         enable = true;
         defaultEditor = true;
+
+        themes = {
+          ao-italics = {
+            inherits = "ao";
+
+            "comment" = {
+              fg = "gray";
+              modifiers = ["italic"];
+            };
+            "comment.block" = {
+              fg = "gray";
+              modifiers = ["italic"];
+            };
+            "comment.line" = {
+              fg = "gray";
+              modifiers = ["italic"];
+            };
+            "comment.documentation" = {
+              fg = "gray";
+              modifiers = ["italic"];
+            };
+          };
+        };
 
         languages = {
           language-server = {
@@ -53,7 +76,7 @@
         };
 
         settings = {
-          theme = "ao";
+          theme = "ao-italics";
 
           editor = {
             # Show currently open buffers, only when more than one exists.
