@@ -26,6 +26,10 @@
           edit_mode = "helix";
         };
 
+        shellAliases = {
+          ll = "ls -l";
+        };
+
         # FIX: Does not work if in configFile
         envFile.text = ''
           just --completions nushell | save -f ~/.just.nu
