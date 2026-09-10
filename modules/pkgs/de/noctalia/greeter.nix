@@ -2,13 +2,17 @@
   den.aspects.noctalia-greeter = {
     persist.directories = ["/var/lib/noctalia-greeter"];
 
-    nixos = {pkgs, ...}: {
-      nixpkgs.overlays = [inputs.noctalia-greeter.overlays.default];
+    nixos = {
+      pkgs,
+      inputs',
+      ...
+    }: {
+      # nixpkgs.overlays = [inputs.noctalia-greeter.overlays.default];
       imports = [inputs.noctalia-greeter.nixosModules.default];
 
       programs.noctalia-greeter = {
         enable = true;
-        package = pkgs.noctalia-greeter;
+        package = inputs'.noctalia-greeter.packages.default;
 
         # Optional configuration
         # greeter-args = "";
