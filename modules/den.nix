@@ -20,6 +20,7 @@
       lix
       unfree
       hardware-utils
+      networking.default
       boot
       boot.grub
       security.keyring
@@ -83,13 +84,6 @@
       wget
       firefox
     ];
-
-    # Incompatible with Docker
-    # https://mynixos.com/nixpkgs/option/networking.nftables.enable
-    networking.nftables.enable = lib.mkDefault true;
-
-    # Configure network connections interactively with nmcli or nmtui.
-    networking.networkmanager.enable = lib.mkDefault true;
 
     # Enable the X11 windowing system.
     services.xserver.enable = lib.mkDefault true;
