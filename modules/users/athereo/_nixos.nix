@@ -25,14 +25,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     nautilus
-
-    # Tablet
-    wvkbd
-    lisgd
   ];
-
-  services.xserver.wacom.enable = true;
-  hardware.opentabletdriver.enable = true;
 
   nix.settings.trusted-users = ["athereo"];
 

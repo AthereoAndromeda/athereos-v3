@@ -24,6 +24,15 @@
         pkcs11.enable = true;
         tctiEnvironment.enable = true;
       };
+
+      environment.systemPackages = with pkgs; [
+        # Tablet
+        wvkbd
+        lisgd
+      ];
+
+      services.xserver.wacom.enable = true;
+      hardware.opentabletdriver.enable = true;
     };
 
     provides.to-users = {user, ...}: {
