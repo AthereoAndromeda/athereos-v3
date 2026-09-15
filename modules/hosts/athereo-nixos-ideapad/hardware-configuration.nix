@@ -1,6 +1,18 @@
-{lib, ...}: {
+{
+  lib,
+  den,
+  ...
+}: {
   den.aspects.athereo-nixos-ideapad = {
+    includes = with den.aspects.hardware; [
+      swap
+      zswap
+    ];
+
     nixos = {config, ...}: {
+      swap.enable = true;
+      swap.swappiness = 100;
+
       boot.initrd = {
         availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod" "sdhci_pci"];
         kernelModules = [];
@@ -17,19 +29,6 @@
       boot.initrd.supportedFilesystems = {
         btrfs = true;
       };
-
-      boot.zswap = {
-        enable = true;
-      };
-
-      # Here a more complete example
-      boot.kernelParams = [
-        "zswap.enabled=1"
-        "zswap.max_pool_percent=50"
-        "zswap.shrinker_enabled=1"
-        "zswap.compressor=zstd"
-        "zswap.accept_threshold_percent=90"
-      ];
 
       fileSystems."/" = {
         device = "/dev/mapper/enc";
