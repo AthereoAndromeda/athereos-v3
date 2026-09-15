@@ -5,6 +5,7 @@
       pkgs.simplex-chat
       pkgs.signal-desktop
       pkgs.ferdium
+      pkgs.tangram
     ];
   };
 }
