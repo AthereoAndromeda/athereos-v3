@@ -334,23 +334,6 @@ hotkey-overlay {
 }
 
 
-// Set the overview wallpaper on the backdrop.
-layer-rule {
-  match namespace="^noctalia-overview*"
-  place-within-backdrop true
-}
-
-layer-rule {
-    match namespace="^launcher$"
-    opacity 0.95
-
-    shadow {
-        on
-    }
-
-    geometry-corner-radius 10
-}
-
 overview {
     zoom 0.5
     // backdrop-color "#262626"
