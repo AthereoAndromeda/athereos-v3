@@ -61,6 +61,7 @@ update *deps:
 [group('nix/utils')]
 update-ci *deps: _git-add
     nix flake update --commit-lock-file {{deps}}
+    git commit -S --amend --no-edit
 
 # Cleans nix garbage
 [group('nix/utils')]
