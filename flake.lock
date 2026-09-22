@@ -474,26 +474,6 @@
         "type": "github"
       }
     },
-    "noctalia-greeter": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1789870651,
-        "narHash": "sha256-pNijmVDtv9Gihc44Y7Duox+mcCnfLegPUmf9xoZb6os=",
-        "owner": "noctalia-dev",
-        "repo": "noctalia-greeter",
-        "rev": "02dbb072f40891d86818132f1ef0a35d2973aced",
-        "type": "github"
-      },
-      "original": {
-        "owner": "noctalia-dev",
-        "repo": "noctalia-greeter",
-        "type": "github"
-      }
-    },
     "noctalia-v5": {
       "inputs": {
         "nixpkgs": "nixpkgs_3"
@@ -568,7 +548,6 @@
         "nix-cachyos-kernel": "nix-cachyos-kernel",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_2",
-        "noctalia-greeter": "noctalia-greeter",
         "noctalia-v5": "noctalia-v5",
         "nuenv": "nuenv",
         "prism-launcher": "prism-launcher",

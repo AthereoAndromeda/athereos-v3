@@ -1,21 +1,19 @@
-{inputs, ...}: {
+{...}: {
   den.aspects.noctalia-greeter = {
     persist.directories = ["/var/lib/noctalia-greeter"];
 
     nixos = {pkgs, ...}: {
-      nixpkgs.overlays = [inputs.noctalia-greeter.overlays.default];
-      imports = [inputs.noctalia-greeter.nixosModules.default];
-
-      programs.noctalia-greeter = {
+      # Requires nixpkgs-unstable
+      services.displayManager.noctalia-greeter = {
         enable = true;
-        package = pkgs.noctalia-greeter;
 
-        # Optional configuration
-        # greeter-args = "";
-        settings.cursor = {
-          theme = "LyraQ-cursors";
-          size = 24;
+        settings = {
+          cursor.size = 24;
+        };
+
+        cursorTheme = {
           package = pkgs.lyra-cursors;
+          name = "LyraQ-cursors";
         };
       };
     };

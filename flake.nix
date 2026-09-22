@@ -41,9 +41,6 @@
     noctalia-v5.url = "github:noctalia-dev/noctalia-shell/cachix";
     # noctalia-v5.inputs.nixpkgs.follows = "nixpkgs";
 
-    noctalia-greeter.url = "github:noctalia-dev/noctalia-greeter";
-    noctalia-greeter.inputs.nixpkgs.follows = "nixpkgs";
-
     nuenv.url = "github:DeterminateSystems/nuenv";
     nuenv.inputs.nixpkgs.follows = "nixpkgs";
 
