@@ -13,6 +13,7 @@
         dev-tools.lua
         dev-tools.python
         dev-tools.julia
+        dev-tools.devenv
         gaming.prism
         gaming.steam
       ]
