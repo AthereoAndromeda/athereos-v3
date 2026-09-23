@@ -136,6 +136,24 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "inputs": {
+        "systems": "systems_2"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -552,6 +570,7 @@
         "nuenv": "nuenv",
         "prism-launcher": "prism-launcher",
         "sops-nix": "sops-nix",
+        "upmd": "upmd",
         "xdg-termfilepickers": "xdg-termfilepickers",
         "xremap": "xremap",
         "yazi-flavors": "yazi-flavors",
@@ -572,6 +591,27 @@
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "bb71557c93cad40f5921b2342d7fd69f9e6497ab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "rust-overlay_2": {
+      "inputs": {
+        "nixpkgs": [
+          "upmd",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1779506148,
+        "narHash": "sha256-OffE5yuMrSW71zIJNLvtl9MCO6WTAHEjlFPUCvkd/QM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "d9973e2ab49747fada06ebbe26cda27eb0220cf1",
         "type": "github"
       },
       "original": {
@@ -615,6 +655,21 @@
         "type": "github"
       }
     },
+    "systems_2": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    },
     "treefmt-nix": {
       "inputs": {
         "nixpkgs": "nixpkgs_4"
@@ -630,6 +685,29 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "upmd": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay_2"
+      },
+      "locked": {
+        "lastModified": 1790411837,
+        "narHash": "sha256-VRDSlbq3MVI1QGnCFPH9eu8Pmp9IIBNYQEbhZZaV780=",
+        "owner": "AthereoAndromeda",
+        "repo": "upmd",
+        "rev": "e07d3c639da8b8d636659f03fbd014f1e2ead46d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AthereoAndromeda",
+        "ref": "nix",
+        "repo": "upmd",
         "type": "github"
       }
     },
