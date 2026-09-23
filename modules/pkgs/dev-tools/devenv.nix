@@ -1,5 +1,7 @@
 {...}: {
   dev-tools.devenv = {
+    persist.home.data.directories = ["devenv"];
+
     nixos = {pkgs, ...}: {
       environment.systemPackages = [pkgs.devenv];
     };
