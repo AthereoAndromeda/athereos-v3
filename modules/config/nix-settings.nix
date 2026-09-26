@@ -6,10 +6,10 @@
       nix.settings.trusted-users = ["root" "@wheel"];
 
       sops.secrets = lib.genAttrs token-entries (_: {
-        reloadUnits = ["nix-daemon.service"];
+        restartUnits = ["nix-daemon.service"];
         owner = "root";
-        group = "root";
-        mode = "0400";
+        group = "wheel";
+        mode = "0440";
       });
 
       sops.templates."nix-access-tokens.conf" = let
