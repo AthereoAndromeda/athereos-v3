@@ -697,16 +697,15 @@
         "rust-overlay": "rust-overlay_2"
       },
       "locked": {
-        "lastModified": 1790415672,
-        "narHash": "sha256-FKstUsNTKyktDOcm1nO37dCmBURemnhKtf4wN7iEp8k=",
-        "owner": "AthereoAndromeda",
+        "lastModified": 1790561444,
+        "narHash": "sha256-J2CTHUJ4wCp/f0bo+ZuqdZpRMgHy2Xha2N8g0UTBZQ4=",
+        "owner": "rezigned",
         "repo": "upmd",
-        "rev": "58c4dfeb37c9d175ee290f3b460b707058160662",
+        "rev": "3ba05c776b8d58f0ce5501c0368aefe12598d4b2",
         "type": "github"
       },
       "original": {
-        "owner": "AthereoAndromeda",
-        "ref": "nix",
+        "owner": "rezigned",
         "repo": "upmd",
         "type": "github"
       }

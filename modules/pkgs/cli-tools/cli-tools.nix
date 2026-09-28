@@ -5,6 +5,7 @@
       pkgs.pay-respects
       pkgs.espanso
       pkgs.carapace
+      pkgs.upmd
     ];
 
     nixos = {pkgs, ...}: {

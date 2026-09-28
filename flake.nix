@@ -47,7 +47,7 @@
     prism-launcher.url = "github:Diegiwg/PrismLauncher-Cracked";
     prism-launcher.inputs.nixpkgs.follows = "nixpkgs";
 
-    upmd.url = "github:AthereoAndromeda/upmd/nix";
+    upmd.url = "github:rezigned/upmd";
     upmd.inputs.nixpkgs.follows = "nixpkgs";
 
     sops-nix.url = "github:Mic92/sops-nix";

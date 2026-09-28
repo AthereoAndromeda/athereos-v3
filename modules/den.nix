@@ -55,7 +55,6 @@
     nixpkgs.overlays = [
       inputs.nuenv.overlays.default
       inputs.nix-cachyos-kernel.overlays.pinned
-      inputs.upmd.overlays.default
     ];
 
     # Linux 7.2
@@ -80,7 +79,6 @@
     };
 
     environment.systemPackages = with pkgs; [
-      upmd
       btop
       vim
       wget
