@@ -29,6 +29,7 @@
         printing
         de.niri
         udev.probe-rs
+        pkgs.waydroid
         pkgs.zen-browser
         pkgs.chromium
         pkgs.localsend
