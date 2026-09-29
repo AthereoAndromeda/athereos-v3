@@ -7,6 +7,9 @@
       "steam"
       "steam-unwrapped"
       "hplip"
+      "rns"
+      "nomadnet"
+      "lxmf"
     ])
   ];
 }
