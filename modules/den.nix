@@ -58,6 +58,11 @@
       inputs.nix-cachyos-kernel.overlays.pinned
     ];
 
+    programs.appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     # Linux 7.2
     # boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
     #
@@ -84,6 +89,7 @@
       vim
       wget
       firefox
+      appimage-run
     ];
 
     # Enable the X11 windowing system.
