@@ -22,11 +22,7 @@
           inputs.nix-cachyos-kernel.overlays.pinned
         ];
       }
-      nix-settings
-      lix
       hardware-utils
-      networking.default
-      boot
       boot.grub
       security.keyring
       security.polkit
@@ -61,21 +57,10 @@
       binfmt = true;
     };
 
-    # Linux 7.2
-    # boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
-    #
-    # Cachy Kernel
-
     specialisation.stable.configuration = {
       system.nixos.tags = ["stable"];
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
     };
-
-    # home-manager = {
-    #   useGlobalPkgs = true;
-    #   useUserPackages = true;
-    #   backupFileExtension = "hm-backup";
-    # };
 
     home-manager.backupFileExtension = "hm-backup";
 

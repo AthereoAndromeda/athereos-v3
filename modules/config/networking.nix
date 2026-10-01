@@ -1,4 +1,10 @@
-{lib, ...}: {
+{
+  lib,
+  den,
+  ...
+}: {
+  den.schema.host.includes = [den.aspects.networking.default];
+
   den.aspects.networking.default = {
     nixos = {
       # Incompatible with Docker

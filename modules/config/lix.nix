@@ -1,4 +1,6 @@
-{...}: {
+{den, ...}: {
+  den.schema.host.includes = [den.aspects.lix];
+
   den.aspects.lix = {
     nixpkgs-overlays = _: [
       (final: prev: {

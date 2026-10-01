@@ -1,4 +1,10 @@
-{lib, ...}: {
+{
+  den,
+  lib,
+  ...
+}: {
+  den.schema.host.includes = [den.aspects.nix-settings];
+
   den.aspects.nix-settings = {
     nixos = {config, ...}: let
       token-entries = ["nix-settings/access-tokens/github"];
