@@ -24,27 +24,27 @@ default:
 # Build in `build` mode.
 [group('build')]
 build *flags: format _git-add
-    sudo nixos-rebuild --flake . {{flags}} build
+    nixos-rebuild --elevate=sudo --flake . {{flags}} build
 
 # Build in `switch` mode and add the generation to the bootloader
 [group('build')]
 switch *flags: format _git-add
-     sudo nixos-rebuild --flake . {{ rebuild-opts }} {{flags}} switch
+    nixos-rebuild --elevate=sudo --flake . {{ rebuild-opts }} {{flags}} switch
 
 # Build in `test` mode
 [group('build')]
 test *flags: format _git-add
-     sudo nixos-rebuild --flake . {{flags}} test
+    nixos-rebuild --elevate=sudo --flake . {{flags}} test
 
 # Build in `boot` mode
 [group('build')]
 boot *flags: format _git-add
-     sudo nixos-rebuild --flake . {{flags}} boot
+    nixos-rebuild --elevate=sudo --flake . {{flags}} boot
 
 # Build in `test` mode, with lots of debug flags
 [group('build')]
 test-debug eval-cache="true" *flags: format _git-add
-     sudo nixos-rebuild --flake . --option eval-cache {{eval-cache}} --show-trace --print-build-logs --verbose {{flags}} test
+    nixos-rebuild --elevate=sudo --flake . --option eval-cache {{eval-cache}} --show-trace --print-build-logs --verbose {{flags}} test
 
 
 # Format all `.nix` files using Alejandra
