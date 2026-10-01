@@ -9,8 +9,6 @@
   den.aspects.athereo-nixos-ideapad = {
     includes = with den.aspects; [
       scripts.lenovoctl
-      containers.firefly
-      containers.freshrss
       remote-build.builder
     ];
 
@@ -43,7 +41,12 @@
     };
 
     provides.to-users = {user, ...}: {
-      includes = [den.aspects.impermanence];
+      includes = with den.aspects;
+        [
+          containers.firefly
+          containers.freshrss
+        ]
+        ++ [den.aspects.impermanence];
 
       nixos = {
         users.groups.lenovoctl = {};
