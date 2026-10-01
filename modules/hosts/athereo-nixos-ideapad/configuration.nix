@@ -1,6 +1,7 @@
 {
   den,
   inputs,
+  remote-build,
   ...
 }: {
   den.hosts.x86_64-linux.athereo-nixos-ideapad.users.athereo = {};
@@ -10,6 +11,7 @@
       scripts.lenovoctl
       containers.firefly
       containers.freshrss
+      remote-build.builder
     ];
 
     user.extraGroups = ["tss"];
