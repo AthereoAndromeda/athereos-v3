@@ -65,10 +65,6 @@
     # boot.kernelPackages = pkgs.linuxKernel.packages.linux_7_2;
     #
     # Cachy Kernel
-    boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
-    #
-    # Cachy Kernel
-    # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
     specialisation.stable.configuration = {
       system.nixos.tags = ["stable"];
