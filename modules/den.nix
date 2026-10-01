@@ -16,6 +16,12 @@
 
   den.default.includes = with den.aspects;
     [
+      {
+        nixpkgs-overlays = _: [
+          inputs.nuenv.overlays.default
+          inputs.nix-cachyos-kernel.overlays.pinned
+        ];
+      }
       nix-settings
       lix
       hardware-utils
@@ -50,11 +56,6 @@
   };
 
   den.default.nixos = {pkgs, ...}: {
-    nixpkgs.overlays = [
-      inputs.nuenv.overlays.default
-      inputs.nix-cachyos-kernel.overlays.pinned
-    ];
-
     programs.appimage = {
       enable = true;
       binfmt = true;
