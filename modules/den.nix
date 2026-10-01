@@ -37,8 +37,6 @@
       pkgs.fastfetch
       pkgs.git
       pkgs.bat
-      containers.firefly
-      containers.freshrss
     ]
     ++ [
       den.batteries.hostname
@@ -68,6 +66,9 @@
     #
     # Cachy Kernel
     boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
+    #
+    # Cachy Kernel
+    # boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest-lto-x86_64-v3;
 
     specialisation.stable.configuration = {
       system.nixos.tags = ["stable"];
