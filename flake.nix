@@ -7,6 +7,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixpkgs-stable.url = "https://channels.nixos.org/nixos-26.05/nixexprs.tar.zst";
+    home-manager-stable.url = "github:nix-community/home-manager/release-26.05";
+    home-manager-stable.inputs.nixpkgs.follows = "nixpkgs-stable";
 
     # Dendritic Nix
     flake-parts.url = "github:hercules-ci/flake-parts";
