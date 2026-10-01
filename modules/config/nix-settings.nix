@@ -5,17 +5,15 @@
     in {
       nix.settings.trusted-users = ["root" "@wheel"];
 
-      sops.secrets = lib.genAttrs token-entries (_: {
-        restartUnits = ["nix-daemon.service"];
-        owner = "root";
-        group = "wheel";
-        mode = "0440";
-      });
+      sops.secrets = lib.genAttrs token-entries (_: {});
 
       sops.templates."nix-access-tokens.conf" = let
         access-token-content = tokens: "access-tokens = ${lib.concatStringsSep " " tokens}";
       in {
         content = access-token-content (lib.map (token: config.sops.placeholder.${token}) token-entries);
+        owner = "root";
+        group = "wheel";
+        mode = "0440";
       };
 
       nix.extraOptions = ''
