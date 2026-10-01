@@ -6,29 +6,19 @@
 }: {
   den.quirks.nixpkgs-overlays.description = "nixpkgs overlays collected from aspects";
 
-  den.aspects.nixpkgs-overlays = {
+  den.aspects.nixpkgs-overlays = let
+    common-config = final: {
+      inherit (final.stdenv.hostPlatform) system;
+      config = final.config // {rewriteURL = url: url;};
+    };
+  in {
     nixpkgs-overlays = _: [
-      # this flake's own packages, as pkgs.local
       (final: _prev: {
+        # this flake's own packages, as pkgs.local
         local = withSystem final.stdenv.hostPlatform.system ({config, ...}: config.packages);
-      })
 
-      (final: prev: {
-        unstable = import inputs.nixpkgs ({
-            inherit (final.stdenv.hostPlatform) system;
-            inherit (final) config;
-          }
-          // {
-            config.rewriteURL = url: url;
-          });
-
-        stable = import inputs.nixpkgs-stable ({
-            inherit (final.stdenv.hostPlatform) system;
-            inherit (final) config;
-          }
-          // {
-            config.rewriteURL = url: url;
-          });
+        unstable = import inputs.nixpkgs (common-config final);
+        stable = import inputs.nixpkgs-stable (common-config final);
       })
 
       # version bumps and patched builds of individual packages
