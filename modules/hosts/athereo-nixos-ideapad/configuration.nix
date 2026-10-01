@@ -1,5 +1,6 @@
 {
   den,
+  hardware,
   inputs,
   remote-build,
   ...
@@ -10,10 +11,14 @@
   };
 
   den.aspects.athereo-nixos-ideapad = {
-    includes = with den.aspects; [
-      scripts.lenovoctl
-      remote-build.builder
-    ];
+    includes = with den.aspects;
+      [
+        scripts.lenovoctl
+        remote-build.builder
+      ]
+      ++ [
+        hardware.amd
+      ];
 
     user.extraGroups = ["tss"];
 

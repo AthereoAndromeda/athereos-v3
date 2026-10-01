@@ -1,4 +1,12 @@
-{den, ...}: {
+{
+  inputs,
+  den,
+  ...
+}: {
+  imports = [(inputs.den.namespace "hardware" false)];
+
+  hardware.default = den.aspects.hardware-utils;
+
   den.aspects.hardware-utils = {
     includes = with den.aspects; [
       bluetooth
@@ -10,7 +18,6 @@
     nixos = {...}: {
       hardware.enableAllHardware = true;
       hardware.enableRedistributableFirmware = true;
-      hardware.amdgpu.opencl.enable = true;
     };
   };
 }

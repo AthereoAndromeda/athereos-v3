@@ -1,6 +1,7 @@
 {
   den,
   dev-tools,
+  hardware,
   inputs,
   self,
   lib,
@@ -22,7 +23,6 @@
           inputs.nix-cachyos-kernel.overlays.pinned
         ];
       }
-      hardware-utils
       boot.grub
       security.keyring
       security.polkit
@@ -45,6 +45,7 @@
       den.batteries.self'
       dev-tools.nix
       dev-tools.utils
+      hardware.default
     ];
 
   den.default.homeManager = {
