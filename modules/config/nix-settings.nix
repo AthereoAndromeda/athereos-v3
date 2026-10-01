@@ -22,6 +22,8 @@
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["root" "@wheel"];
 
+        http3 = true;
+
         # Hardware-optimized for v3
         system-features = [
           "nixos-test"
