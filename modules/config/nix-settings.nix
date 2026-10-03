@@ -22,6 +22,23 @@
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["root" "@wheel"];
 
+        # Substituters for community maintained projects like:
+        # - Home Manager
+        # - NUR
+        # - Impermanence
+        # - nh
+        # - nix-direnv
+        # - nix-ld
+        # - nixd
+        # - etc.
+        substituters = [
+          "https://nix-community.cachix.org"
+        ];
+
+        trusted-public-keys = [
+          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+        ];
+
         http3 = true;
 
         # Hardware-optimized for v3
