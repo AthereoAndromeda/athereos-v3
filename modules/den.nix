@@ -18,7 +18,6 @@
     [
       nix-settings
       lix
-      unfree
       hardware-utils
       networking.default
       boot
