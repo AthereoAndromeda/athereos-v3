@@ -46,6 +46,11 @@ boot *flags: format _git-add
 test-debug eval-cache="true" *flags: format _git-add
     nixos-rebuild --elevate=sudo --flake . --option eval-cache {{eval-cache}} --show-trace --print-build-logs --verbose {{flags}} test
 
+# Remote building
+[group('build')]
+remote-build: format _git-add
+    sudo nixos-rebuild --flake . switch
+
 
 # Format all `.nix` files using Alejandra
 [group('lints')]
