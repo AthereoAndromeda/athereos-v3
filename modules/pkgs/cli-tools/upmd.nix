@@ -1,7 +1,8 @@
 {inputs, ...}: {
   den.aspects.pkgs.upmd = {
+    nixpkgs-overlays = _: [inputs.upmd.overlays.default];
+
     nixos = {pkgs, ...}: {
-      nixpkgs.overlays = [inputs.upmd.overlays.default];
       environment.systemPackages = [pkgs.upmd];
     };
   };

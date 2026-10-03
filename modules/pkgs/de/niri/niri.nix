@@ -16,9 +16,10 @@
         wpaperd
       ]);
 
+    nixpkgs-overlays = _: [inputs.niri.overlays.niri];
+
     nixos = {pkgs, ...}: {
       imports = [inputs.niri.nixosModules.niri];
-      nixpkgs.overlays = [inputs.niri.overlays.niri];
       environment.systemPackages = [pkgs.rofi pkgs.nirius pkgs.xwayland-satellite-unstable];
       environment.sessionVariables = {
         NIXOS_OZONE_WL = "1";

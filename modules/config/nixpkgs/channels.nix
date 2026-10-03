@@ -1,27 +1,28 @@
-{
-  den,
-  inputs,
-  ...
-}: {
-  den.aspects.nixpkgs-extend.os.nixpkgs.overlays = [
-    (final: prev: {
-      unstable = import inputs.nixpkgs ({
-          inherit (final.stdenv.hostPlatform) system;
-          inherit (final) config;
-        }
-        // {
-          config.rewriteURL = url: url;
-        });
+{inputs, ...}: let
+  channels = {
+    nixos-stable = {
+      nixosSystem = inputs.nixpkgs-stable.lib.nixosSystem;
+      hmModule = inputs.home-manager-stable.nixosModules.home-manager;
+    };
+    nixos-unstable = {
+      nixosSystem = inputs.nixpkgs.lib.nixosSystem;
+      hmModule = inputs.home-manager.nixosModules.home-manager;
+    };
+  };
+in {
+  den.schema.host = {
+    config,
+    lib,
+    ...
+  }: {
+    options.channel = lib.mkOption {
+      type = lib.types.enum (builtins.attrNames channels);
+      default = "nixos-unstable";
+    };
 
-      stable = import inputs.nixpkgs-stable ({
-          inherit (final.stdenv.hostPlatform) system;
-          inherit (final) config;
-        }
-        // {
-          config.rewriteURL = url: url;
-        });
-    })
-  ];
-
-  den.schema.host.includes = [den.aspects.nixpkgs-extend];
+    config = {
+      instantiate = lib.mkDefault channels.${config.channel}.nixosSystem;
+      home-manager.module = lib.mkDefault channels.${config.channel}.hmModule;
+    };
+  };
 }

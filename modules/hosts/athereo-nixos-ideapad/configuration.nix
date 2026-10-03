@@ -4,7 +4,10 @@
   remote-build,
   ...
 }: {
-  den.hosts.x86_64-linux.athereo-nixos-ideapad.users.athereo = {};
+  den.hosts.x86_64-linux.athereo-nixos-ideapad = {
+    sharedHomePkgs = true;
+    users.athereo = {};
+  };
 
   den.aspects.athereo-nixos-ideapad = {
     includes = with den.aspects; [

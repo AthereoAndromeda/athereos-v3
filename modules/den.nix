@@ -70,11 +70,13 @@
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
     };
 
-    home-manager = {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      backupFileExtension = "hm-backup";
-    };
+    # home-manager = {
+    #   useGlobalPkgs = true;
+    #   useUserPackages = true;
+    #   backupFileExtension = "hm-backup";
+    # };
+
+    home-manager.backupFileExtension = "hm-backup";
 
     programs.nix-ld = {
       enable = true;
