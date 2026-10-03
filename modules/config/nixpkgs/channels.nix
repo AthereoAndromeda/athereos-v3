@@ -2,20 +2,26 @@
   den,
   inputs,
   ...
-}: let
-  unstableFor = {host, ...}: {
-    _module.args.pkgs-stable = import inputs.nixpkgs-stable {inherit (host) system;};
-    _module.args.pkgs-unstable = import inputs.nixpkgs {inherit (host) system;};
-  };
-in {
-  den.aspects.nixpkgs-channels = {
-    os = unstableFor;
-    homeManager = unstableFor;
+}: {
+  den.aspects.nixpkgs-extend.os.nixpkgs.overlays = [
+    (final: prev: {
+      unstable = import inputs.nixpkgs ({
+          inherit (final.stdenv.hostPlatform) system;
+          inherit (final) config;
+        }
+        // {
+          config.rewriteURL = url: url;
+        });
 
-    nixos = {pkgs-stable, ...}: {
-      environment.systemPackages = [pkgs-stable.ponysay];
-    };
-  };
+      stable = import inputs.nixpkgs-stable ({
+          inherit (final.stdenv.hostPlatform) system;
+          inherit (final) config;
+        }
+        // {
+          config.rewriteURL = url: url;
+        });
+    })
+  ];
 
-  den.default.includes = [den.aspects.nixpkgs-channels];
+  den.schema.host.includes = [den.aspects.nixpkgs-extend];
 }

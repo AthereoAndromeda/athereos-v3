@@ -25,6 +25,8 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     nautilus
+    unstable.kittysay
+    stable.ponysay
   ];
 
   nix.settings.trusted-users = ["athereo"];
