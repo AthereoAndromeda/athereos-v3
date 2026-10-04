@@ -8,19 +8,19 @@ Build commands
 ## Switch
 Rebuild and activate the system
 ```sh [name:switch, deps:fmt]
-nixos-rebuild --elevate=sudo --flake . switch
+nixos-rebuild --elevate=run0 --flake . switch
 ```
 
 ## Test
 Test the system
 ```sh [name:test, deps:fmt]
-nixos-rebuild --elevate=sudo --flake . test
+nixos-rebuild --elevate=run0 --flake . test
 ```
 
 ## Build
 Build the system but do not activate it
 ```sh [name:build, deps:fmt]
-nixos-rebuild --elevate=sudo --flake . build
+nixos-rebuild --elevate=run0 --flake . build
 ```
 
 
