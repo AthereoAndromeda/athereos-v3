@@ -32,20 +32,15 @@
       ];
     };
 
-    provides.to-users = {user, ...}: {
-      includes = with den.aspects;
-        [
-          containers.firefly
-          containers.freshrss
-        ]
-        ++ [den.aspects.impermanence];
+    provides.to-users = {
+      includes = with den.aspects; [
+        impermanence
+        containers.firefly
+        containers.freshrss
+      ];
 
-      nixos = {
-        users.groups.lenovoctl = {};
-        users.users.${user.name} = {
-          extraGroups = ["lenovoctl"];
-        };
-      };
+      user.extraGroups = ["lenovoctl"];
+      nixos.users.groups.lenovoctl = {};
     };
   };
 }
