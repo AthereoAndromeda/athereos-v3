@@ -9,9 +9,11 @@
           user.name = config.gitName or "";
           user.email = config.gitEmail or "";
 
-          ui.default-command = "log";
-          ui.merge-editor = ":builtin";
-          ui.diff-editor = ":builtin";
+          ui = {
+            default-command = "log";
+            diff-editor = ":builtin";
+            merge-editor = ":builtin";
+          };
 
           signing = {
             behavior = "own";
