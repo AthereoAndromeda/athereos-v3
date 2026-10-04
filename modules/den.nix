@@ -40,7 +40,6 @@
       pkgs.bat
     ]
     ++ [
-      den.batteries.hostname
       den.batteries.inputs'
       den.batteries.self'
       dev-tools.nix
