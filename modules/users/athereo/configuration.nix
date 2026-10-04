@@ -67,7 +67,6 @@
         "render"
         "cdrom"
         "adm"
-        "lpadmin"
         "input"
         "plugdev"
         "libvirtd"
