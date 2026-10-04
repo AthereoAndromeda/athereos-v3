@@ -28,7 +28,6 @@
       security.polkit
       security.gnupg
       security.sops
-      security.rns
       pkgs.cli-tools
       pkgs.shells
       pkgs.terminals
