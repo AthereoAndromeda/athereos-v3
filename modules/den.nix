@@ -27,7 +27,6 @@
       security.keyring
       security.polkit
       security.gnupg
-      security.sops
       pkgs.cli-tools
       pkgs.shells
       pkgs.terminals

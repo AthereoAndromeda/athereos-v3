@@ -5,6 +5,8 @@
 }: let
   secretspath = toString inputs.my-secrets;
 in {
+  den.default.includes = [den.aspects.security.sops];
+
   den.aspects.security.sops = {
     includes = [
       den.aspects.security.age
