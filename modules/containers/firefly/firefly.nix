@@ -8,6 +8,7 @@
       key-path = config.sops.secrets.${key-str}.path;
       timezone = config.time.timeZone;
     in {
+      # FIXME: Fix permissions
       sops.secrets.${key-str} = {
         mode = "0444";
       };

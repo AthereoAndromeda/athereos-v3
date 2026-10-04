@@ -10,6 +10,7 @@
         path = "/etc/NetworkManager/system-connections/DILNET2.0.nmconnection";
         mode = "0600";
 
+        # FIXME: Hardcoded interface name
         content = ''
           [connection]
           id=DILNET2.0

@@ -7,6 +7,7 @@
       password-string = "freshrss/admin/password";
       password-path = config.sops.secrets.${password-string}.path;
     in {
+      # FIXME: Fix permissions
       sops.secrets.${password-string} = {
         mode = "0744";
       };

@@ -6,6 +6,8 @@
   den.aspects.boot.grub = {
     includes = [den.aspects.boot];
 
+    # TODO: Switchable GRUB Themes through options
+    # TODO: Switch bootloaders through options
     nixos = {pkgs, ...}: let
       hyperfluent-theme = pkgs.stdenvNoCC.mkDerivation {
         name = "hyperfluent-theme";
