@@ -21,8 +21,6 @@
         hardware.amd
       ];
 
-    user.extraGroups = ["tss"];
-
     nixos = {
       imports = [
         inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9
@@ -39,7 +37,7 @@
         containers.freshrss
       ];
 
-      user.extraGroups = ["lenovoctl"];
+      user.extraGroups = ["lenovoctl" "tss"];
       nixos.users.groups.lenovoctl = {};
     };
   };
