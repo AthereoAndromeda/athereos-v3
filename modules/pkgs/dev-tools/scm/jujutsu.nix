@@ -31,6 +31,11 @@
             bk.definition = ["bookmark"];
             bk.doc = "Bookmark shorthand";
           };
+
+          git = {
+            # Default new repos to use SHA-256
+            object-hash = "sha256";
+          };
         };
       };
 
