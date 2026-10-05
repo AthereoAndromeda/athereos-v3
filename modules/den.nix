@@ -84,6 +84,8 @@
 
     services.dbus.implementation = lib.mkDefault "broker";
 
+    services.kmscon.enable = lib.mkDefault true;
+
     # Enable sound.
     # services.pulseaudio.enable = true;
     # OR
