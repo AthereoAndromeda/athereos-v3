@@ -46,6 +46,10 @@
         "dialout"
         "uucp"
       ];
+
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICdcG95VgwY0vPHJqOrLQRuHy1C52pvJUioQOVJsTojd athereo@athereo-nixos-ideapad"
+      ];
     };
 
     homeManager = import ./_homeManager.nix;

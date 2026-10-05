@@ -51,11 +51,13 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
+    openFirewall = true;
     ports = [22];
+
     settings = {
       UseDns = true;
       PasswordAuthentication = true;
-      PermitRootLogin = "yes";
+      PermitRootLogin = "prohibit-password";
     };
   };
 
@@ -63,5 +65,5 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  networking.firewall.enable = false;
+  # networking.firewall.enable = false;
 }
