@@ -1,5 +1,6 @@
 {
   den,
+  hardware,
   dev-tools,
   gaming,
   ...
@@ -7,6 +8,7 @@
   den.aspects.athereo = {
     includes =
       [
+        hardware.printing
         dev-tools.direnv
         dev-tools.zellij
         dev-tools.jujutsu
@@ -27,7 +29,6 @@
         xremap
         xdg-utils
         virtualisation
-        printing
         de.niri
         udev.probe-rs
         pkgs.waydroid

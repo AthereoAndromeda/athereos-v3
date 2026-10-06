@@ -1,7 +1,7 @@
 {...}: {
-  den.aspects.printing = {
+  hardware.printing = {
     persist.directories = ["/var/lib/cups"];
-    user.extraGroups = ["lpadmin"];
+    provides.to-user.user.extraGroups = ["lpadmin"];
 
     nixos = {pkgs, ...}: {
       services.printing = {
