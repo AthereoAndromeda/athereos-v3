@@ -18,7 +18,6 @@
   # services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
-  users.groups = {plugdev.gid = 601;}; # System Group
   users.mutableUsers = false;
 
   # List packages installed in system profile.

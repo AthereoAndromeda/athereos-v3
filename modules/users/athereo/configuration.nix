@@ -14,6 +14,7 @@
         dev-tools.python
         dev-tools.julia
         dev-tools.devenv
+        dev-tools.embedded
         gaming.prism
         gaming.steam
       ]
@@ -69,7 +70,6 @@
         "cdrom"
         "adm"
         "input"
-        "plugdev"
         "libvirtd"
         "dialout"
         "uucp"
