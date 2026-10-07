@@ -1,10 +1,16 @@
 {inputs, ...}: {
   den.aspects.xremap = {
-    nixos = {user, ...}: {
+    nixos = {
+      pkgs,
+      user,
+      ...
+    }: {
       imports = [inputs.xremap.nixosModules.default];
       services.xremap = {
         enable = true;
-        withGnome = true;
+        package = pkgs.xremap; # Use binary cache
+        # withGnome = true;
+        withNiri = true;
         userName = user.name;
         yamlConfig = builtins.readFile ./config.yml;
       };
