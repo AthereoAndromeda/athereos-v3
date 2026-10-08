@@ -14,10 +14,10 @@
     includes = with den.aspects;
       [
         scripts.lenovoctl
-        remote-build.builder
       ]
       ++ [
         den.aspects.hardware.zswap
+        remote-build.builder
         hardware.amd
       ];
 
