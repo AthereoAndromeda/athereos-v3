@@ -54,6 +54,10 @@
       inputs.nur.modules.nixos.default
     ];
 
+    programs.nh = {
+      enable = true;
+    };
+
     programs.appimage = {
       enable = true;
       binfmt = true;
