@@ -25,6 +25,7 @@
       '';
 
       nix.settings = {
+        warn-import-from-derivation = true;
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["root" "@wheel"];
 
