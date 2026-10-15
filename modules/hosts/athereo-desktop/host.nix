@@ -13,7 +13,7 @@ in {
   den.aspects.${hostname} = {
     includes = [
       remote-build.builder
-      den.aspects.hardware.zswap
+      hardware.zswap
       hardware.amd
     ];
 

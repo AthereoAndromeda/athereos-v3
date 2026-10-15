@@ -1,11 +1,15 @@
-{den, ...}: {
+{
+  den,
+  hardware,
+  ...
+}: {
   den.hosts.x86_64-linux.nixos-server = {
     channel = "nixos-stable";
     users.admin = {};
   };
 
   den.aspects.nixos-server = {
-    includes = with den.aspects; [hardware.swap];
+    includes = [hardware.swap];
     excludes = with den.aspects; [security.rns];
 
     nixos = {
