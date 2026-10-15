@@ -1,6 +1,7 @@
-{den, ...}: {
-  den.aspects.hardware.zswap = {
-    includes = [den.aspects.hardware.swap];
+{hardware, ...}: {
+  hardware.zswap = {
+    includes = [hardware.swap];
+
     nixos = {
       boot.zswap = {
         enable = true;

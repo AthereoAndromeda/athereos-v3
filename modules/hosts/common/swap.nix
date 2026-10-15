@@ -1,5 +1,5 @@
 {lib, ...}: {
-  den.aspects.hardware.swap = {
+  hardware.swap = {
     nixos = {config, ...}: {
       options.swap = {
         enable = lib.mkEnableOption "swap";

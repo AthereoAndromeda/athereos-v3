@@ -16,8 +16,8 @@
         scripts.lenovoctl
       ]
       ++ [
-        den.aspects.hardware.zswap
         remote-build.builder
+        hardware.zswap
         hardware.amd
       ];
 
