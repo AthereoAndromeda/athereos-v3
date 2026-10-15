@@ -35,6 +35,14 @@
     options = ["subvol=nix" "compress=zstd" "noatime"];
   };
 
+  # RAM-backed build dir
+  # See https://lix.systems/blog/2025-06-24-lix-cves/
+  fileSystems."/nix/var/nix/b" = {
+    fsType = "tmpfs";
+    depends = ["/nix"];
+    options = ["mode=0755" "size=8G"];
+  };
+
   fileSystems."/persist" = {
     device = "/dev/mapper/enc";
     fsType = "btrfs";
