@@ -218,7 +218,7 @@ widget_order = [
     box_height = 0.0
     box_width = 0.0
     cx = 1728.0
-    cy = 150.8800048828125
+    cy = 150.88
     output = "eDP-1"
     placement_height = 1200.0
     placement_width = 1920.0
@@ -226,7 +226,7 @@ widget_order = [
     type = "weather"
 
         [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
-        background_opacity = 0.14999999999999999
+        background_opacity = 0.15
         color = "primary"
 
     [desktop_widgets.widget.desktop-widget-0000000000000008]
@@ -382,7 +382,7 @@ widget_order = [
     box_height = 196.0
     box_width = 720.0
     cx = 960.0
-    cy = 1112.0
+    cy = 1066.0
     output = "eDP-1"
     placement_height = 1200.0
     placement_width = 1920.0
@@ -431,7 +431,7 @@ widget_order = [
     box_height = 160.0
     box_width = 304.0
     cx = 944.0
-    cy = 104.0
+    cy = 216.0
     output = "eDP-1"
     placement_height = 1200.0
     placement_width = 1920.0
@@ -442,6 +442,7 @@ widget_order = [
         background_color = "on_tertiary"
         background_radius = 25
         clock_style = "digital"
+        font_family = "0xProto Nerd Font Mono"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
     box_height = 0.0
@@ -483,6 +484,9 @@ widget_order = [
     rotation = 0.0
     type = "weather"
 
+[nightlight]
+enabled = true
+
 [notification]
 background_opacity = 0.6
 
@@ -518,7 +522,7 @@ community_palette = "Lilac AMOLED"
 source = "community"
 
     [theme.templates]
-    builtin_ids = [ "btop", "niri", "wezterm" ]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "niri", "wezterm" ]
     community_ids = [ "discord", "obsidian", "zathura", "zellij", "bat", "lazygit" ]
 
 [wallpaper]
@@ -529,7 +533,7 @@ transition_on_startup = true
     enabled = true
 
     [wallpaper.default]
-    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png.png"
+    path = "/home/athereo/Pictures/Wallpapers/nix/canvas.png"
 
     [wallpaper.last]
     path = "/home/athereo/Pictures/Wallpapers/nix/23970596.png"
