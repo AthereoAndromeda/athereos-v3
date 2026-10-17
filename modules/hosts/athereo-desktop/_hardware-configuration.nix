@@ -52,6 +52,13 @@
     neededForBoot = true;
   };
 
+  fileSystems."/old-roots" = {
+    device = "/dev/mapper/enc";
+    fsType = "btrfs";
+    options = ["subvol=old-roots" "compress=zstd" "noatime"];
+    neededForBoot = true;
+  };
+
   fileSystems."/var/log" = {
     device = "/dev/mapper/enc";
     fsType = "btrfs";
