@@ -2,6 +2,7 @@
   den,
   hardware,
   remote-build,
+  gaming,
   ...
 }: let
   hostname = "athereo-desktop";
@@ -26,11 +27,16 @@ in {
     };
 
     provides.to-users = {
-      includes = with den.aspects; [
-        impermanence
-        # containers.firefly
-        # containers.freshrss
-      ];
+      includes =
+        (with den.aspects; [
+          impermanence
+          # containers.firefly
+          # containers.freshrss
+        ])
+        ++ [
+          gaming.zeroad
+          gaming.veloren
+        ];
 
       user.extraGroups = ["tss"];
     };
