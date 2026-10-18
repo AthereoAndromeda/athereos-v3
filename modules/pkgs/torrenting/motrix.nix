@@ -3,7 +3,7 @@
     homeManager = {pkgs, ...}: {
       home.packages = with pkgs; [
         motrix
-        motrix-next
+        rayburst
       ];
     };
   };
