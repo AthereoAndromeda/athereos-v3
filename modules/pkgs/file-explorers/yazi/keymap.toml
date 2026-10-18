@@ -32,3 +32,14 @@ desc = "Chmod on selected files"
 on   = [ "g", "w" ]
 run  = "plugin easyjump"
 desc = "Jump to a two-character label"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "r" ]
+run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+desc = "Jump to root of Git repo"
+
+[[mgr.prepend_keymap]]
+on   = "!"
+for  = "unix"
+run  = 'shell "$SHELL" --block'
+desc = "Open $SHELL here"
