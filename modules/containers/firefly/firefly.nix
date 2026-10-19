@@ -22,24 +22,19 @@
         hostAddress6 = "fc00::1";
         localAddress6 = "fc00::2";
 
-        config = {
-          pkgs,
-          lib,
-          ...
-        }: {
-          users.groups.firefly = {};
-          users.users.firefly = {
-            isSystemUser = true;
-            group = "firefly";
-            home = "/var/lib/firefly";
-            createHome = true;
-          };
+        config = {lib, ...}: {
+          # users.groups.firefly = {};
+          # users.users.firefly = {
+          #   isSystemUser = true;
+          #   group = "firefly";
+          #   home = "/var/lib/firefly";
+          #   createHome = true;
+          # };
 
           services.firefly-iii = {
             enable = true;
             enableNginx = true;
             virtualHost = localAddress;
-            user = "firefly";
 
             settings =
               lib.fromTOML (builtins.readFile ./.env)
@@ -49,36 +44,36 @@
               };
           };
 
-          services.mysql = {
-            enable = true;
-            package = pkgs.mariadb;
+          # services.mysql = {
+          #   enable = true;
+          #   package = pkgs.mariadb;
 
-            # Explicitly create database and user credentials with password
-            initialScript = pkgs.writeText "mariadb-init.sql" ''
-              CREATE DATABASE IF NOT EXISTS firefly;
-              CREATE USER IF NOT EXISTS 'firefly'@'127.0.0.1' IDENTIFIED BY 'firefly';
-              CREATE USER IF NOT EXISTS 'firefly'@'localhost' IDENTIFIED BY 'firefly';
-              GRANT ALL PRIVILEGES ON firefly.* TO 'firefly'@'127.0.0.1';
-              GRANT ALL PRIVILEGES ON firefly.* TO 'firefly'@'localhost';
-              FLUSH PRIVILEGES;
-            '';
+          #   # Explicitly create database and user credentials with password
+          #   initialScript = pkgs.writeText "mariadb-init.sql" ''
+          #     CREATE DATABASE IF NOT EXISTS firefly;
+          #     CREATE USER IF NOT EXISTS 'firefly'@'127.0.0.1' IDENTIFIED BY 'firefly';
+          #     CREATE USER IF NOT EXISTS 'firefly'@'localhost' IDENTIFIED BY 'firefly';
+          #     GRANT ALL PRIVILEGES ON firefly.* TO 'firefly'@'127.0.0.1';
+          #     GRANT ALL PRIVILEGES ON firefly.* TO 'firefly'@'localhost';
+          #     FLUSH PRIVILEGES;
+          #   '';
 
-            initialDatabases = [
-              {name = "firefly";}
-            ];
+          #   initialDatabases = [
+          #     {name = "firefly";}
+          #   ];
 
-            ensureUsers = [
-              {
-                name = "firefly";
-                ensurePermissions = {
-                  "database.*" = "ALL PRIVILEGES";
-                  "*.*" = "SELECT, LOCK TABLES";
-                };
-              }
-            ];
+          #   ensureUsers = [
+          #     {
+          #       name = "firefly";
+          #       ensurePermissions = {
+          #         "database.*" = "ALL PRIVILEGES";
+          #         "*.*" = "SELECT, LOCK TABLES";
+          #       };
+          #     }
+          #   ];
 
-            ensureDatabases = ["firefly"];
-          };
+          #   ensureDatabases = ["firefly"];
+          # };
 
           networking = {
             firewall.allowedTCPPorts = [80 443];
