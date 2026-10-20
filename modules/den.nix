@@ -46,7 +46,7 @@
     ];
 
   den.default.homeManager = {
-    home.stateVersion = "26.05";
+    home.stateVersion = lib.mkDefault "26.05";
   };
 
   den.default.nixos = {pkgs, ...}: {
@@ -55,12 +55,12 @@
     ];
 
     programs.nh = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
 
     programs.appimage = {
-      enable = true;
-      binfmt = true;
+      enable = lib.mkDefault true;
+      binfmt = lib.mkDefault true;
     };
 
     specialisation.stable.configuration = {
@@ -68,10 +68,10 @@
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
     };
 
-    home-manager.backupFileExtension = "hm-backup";
+    home-manager.backupFileExtension = lib.mkDefault "hm-backup";
 
     programs.nix-ld = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
 
     environment.systemPackages = with pkgs; [
@@ -143,7 +143,7 @@
     # and migrated your data accordingly.
     #
     # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-    system.stateVersion = "26.05"; # Did you read the comment?
+    system.stateVersion = lib.mkDefault "26.05"; # Did you read the comment?
 
     system.configurationRevision = self.rev or self.dirtyRev or null;
   };
