@@ -19,22 +19,7 @@
     };
   };
 
-  den.aspects.home-manager-options.homeManager = {
-    options = {
-      gitEmail = lib.mkOption {
-        type = lib.types.nullOr lib.types.str;
-        description = "Email address to use for Git";
-        default = null;
-      };
-
-      gitName = lib.mkOption {
-        type = lib.types.nullOr lib.types.str;
-        description = "Name to use for Git";
-        default = null;
-      };
-    };
-  };
-
+  # Expose home-manager overlays to host
   den.policies.project-user-overlays = {
     user,
     host,
@@ -46,8 +31,5 @@
       (pipe.from "nixpkgs-overlays" [pipe.expose])
     ];
 
-  den.schema.user.includes = [
-    den.policies.project-user-overlays
-    den.aspects.home-manager-options
-  ];
+  den.schema.user.includes = [den.policies.project-user-overlays];
 }
