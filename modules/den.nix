@@ -114,6 +114,18 @@
     # Prevent dual boot Windows breaking the time
     time.hardwareClockInLocalTime = lib.mkDefault true;
 
+    services.openssh = {
+      enable = lib.mkDefault true;
+      openFirewall = lib.mkDefault true;
+      settings = {
+        PasswordAuthentication = lib.mkDefault false;
+        KbdInteractiveAuthentication = lib.mkDefault false;
+        PermitRootLogin = lib.mkDefault "prohibit-password";
+        MaxAuthTries = lib.mkDefault 3;
+        PerSourcePenalties = lib.mkDefault "crash:3600s authfail:3600s max:86400s";
+      };
+    };
+
     # This option defines the first version of NixOS you have installed on this particular machine,
     # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
     #
