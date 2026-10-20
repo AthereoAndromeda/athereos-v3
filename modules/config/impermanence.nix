@@ -4,10 +4,22 @@
   ...
 }: {
   den.aspects.impermanence = {
-    nixos = {persist, ...}: {
+    settings.persistDevice = lib.mkOption {
+      type = lib.types.singleLineStr;
+      default = "/persist";
+      description = "Location of persistent device";
+    };
+
+    nixos = {
+      host,
+      persist,
+      ...
+    }: let
+      cfg = host.settings.impermanence;
+    in {
       imports = [inputs.impermanence.nixosModules.impermanence];
 
-      environment.persistence."/persist" = {
+      environment.persistence.${cfg.persistDevice} = {
         enable = true;
         hideMounts = true;
 
@@ -34,10 +46,13 @@
     };
 
     homeManager = {
+      host,
       persist,
       config,
       ...
     }: let
+      cfg = host.settings.impermanence;
+
       # Strip absolute path /home/<user>/
       processXDGPath = name: let
         homeDir = config.home.homeDirectory;
@@ -56,7 +71,7 @@
       # Used: persist.home.${name}.${type} = [];
       xdgHomesList = lib.map (s: mkXDGList s) ["config" "data" "state"];
     in {
-      home.persistence."/persist" = {
+      home.persistence.${cfg.persistDevice} = {
         directories =
           [
             "nixos"
