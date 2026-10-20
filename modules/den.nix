@@ -9,6 +9,7 @@
 }: {
   imports = [inputs.den.flakeModule];
 
+  den.reservedKeys = ["settings"];
   den.schema.user.classes = lib.mkDefault ["homeManager"];
   den.schema.flake-system.includes = [
     den.policies.packages-to-flake-parts
