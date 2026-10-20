@@ -1,5 +1,5 @@
 {den, ...}: {
-  den.schema.host.includes = [
+  den.default.includes = [
     (den.batteries.unfree [
       "7zz"
       "uasm"
