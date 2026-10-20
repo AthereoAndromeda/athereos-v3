@@ -38,19 +38,12 @@
       config,
       ...
     }: let
-      homeDir = config.home.homeDirectory;
-
-      relativeHomePath = path:
-        if lib.hasPrefix "~/" path
-        then lib.removePrefix "~/" path
-        else if lib.hasPrefix "${homeDir}/" path
-        then lib.removePrefix "${homeDir}/" path
-        else path;
-
+      # Strip absolute path /home/<user>/
       processXDGPath = name: let
+        homeDir = config.home.homeDirectory;
         xdgPath = config.xdg.${name + "Home"};
       in
-        relativeHomePath xdgPath;
+        lib.strings.removePrefix "${homeDir}/" xdgPath;
 
       mkXDGList = name:
         lib.genAttrs ["directories" "files"] (fnType:
