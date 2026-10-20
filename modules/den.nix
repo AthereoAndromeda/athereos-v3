@@ -63,8 +63,8 @@
       binfmt = lib.mkDefault true;
     };
 
-    specialisation.stable.configuration = {
-      system.nixos.tags = ["stable"];
+    specialisation.stable-kernel.configuration = {
+      system.nixos.tags = ["stable-kernel"];
       boot.kernelPackages = lib.mkForce pkgs.linuxPackages;
     };
 
