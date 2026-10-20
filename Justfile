@@ -13,8 +13,6 @@ alias opt := optimise
 alias rm := delete-generations
 alias rmr := delete-generations-range
 
-net := "true"
-rebuild-opts := if net == "true" { "" } else { "--no-net --offline" }
 profile-flag := "--profile /nix/var/nix/profiles/system"
 
 default:
@@ -24,27 +22,32 @@ default:
 # Build in `build` mode.
 [group('build')]
 build *flags: format _git-add
-    nixos-rebuild --elevate=run0 --flake . {{flags}} build
+    nh os build . -e run0 {{flags}}
 
 # Build in `switch` mode and add the generation to the bootloader
 [group('build')]
 switch *flags: format _git-add
-    nixos-rebuild --elevate=run0 --flake . {{ rebuild-opts }} {{flags}} switch
+    nh os switch . -e run0 {{flags}}
 
 # Build in `test` mode
 [group('build')]
 test *flags: format _git-add
-    nixos-rebuild --elevate=run0 --flake . {{flags}} test
+    nh os test . -e run0 {{flags}}
+    
+# Build in `test` mode, with lots of debug flags
+[group('build')]
+test-debug eval-cache="true" *flags: format _git-add
+    nh os test . -e run0 {{flags}} --option eval-cache {{eval-cache}} --show-trace --print-build-logs --verbose
 
 # Build in `boot` mode
 [group('build')]
 boot *flags: format _git-add
-    nixos-rebuild --elevate=run0 --flake . {{flags}} boot
-
-# Build in `test` mode, with lots of debug flags
+    nh os boot . -e run0 {{flags}}
+    
+# Rollback to a previous generation
 [group('build')]
-test-debug eval-cache="true" *flags: format _git-add
-    nixos-rebuild --elevate=run0 --flake . --option eval-cache {{eval-cache}} --show-trace --print-build-logs --verbose {{flags}} test
+rollback *flags: format _git-add
+    nh os rollback -e run0 {{flags}}
 
 # Remote building
 [group('build')]
@@ -70,18 +73,14 @@ update-ci *deps: _git-add
 
 # Cleans nix garbage
 [group('nix/utils')]
-clean older-than="7d":
-     sudo nix-collect-garbage --delete-older-than "{{older-than}}"
-
-# Cleans old nix garbage
-[group('nix/utils')]
-clean-old:
-     sudo nix-collect-garbage --delete-old
+clean older-than="7d" *flags:
+    nh clean all --keep-one -K {{older-than}} {{flags}}
 
 # Lists all Nix Generations
 [group('nix/utils')]
 list:
-   nixos-rebuild list-generations 
+   # nixos-rebuild list-generations 
+   nh os info
 
 [group('nix/utils')]
 diff:

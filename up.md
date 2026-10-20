@@ -8,19 +8,19 @@ Build commands
 ## Switch
 Rebuild and activate the system
 ```sh [name:switch, deps:fmt]
-nixos-rebuild --elevate=run0 --flake . switch
+nh os switch . -e run0
 ```
 
 ## Test
 Test the system
 ```sh [name:test, deps:fmt]
-nixos-rebuild --elevate=run0 --flake . test
+nh os test . -e run0
 ```
 
 ## Build
 Build the system but do not activate it
 ```sh [name:build, deps:fmt]
-nixos-rebuild --elevate=run0 --flake . build
+nh os build . -e run0
 ```
 
 
@@ -34,7 +34,7 @@ alejandra .
 ## List
 List NixOS generations
 ```sh [name:list]
-nixos-rebuild list-generations
+nh os info
 ```
 
 ## Diff
@@ -46,7 +46,7 @@ nix profile diff-closures --profile /nix/var/nix/profiles/system
 ## Clean
 Clean nix store
 ```sh [name:clean]
-sudo nix-collect-garbage --delete-older-than "3d"
+nh clean all --keep-one -K "7d"
 ```
 
 ## Optimize
