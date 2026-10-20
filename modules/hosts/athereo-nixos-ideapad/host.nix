@@ -21,6 +21,8 @@
         hardware.amd
       ];
 
+    ssh-keys.athereo = [./ssh/id_ed25519-athereo.pub];
+
     nixos = {
       imports = [
         inputs.nixos-hardware.nixosModules.lenovo-ideapad-16ahp9

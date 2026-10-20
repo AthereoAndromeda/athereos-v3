@@ -18,6 +18,8 @@ in {
       hardware.amd
     ];
 
+    ssh-keys.athereo = [./ssh/id_ed25519-athereo.pub];
+
     nixos = {
       imports = [
         ./_configuration.nix
