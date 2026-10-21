@@ -22,6 +22,7 @@
       security.keyring
       security.polkit
       security.gnupg
+      security.tailscale
       pkgs.cli-tools
       pkgs.shells
       pkgs.terminals
