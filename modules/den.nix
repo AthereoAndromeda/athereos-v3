@@ -18,12 +18,6 @@
 
   den.default.includes = with den.aspects;
     [
-      {
-        nixpkgs-overlays = _: [
-          inputs.nuenv.overlays.default
-          inputs.nix-cachyos-kernel.overlays.pinned
-        ];
-      }
       boot.grub
       security.keyring
       security.polkit
@@ -39,6 +33,12 @@
       pkgs.bat
     ]
     ++ [
+      {
+        nixpkgs-overlays = _: [
+          inputs.nuenv.overlays.default
+          inputs.nix-cachyos-kernel.overlays.pinned
+        ];
+      }
       den.batteries.inputs'
       den.batteries.self'
       dev-tools.nix
