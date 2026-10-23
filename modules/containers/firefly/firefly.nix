@@ -13,6 +13,8 @@
         mode = "0444";
       };
 
+      networking.firewall.allowedTCPPorts = [8080 8443];
+
       containers.firefly = rec {
         autoStart = true;
         bindMounts.${key-path}.isReadOnly = true;
@@ -21,6 +23,18 @@
         localAddress = "192.168.100.11";
         hostAddress6 = "fc00::1";
         localAddress6 = "fc00::2";
+        forwardPorts = [
+          {
+            containerPort = 80;
+            hostPort = 8080;
+            protocol = "tcp";
+          }
+          {
+            containerPort = 443;
+            hostPort = 8443;
+            protocol = "tcp";
+          }
+        ];
 
         config = {lib, ...}: {
           # users.groups.firefly = {};

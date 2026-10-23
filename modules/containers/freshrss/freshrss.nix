@@ -12,6 +12,8 @@
         mode = "0744";
       };
 
+      networking.firewall.allowedTCPPorts = [8081 8444];
+
       containers.freshrss = rec {
         autoStart = true;
         bindMounts.${password-path}.isReadOnly = true;
@@ -20,6 +22,18 @@
         localAddress = "192.168.100.12";
         hostAddress6 = "fc00::1";
         localAddress6 = "fc00::3";
+        forwardPorts = [
+          {
+            containerPort = 80;
+            hostPort = 8081;
+            protocol = "tcp";
+          }
+          {
+            containerPort = 443;
+            hostPort = 8444;
+            protocol = "tcp";
+          }
+        ];
 
         config = {lib, ...}: {
           services.freshrss = {
