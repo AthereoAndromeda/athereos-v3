@@ -1,5 +1,13 @@
 {lib, ...}: {
   den.aspects.security.tailscale = {
+    persist.home.config.directories = ["tailscale"];
+    persist.directories = [
+      {
+        directory = "/var/lib/tailscale";
+        mode = "0700";
+      }
+    ];
+
     nixos = {config, ...}: {
       services.tailscale = {
         enable = true;
