@@ -35,6 +35,7 @@
     nixos = {pkgs, ...}: {
       imports = [inputs.xdg-termfilepickers.nixosModules.default];
       environment.systemPackages = [(yazi-explorer pkgs)];
+      environment.localBinInPath = true;
 
       # services.xdg-desktop-portal-termfilepickers = let
       #   termfilepickers = inputs.xdg-termfilepickers.packages.${pkgs.system}.default;
@@ -79,6 +80,7 @@
 
       xdg = {
         enable = true;
+        localBinInPath = true;
 
         # portal = {
         #   enable = true;
