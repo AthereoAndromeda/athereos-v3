@@ -26,7 +26,7 @@
 
       programs.steam = {
         enable = true;
-        extraPackages = with pkgs; [gamescope];
+        extraPackages = with pkgs; [gamescope gamemode mangohud];
         gamescopeSession.enable = true;
         protontricks.enable = true;
       };
