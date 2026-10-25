@@ -28,6 +28,8 @@
         warn-import-from-derivation = true;
         experimental-features = ["nix-command" "flakes"];
         trusted-users = ["root" "@wheel"];
+        http-connections = 50;
+        http3 = true;
 
         # Substituters for community maintained projects like:
         # - Home Manager
@@ -45,8 +47,6 @@
         trusted-public-keys = [
           "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
         ];
-
-        http3 = true;
 
         # Hardware-optimized for v3
         system-features = [
