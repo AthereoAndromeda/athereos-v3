@@ -1,7 +1,5 @@
 {...}: {
   boot.initrd.systemd = {
-    enable = true;
-
     services.rollback = {
       description = "Rollback BTRFS subvolume to a pristine state";
       wantedBy = ["initrd.target"];

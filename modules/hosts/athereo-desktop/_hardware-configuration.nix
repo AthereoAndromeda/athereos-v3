@@ -13,7 +13,6 @@
     btrfs = true;
     ntfs = true;
   };
-  boot.initrd.systemd.enable = true;
   boot.initrd.supportedFilesystems = {
     btrfs = true;
   };
