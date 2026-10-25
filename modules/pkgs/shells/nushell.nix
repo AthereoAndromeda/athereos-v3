@@ -21,6 +21,7 @@
       programs.nushell = {
         enable = true;
         environmentVariables = config.home.sessionVariables;
+        loadSessionVariables = true;
 
         settings = {
           edit_mode = "helix";
