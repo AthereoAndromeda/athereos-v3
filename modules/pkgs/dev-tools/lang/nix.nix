@@ -18,8 +18,8 @@
       };
     };
 
-    persist.home.directories = [
-      ".cache/nix-index"
+    persist.home.cache.directories = [
+      "nix-index"
     ];
   };
 }

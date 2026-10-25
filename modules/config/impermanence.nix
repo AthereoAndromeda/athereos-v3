@@ -69,7 +69,7 @@
 
       # Based on HM XDG options
       # Used: persist.home.${name}.${type} = [];
-      xdgHomesList = lib.map (s: mkXDGList s) ["config" "data" "state"];
+      xdgHomesList = lib.map (s: mkXDGList s) ["config" "data" "state" "cache"];
     in {
       home.persistence.${cfg.persistDevice} = {
         directories =
