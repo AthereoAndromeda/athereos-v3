@@ -41,7 +41,7 @@
   # See https://lix.systems/blog/2025-06-24-lix-cves/
   fileSystems."/nix/var/nix/b" = {
     fsType = "tmpfs";
-    options = ["mode=0755" "size=8G"];
+    options = ["mode=0755" "size=100%"];
   };
 
   fileSystems."/persist" = {
