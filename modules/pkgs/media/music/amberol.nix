@@ -1,7 +1,7 @@
 {...}: {
   den.aspects.pkgs.amberol = {
     homeManager = {pkgs, ...}: {
-      home.packages = [pkgs.amberol];
+      # home.packages = [pkgs.amberol];
     };
   };
 }
