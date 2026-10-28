@@ -7,7 +7,10 @@
         isSystemUser = true;
         group = "remotebuild";
         useDefaultShell = true;
-        openssh.authorizedKeys.keyFiles = [./remotebuild.pub];
+        openssh.authorizedKeys.keyFiles = [
+          ./remote-build.nix
+          ./remotebuild_ideapad.pub
+        ];
       };
 
       users.groups.remotebuild = {};

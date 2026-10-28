@@ -52,6 +52,7 @@
             "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
           ];
 
+          # TODO: Make per-host
           # Hardware-optimized for v3
           system-features = [
             "nixos-test"

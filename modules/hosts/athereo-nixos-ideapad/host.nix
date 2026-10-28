@@ -39,6 +39,7 @@
         containers.freshrss
       ];
 
+      persist.directories = ["/root/.ssh"];
       user.extraGroups = ["lenovoctl" "tss"];
       nixos.users.groups.lenovoctl = {};
     };
