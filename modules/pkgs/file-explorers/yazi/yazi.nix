@@ -40,6 +40,10 @@
             chmod
             yatline
             compress
+            ;
+
+          inherit
+            (pkgs.unstable.yaziPlugins)
             easyjump
             ;
         };

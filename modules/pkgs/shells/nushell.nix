@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   den.aspects.pkgs.shells.nushell = {
     nixos = {
       pkgs,
@@ -12,45 +12,50 @@
     };
 
     homeManager = {
+      host,
       config,
       pkgs,
       ...
     }: {
       home.shell.enableNushellIntegration = true;
 
-      programs.nushell = {
-        enable = true;
-        environmentVariables = config.home.sessionVariables;
-        loadSessionVariables = true;
+      programs.nushell =
+        {
+          enable = true;
+          environmentVariables = config.home.sessionVariables;
+          # loadSessionVariables = lib.mkIf (host.channel == "nixos-unstable") true;
 
-        settings = {
-          edit_mode = "helix";
+          settings = {
+            edit_mode = "helix";
+          };
+
+          shellAliases = {
+            ll = "ls -l";
+          };
+
+          # FIX: Does not work if in configFile
+          envFile.text = ''
+            just --completions nushell | save -f ~/.just.nu
+            pay-respects nu --alias f | save -f ~/.cache/r.nu
+          '';
+
+          configFile.text = ''
+            source ~/.just.nu
+            source ~/.cache/r.nu
+          '';
+          # zoxide init nushell | save -f ~/.zoxide.nu
+          # source ~/.zoxide.nu
+          # navi widget nushell | save -f ~/.cache/.navi.nu
+          # source ~/.cache/.navi.nu
+
+          plugins = with pkgs.nushellPlugins; [
+            # polars
+            # query
+          ];
+        }
+        // lib.optionalAttrs (host.channel == "nixos-unstable") {
+          loadSessionVariables = true;
         };
-
-        shellAliases = {
-          ll = "ls -l";
-        };
-
-        # FIX: Does not work if in configFile
-        envFile.text = ''
-          just --completions nushell | save -f ~/.just.nu
-          pay-respects nu --alias f | save -f ~/.cache/r.nu
-        '';
-
-        configFile.text = ''
-          source ~/.just.nu
-          source ~/.cache/r.nu
-        '';
-        # zoxide init nushell | save -f ~/.zoxide.nu
-        # source ~/.zoxide.nu
-        # navi widget nushell | save -f ~/.cache/.navi.nu
-        # source ~/.cache/.navi.nu
-
-        plugins = with pkgs.nushellPlugins; [
-          # polars
-          # query
-        ];
-      };
     };
 
     persist.home.config.files = ["nushell/history.txt"];

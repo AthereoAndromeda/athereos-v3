@@ -6,7 +6,11 @@
   den.schema.host.includes = [den.aspects.nix-settings];
 
   den.aspects.nix-settings = {
-    nixos = {config, ...}: let
+    nixos = {
+      host,
+      config,
+      ...
+    }: let
       token-entries = ["nix-settings/access-tokens/github"];
     in {
       sops.secrets = lib.genAttrs token-entries (_: {});
@@ -24,42 +28,45 @@
         !include ${config.sops.templates."nix-access-tokens.conf".path}
       '';
 
-      nix.settings = {
-        warn-import-from-derivation = true;
-        experimental-features = ["nix-command" "flakes"];
-        trusted-users = ["root" "@wheel"];
-        http-connections = 50;
-        http3 = true;
+      nix.settings =
+        {
+          experimental-features = ["nix-command" "flakes"];
+          trusted-users = ["root" "@wheel"];
+          http-connections = 50;
+          http3 = true;
 
-        # Substituters for community maintained projects like:
-        # - Home Manager
-        # - NUR
-        # - Impermanence
-        # - nh
-        # - nix-direnv
-        # - nix-ld
-        # - nixd
-        # - etc.
-        substituters = [
-          "https://nix-community.cachix.org"
-        ];
+          # Substituters for community maintained projects like:
+          # - Home Manager
+          # - NUR
+          # - Impermanence
+          # - nh
+          # - nix-direnv
+          # - nix-ld
+          # - nixd
+          # - etc.
+          substituters = [
+            "https://nix-community.cachix.org"
+          ];
 
-        trusted-public-keys = [
-          "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        ];
+          trusted-public-keys = [
+            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+          ];
 
-        # Hardware-optimized for v3
-        system-features = [
-          "nixos-test"
-          "benchmark"
-          "big-parallel"
-          "kvm"
-          "gccarch-znver3"
-          "gccarch-x86-64-v3"
-          "gccarch-x86-64-v2"
-          "gccarch-x86-64"
-        ];
-      };
+          # Hardware-optimized for v3
+          system-features = [
+            "nixos-test"
+            "benchmark"
+            "big-parallel"
+            "kvm"
+            "gccarch-znver3"
+            "gccarch-x86-64-v3"
+            "gccarch-x86-64-v2"
+            "gccarch-x86-64"
+          ];
+        }
+        // lib.optionalAttrs (host.channel == "nixos-unstable") {
+          warn-import-from-derivation = true;
+        };
 
       # nixpkgs.hostPlatform = {
       #   system = "x86_64-linux";
