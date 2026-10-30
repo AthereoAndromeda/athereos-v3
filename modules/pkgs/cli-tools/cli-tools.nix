@@ -3,7 +3,6 @@
     includes = with den.aspects; [
       pkgs.fastfetch
       pkgs.pay-respects
-      pkgs.espanso
       pkgs.carapace
       pkgs.upmd
     ];

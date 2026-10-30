@@ -46,6 +46,7 @@
         pkgs.productivity-tools
         pkgs.hyfetch
         pkgs.motrix
+        pkgs.espanso
         security.tor
         security.sops
         security.kryptor
