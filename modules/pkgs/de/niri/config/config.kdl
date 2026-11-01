@@ -13,6 +13,7 @@ spawn-at-startup "niriusd"
 
 spawn-at-startup "thunderbird"
 spawn-at-startup "super-productivity"
+spawn-at-startup "ferdium"
 
 include optional=true "noctalia-v5.kdl"
 
