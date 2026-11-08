@@ -37,7 +37,6 @@
       {
         nixpkgs-overlays = _: [
           inputs.nuenv.overlays.default
-          inputs.nix-cachyos-kernel.overlays.pinned
         ];
       }
       den.batteries.inputs'
