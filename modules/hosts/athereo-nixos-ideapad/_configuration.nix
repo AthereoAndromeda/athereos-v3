@@ -26,8 +26,7 @@
 
   nix.buildMachines = [
     {
-      # hostName = "athereo-desktop";
-      hostName = "athereo-desktop";
+      hostName = "remotebuilder";
       sshUser = "remotebuild";
       sshKey = "/root/.ssh/remotebuild";
       protocol = "ssh-ng";
