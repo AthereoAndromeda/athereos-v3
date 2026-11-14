@@ -1,14 +1,18 @@
 {lib, ...}: {
   den.aspects.pkgs.shells.nushell = {
+    user = {pkgs, ...}: {
+      shell = pkgs.nushell;
+    };
+
     nixos = {
       pkgs,
-      user,
+      # user,
       ...
     }: {
       environment.systemPackages = [pkgs.nushell];
       environment.shells = [pkgs.nushell];
       environment.pathsToLink = ["/share/nushell"];
-      users.users.${user.name}.shell = pkgs.nushell;
+      # users.users.${user.name}.shell = pkgs.nushell;
     };
 
     homeManager = {
