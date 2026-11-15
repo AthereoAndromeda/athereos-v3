@@ -21,6 +21,8 @@
         procs
         mtr
         dig
+        kalker
+        fend
       ];
     };
   };
