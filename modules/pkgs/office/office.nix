@@ -5,5 +5,9 @@
       pkgs.libreoffice
       pkgs.onlyoffice
     ];
+
+    nixos = {pkgs, ...}: {
+      environment.systemPackages = [pkgs.papers];
+    };
   };
 }
